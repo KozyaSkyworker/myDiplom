@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Вы внесли следующую информацию: </h1>
+<p th:text="'id: ' + ${term.id_term}" />
+<p th:text="'name: ' + ${term.name}" />
+<p th:text="'description: ' + ${term.description}" />
+<p th:text="'first_date: ' + ${term.first_date}" />
+<p th:text="'newest_date: ' + ${term.newest_date}" />
+<p th:text="'information_source: ' + ${term.information_source}" />
+<a href="/create" >Внеснти новый термин</a>
+</body>
+</html>

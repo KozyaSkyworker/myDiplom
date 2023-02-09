@@ -1,0 +1,73 @@
+@import url(./general/normalize.css);
+@import url(./general/reset.css);
+
+
+
+@import url(./general/global.css);
+
+/* ============================================= Styles ============================================= */
+@import url(./blocks/header.css);
+@import url(./blocks/footer.css);
+
+.main{
+    background-color:chocolate;
+}
+.main__inner{
+    padding-top: 20px;
+}
+.main__wrapper{
+    margin: auto 0;
+}
+.main__searchbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main__search{
+    position: relative;
+    width: 80%;
+}
+.main__input{
+    width: 100%;
+    border-radius: 4px;
+    padding: 4px 40px 4px 15px;
+    border: 1px solid #000;
+    font-size: 20px;
+    height: 40px;
+}
+.main__input:focus{
+    outline: none;
+}
+
+.main__btn{
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main__terms{
+    margin-top: 2em;
+}
+
+.main__latest{
+    max-width: max-content;
+    padding: 10px 5px;
+    background-color: #fff;
+    border-radius: 6px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main__list{
+    margin-top: 2em;
+}
+
+

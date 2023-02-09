@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/moderator.css">
+    <title>moderator</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="container">
+                <div class="header__inner">
+                    <a class="header__logo-link" href="/">
+                        <img src="./images/logodark.png" alt="">
+                    </a>
+                    <form th:action="@{/logout}" method="post">
+                        <button class="header__btn_logout" type="submit">
+                            <svg fill="#000000" height="40px" width="40px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 viewBox="0 0 297 297" xml:space="preserve">
+                                <g>
+                                    <g>
+                                        <path d="M280.5,0H132c-5.522,0-10,4.478-10,10v112H90.185l11.635-17.453c2.046-3.068,2.236-7.014,0.496-10.266
+                                            C100.576,91.03,97.187,89,93.5,89h-44c-3.344,0-6.466,1.671-8.32,4.453l-33,49.5c-2.239,3.358-2.239,7.735,0,11.094l33,49.5
+                                            c1.854,2.782,4.977,4.453,8.32,4.453h44c3.688,0,7.076-2.03,8.816-5.281c1.74-3.252,1.55-7.197-0.496-10.266L90.185,175H122v112
+                                            c0,5.522,4.478,10,10,10h148.5c5.522,0,10-4.478,10-10V10C290.5,4.478,286.022,0,280.5,0z M71.5,155
+                                            c-3.688,0-7.076,2.03-8.816,5.281c-1.741,3.252-1.55,7.198,0.496,10.266L74.814,188H54.851l-26.333-39.5L54.851,109h19.963
+                                            L63.18,126.453c-2.046,3.068-2.236,7.014-0.496,10.266C64.424,139.97,67.812,142,71.5,142H176c3.584,0,6.5,2.916,6.5,6.5
+                                            s-2.916,6.5-6.5,6.5H71.5z M270.5,277H142V175h34c14.612,0,26.5-11.888,26.5-26.5S190.612,122,176,122h-34V20h128.5V277z"/>
+                                    </g>
+                                </g>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="container">
+                <div class="main__inner">
+                    <ul class="main__tables">
+                        <li class="main__table">
+                            <button class="main__btn btn" id="termBtn">Термин</button>
+                        </li>
+                        <li class="main__table">
+                            <button class="main__btn btn" id="authorBtn">Автор</button>
+                        </li>
+                        <li class="main__table">
+                            <button class="main__btn btn" id="authorTermBtn">Автор Термина</button>
+                        </li>
+                    </ul>
+                    <div class="main__content">
+                        <div class="main__form-wrapper">
+                            <form class="main__form term-form none" action="#" th:action="@{/moderator}" th:object="${term}" method="post">
+                                <input type="text" placeholder="именование" th:field="*{name}">
+                                <textarea type="text" placeholder="описание " th:field="*{description}" />
+                                <input type="text" placeholder="дата первого употребления" th:field="*{first_date}">
+                                <input type="text" placeholder="дата последнего обновление" th:field="*{newest_date}">
+                                <input type="text" placeholder="источник информации" th:field="*{information_source}">
+                                <button class="btn" type="submit" name="term">Добавить</button>
+                            </form>
+
+                           <form class="main__form author-form none" action="#" th:action="@{/moderator}" th:object="${author}" method="post">
+                                <input type="text" placeholder="ФИО" th:field="*{fullname}">
+                                <input type="text" placeholder="ссылка на картинку" th:field="*{img}">
+                                <input type="text" placeholder="дата рождения" th:field="*{birthday_date}">
+                                <input type="text" placeholder="вид деятельности" th:field="*{main_activity}">
+                                <button class="btn" type="submit" name="author">Добавить</button>
+                             </form>
+
+                           <form class="main__form authorterm-form none" action="#" th:action="@{/moderator}" th:object="${authorTerm}" method="post">
+                               <input type="text" placeholder="ID термина" th:field="*{id_term}">
+                               <input type="text" placeholder="ID автора" th:field="*{id_author}">
+                               <textarea type="text" placeholder="вклад автора в термин" th:field="*{author_vklad}" />
+                               <button class="btn" type="submit" name="authorTerm">Добавить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__iner">
+                    copyright &#9400; kozlov 2022
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript" th:src="@{js/tabs.js}" th:inline="javascript">
+
+
+    </script>
+</body>
+
+</html>

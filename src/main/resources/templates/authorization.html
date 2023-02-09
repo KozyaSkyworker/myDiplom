@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/authorization.css">
+    <title>authorization</title>
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="wrapper__inner">
+        <h1 class="wrapper__title">Здравствуйте</h1>
+        <a class="header__logo-link" href="/">
+            <img src="./images/logodark.png" alt="">
+        </a>
+        <form class="wrapper__form" th:action="@{/authorization}" method="post">
+            <input class="wrapper__input login" type="text" placeholder="логин" name="username"><br>
+            <input class="wrapper__input password" type="password" placeholder="пароль" name="password"><br>
+            <button class="wrapper__btn btn" type="submit">Войти</button>
+        </form>
+        <div th:if="${param.error}">
+            Неправильный логин или пароль
+        </div>
+        <div th:if="${param.logout}">
+            До свидания
+        </div>
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Form</h1>
+<form action="#" th:action="@{/create}" th:object="${term}" method="post">
+    <p>Name: <input type="text" th:field="*{name}" /></p>
+    <p>Description: <input type="text" th:field="*{description}" /></p>
+    <p>First date: <input type="text" th:field="*{first_date}" /></p>
+    <p>Newest date: <input type="text" th:field="*{newest_date}" /></p>
+    <p>Information source: <input type="text" th:field="*{information_source}" /></p>
+    <p><button type="submit">add</button></p>
+</form>
+</body>
+</html>

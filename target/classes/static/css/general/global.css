@@ -1,0 +1,49 @@
+/* ============================================= Global ============================================= */
+html,
+body{
+    height: 100%;
+}
+
+button{
+    cursor: pointer;
+}
+
+.none{
+    display: none !important;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.main{
+    flex: 1 0 auto;
+}
+.footer{
+    flex: 0 0 auto;
+}
+
+.container{
+    max-width: 1230px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.btn{
+    border-radius: 4px;
+    border: 2px solid #343434;
+    color: #343434;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px 7px;
+    background-color: #fff;
+    transition: background-color .3s;
+}
+
+.btn:hover{
+    background-color: #FF5722;
+}
