@@ -43,69 +43,68 @@ public class MainController {
 
     // GET MODERATOR
 
-//    @GetMapping("/moderator")
-//    public String greeting(Model model) {
-//
-//        Iterable<Author> authors = authorRepository.findAll();
-//        Iterable<Term> terms = termRepository.findAll();
-//        Iterable<AuthorTerm> authorTerms = authorTermRepository.findAll();
-//
-//        model.addAttribute("authors", authors);
-//        model.addAttribute("terms", terms);
-//        model.addAttribute("authorTerm", authorTerms);
-//
-//        return "moderator";
-//    }
-
     @GetMapping("/moderator")
     public String getModeratorPage(Model model) {
-        model.addAttribute("term", new Term());
-        model.addAttribute("author", new Author());
-        model.addAttribute("authorTerm", new AuthorTerm());
+
+        Iterable<Term> terms = termRepository.findAll();
+
+        model.addAttribute("term", terms);
+
 
         return "moderatoroverview";
     }
 
+    @GetMapping("/moderator/new/term")
+    public String newTerm(@ModelAttribute("term") Term term){
+        return "forms/newTerm";
+    }
+    @GetMapping("/moderator/new/author")
+    public String newAuthor(Model model){
+        model.addAttribute("author", new Author());
+        return "forms/newAuthor";
+    }
+    @GetMapping("/moderator/new/authorterm")
+    public String newAuthorTerm(Model model){
+
+        model.addAttribute("authorTerm", new AuthorTerm());
+        return "forms/newAuthorTerm";
+    }
+
     // POST MODERATOR
 
-    @RequestMapping(value = "/moderator", method = RequestMethod.POST, params = "term")
-    public String submitTerm(@ModelAttribute("term") Term term,
-                              BindingResult bindingResult, final ModelMap modelMap) {
-
-
-        termRepository.save(term);
-        return "redirect:/moderator";
-    }
-
-    @RequestMapping(value = "/moderator", method = RequestMethod.POST, params = "author")
-    public String submitAuthor(@ModelAttribute("author") @Valid Author author,
-                              BindingResult bindingResult, final ModelMap modelMap) {
-
-
-        authorRepository.save(author);
-        return "redirect:/moderator";
-    }
-
-    @RequestMapping(value = "/moderator", method = RequestMethod.POST, params = "authorTerm")
-    public String submitAuthorTerm(@ModelAttribute("authorTerm") @Valid AuthorTerm authorTerm,
-                              BindingResult bindingResult, final ModelMap modelMap) {
-
-
-        authorTermRepository.save(authorTerm);
-        return "redirect:/moderator";
-    }
+//    @RequestMapping(value = "/moderator", method = RequestMethod.POST, params = "term")
+//    public String submitTerm(@ModelAttribute("term") Term term,
+//                              BindingResult bindingResult, final ModelMap modelMap) {
+//
+//
+//        termRepository.save(term);
+//        return "redirect:/moderator";
+//    }
+//
+//    @RequestMapping(value = "/moderator", method = RequestMethod.POST, params = "author")
+//    public String submitAuthor(@ModelAttribute("author") @Valid Author author,
+//                              BindingResult bindingResult, final ModelMap modelMap) {
+//
+//
+//        authorRepository.save(author);
+//        return "redirect:/moderator";
+//    }
+//
+//    @RequestMapping(value = "/moderator", method = RequestMethod.POST, params = "authorTerm")
+//    public String submitAuthorTerm(@ModelAttribute("authorTerm") @Valid AuthorTerm authorTerm,
+//                              BindingResult bindingResult, final ModelMap modelMap) {
+//
+//
+//        authorTermRepository.save(authorTerm);
+//        return "redirect:/moderator";
+//    }
 
     // GET AUTHORIZATION
 
     @GetMapping("/authorization")
-    public String getAuthorizationPage(){return "authorization";}
-
-//    @PostMapping("/moderator")
-//    public String addNew(@ModelAttribute Author author, Model model){
-//        model.addAttribute("author", author);
-//
-//        authorRepository.save(author);
-//
-//        return "result";
-//    }
+    public String getAuthorizationPage(){
+        return "authorization";
+    }
 }
+
+

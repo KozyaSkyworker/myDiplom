@@ -41,48 +41,8 @@
         </header>
         <main class="main">
             <div class="container">
-                <div class="main__inner">
-                    <ul class="main__tables">
-                        <li class="main__table">
-                            <button class="main__btn btn" id="termBtn">Термин</button>
-                        </li>
-                        <li class="main__table">
-                            <button class="main__btn btn" id="authorBtn">Автор</button>
-                        </li>
-                        <li class="main__table">
-                            <button class="main__btn btn" id="authorTermBtn">Автор Термина</button>
-                        </li>
-                    </ul>
-                    <div class="main__content">
-                        <div class="main__form-wrapper">
-                            <form class="main__form term-form none" action="#" th:action="@{/moderator}" th:object="${term}" method="post">
-                                <input type="text" placeholder="именование" th:field="*{name}">
-                                <textarea type="text" placeholder="описание " th:field="*{description}" />
-                                <input type="text" placeholder="дата первого употребления" th:field="*{first_date}">
-                                <input type="text" placeholder="дата последнего обновление" th:field="*{newest_date}">
-                                <input type="text" placeholder="источник информации" th:field="*{information_source}">
-                                <button class="btn" type="submit" name="term">Добавить</button>
-                            </form>
 
-                           <form class="main__form author-form none" action="#" th:action="@{/moderator}" th:object="${author}" method="post">
-                                <input type="text" placeholder="ФИО" th:field="*{fullname}">
-                                <input type="text" placeholder="ссылка на картинку" th:field="*{img}">
-                                <input type="text" placeholder="дата рождения" th:field="*{birthday_date}">
-                                <input type="text" placeholder="вид деятельности" th:field="*{main_activity}">
-                                <button class="btn" type="submit" name="author">Добавить</button>
-                             </form>
-
-                           <form class="main__form authorterm-form none" action="#" th:action="@{/moderator}" th:object="${authorTerm}" method="post">
-                               <input type="text" placeholder="ID термина" th:field="*{id_term}">
-                               <input type="text" placeholder="ID автора" th:field="*{id_author}">
-                               <textarea type="text" placeholder="вклад автора в термин" th:field="*{author_vklad}" />
-                               <button class="btn" type="submit" name="authorTerm">Добавить</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
             </div>
-
         </main>
         <footer class="footer">
             <div class="container">

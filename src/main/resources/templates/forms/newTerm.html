@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>новый термин</title>
+</head>
+<body>
+<form class="main__form term-form none" action="#" th:action="@{/moderator}" th:object="${term}" method="post">
+    <input type="text" placeholder="именование" th:field="*{name}">
+    <textarea type="text" placeholder="описание " th:field="*{description}" />
+    <input type="text" placeholder="дата первого употребления" th:field="*{first_date}">
+    <input type="text" placeholder="дата последнего обновление" th:field="*{newest_date}">
+    <input type="text" placeholder="источник информации" th:field="*{information_source}">
+    <button class="btn" type="submit" name="term">Добавить</button>
+</form>
+</body>
+</html>

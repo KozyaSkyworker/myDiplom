@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>новый автор</title>
+    <link rel="stylesheet" href="./../../../css/blocks/form.css">
+</head>
+<body>
+<div class="wrapper">
+<header class="header">
+    <div class="container">
+        <div class="header__inner">
+            <a class="header__logo-link" href="/">
+                <img src="./images/logodark.png" alt="">
+            </a>
+            <form th:action="@{/logout}" method="post">
+                <button class="header__btn_logout" type="submit">
+                    выйти
+                </button>
+            </form>
+        </div>
+    </div>
+</header>
+<main class="main">
+    <div class="container">
+        <div class="main__inner">
+            <form class="main__form author-form" action="#" th:action="@{/moderator}" th:object="${author}" method="post">
+                <input type="text" placeholder="ФИО" th:field="*{fullname}">
+                <input type="text" placeholder="ссылка на картинку" th:field="*{img}">
+                <input type="text" placeholder="дата рождения" th:field="*{birthday_date}">
+                <input type="text" placeholder="вид деятельности" th:field="*{main_activity}">
+                <button class="btn" type="submit" name="author">Добавить</button>
+            </form>
+        </div>
+
+    </div>
+</main>
+<footer class="footer">
+    <div class="container">
+        <div class="footer__iner">
+            copyright &#9400; kozlov 2022
+        </div>
+    </div>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+@import url(./../general/normalize.css);
+@import url(./../general/reset.css);
+
+@import url(./../general/global.css);
+
+/* ============================================= Styles ============================================= */
+@import url(./header.css);
+@import url(./footer.css);
