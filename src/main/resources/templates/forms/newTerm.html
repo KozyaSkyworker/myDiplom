@@ -3,15 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <title>новый термин</title>
+    <link rel="stylesheet" href="./../../../css/blocks/form.css">
 </head>
 <body>
-<form class="main__form term-form none" action="#" th:action="@{/moderator}" th:object="${term}" method="post">
-    <input type="text" placeholder="именование" th:field="*{name}">
-    <textarea type="text" placeholder="описание " th:field="*{description}" />
-    <input type="text" placeholder="дата первого употребления" th:field="*{first_date}">
-    <input type="text" placeholder="дата последнего обновление" th:field="*{newest_date}">
-    <input type="text" placeholder="источник информации" th:field="*{information_source}">
-    <button class="btn" type="submit" name="term">Добавить</button>
-</form>
+<div class="wrapper">
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a class="header__logo-link" href="/moderator">
+                    <img src="./../../../images/logodark.png" alt="">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="/moderator/new/term">новый термин</a></li>
+                        <li><a href="/moderator/new/author">новый автор</a></li>
+                        <li><a href="/moderator/new/authorterm">вклад автора</a></li>
+                    </ul>
+                </nav>
+                <form th:action="@{/logout}" method="post">
+                    <button class="header__btn_logout" type="submit">
+                        выйти
+                    </button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="main__inner">
+                <form class="main__form term-form" action="#" th:action="@{/moderator}" th:object="${term}" method="post">
+                    <input type="text" placeholder="именование" th:field="*{name}">
+                    <textarea type="text" placeholder="описание " th:field="*{description}" />
+                    <input type="text" placeholder="дата первого употребления" th:field="*{first_date}">
+                    <input type="text" placeholder="дата последнего обновление" th:field="*{newest_date}">
+                    <input type="text" placeholder="источник информации" th:field="*{information_source}">
+                    <button class="btn" type="submit" name="term">Добавить</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__iner">
+                copyright &#9400; kozlov 2022
+            </div>
+        </div>
+    </footer>
+</div>
+
 </body>
 </html>

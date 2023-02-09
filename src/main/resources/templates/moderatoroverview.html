@@ -1,17 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Модератор</title>
+    <link rel="stylesheet" href="./css/moderator.css">
 </head>
 <body>
-  <input placeholder="search">
-<div>
-  <ul>
-    <li>first</li>
-      <li>first</li>
-      <li>first</li>
-  </ul>
+<div class="wrapper">
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a class="header__logo-link" href="/moderator">
+                    <img src="./../../../images/logodark.png" alt="">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="/moderator/new/term">новый термин</a></li>
+                        <li><a href="/moderator/new/author">новый автор</a></li>
+                        <li><a href="/moderator/new/authorterm">вклад автора</a></li>
+                    </ul>
+                </nav>
+                <form th:action="@{/logout}" method="post">
+                    <button class="header__btn_logout" type="submit">
+                        выйти
+                    </button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="main__inner">
+                <ul>
+                    <li><a href="/moderator/new/term">добавить термин</a></li>
+                    <li><a href="/moderator/new/author">добавить автора</a></li>
+                    <li><a href="/moderator/new/authorterm">связать автора и термин</a></li>
+                </ul>
+                <input placeholder="search">
+                <div>
+                    <ul>
+                        добавленные ранее термины
+                        <li>first</li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__iner">
+                copyright &#9400; kozlov 2022
+            </div>
+        </div>
+    </footer>
 </div>
+
 </body>
 </html>
