@@ -63,7 +63,7 @@ public class MainController {
         model.addAttribute("author", new Author());
         model.addAttribute("authorTerm", new AuthorTerm());
 
-        return "moderator";
+        return "moderatoroverview";
     }
 
     // POST MODERATOR
