@@ -4,6 +4,6 @@
 @import url(./../general/global.css);
 
 /* ============================================= Styles ============================================= */
-@import url(./header.css);
-@import url(./footer.css);
-
+@import url(./../blocks/header.css);
+@import url(./../blocks/footer.css);
+@import url(./../blocks/moderatorForm.css);

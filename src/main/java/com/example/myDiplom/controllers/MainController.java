@@ -59,14 +59,11 @@ public class MainController {
         return "forms/newTerm";
     }
     @GetMapping("/moderator/new/author")
-    public String newAuthor(Model model){
-        model.addAttribute("author", new Author());
+    public String newAuthor(@ModelAttribute("author") Author author){
         return "forms/newAuthor";
     }
     @GetMapping("/moderator/new/authorterm")
-    public String newAuthorTerm(Model model){
-
-        model.addAttribute("authorTerm", new AuthorTerm());
+    public String newAuthorTerm(@ModelAttribute("authorTerm") AuthorTerm authorTerm){
         return "forms/newAuthorTerm";
     }
 
