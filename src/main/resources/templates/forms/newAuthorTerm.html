@@ -31,7 +31,7 @@
     <main class="main">
         <div class="container">
             <div class="main__inner">
-                <form class="main__form authorterm-form " action="#" th:action="@{/moderator}" th:object="${authorTerm}" method="post">
+                <form class="main__form authorterm-form " action="#" th:action="@{/moderator/new/authorterm}" th:object="${authorTerm}" method="post">
                     <input type="text" placeholder="ID термина" th:field="*{id_term}">
                     <input type="text" placeholder="ID автора" th:field="*{id_author}">
                     <textarea type="text" placeholder="вклад автора в термин" th:field="*{author_vklad}" />

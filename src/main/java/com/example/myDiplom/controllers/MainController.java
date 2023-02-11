@@ -69,6 +69,31 @@ public class MainController {
 
     // POST MODERATOR
 
+    @PostMapping("/moderator/new/term")
+    public String submitTerm(@ModelAttribute Term term, Model model) {
+        model.addAttribute("term", term);
+
+        termRepository.save(term);
+
+        return "redirect:/moderator/new/term";
+    }
+    @PostMapping("/moderator/new/author")
+    public String submitAuthor(@ModelAttribute Author author, Model model) {
+        model.addAttribute("author", author);
+
+        authorRepository.save(author);
+
+        return "redirect:/moderator/new/author";
+    }
+    @PostMapping("/moderator/new/authorterm")
+    public String submitAuthorTerm(@ModelAttribute AuthorTerm authorTerm, Model model) {
+        model.addAttribute("authorTerm", authorTerm);
+
+        authorTermRepository.save(authorTerm);
+
+        return "redirect:/moderator/new/authorterm";
+    }
+
 //    @RequestMapping(value = "/moderator", method = RequestMethod.POST, params = "term")
 //    public String submitTerm(@ModelAttribute("term") Term term,
 //                              BindingResult bindingResult, final ModelMap modelMap) {
