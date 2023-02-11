@@ -14,8 +14,3 @@
 .header__svg{
     cursor: pointer;
 }
-
-.header__btn_logout{
-    background-color: transparent;
-    border: none;
-}
