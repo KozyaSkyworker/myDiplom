@@ -48,8 +48,7 @@ public class MainController {
 
         Iterable<Term> terms = termRepository.findAll();
 
-        model.addAttribute("term", terms);
-
+        model.addAttribute("terms", terms);
 
         return "moderatoroverview";
     }

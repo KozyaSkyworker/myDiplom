@@ -38,10 +38,9 @@
                 </ul>
                 <input placeholder="search">
                 <div>
-                    <ul>
-                        добавленные ранее термины
-                        <li>first</li>
-
+                    <h1>ранне внесенные термины</h1>
+                    <ul th:each="term : ${terms}">
+                        <li><a href="/moderator" th:text="${term.name}"></a></li>
                     </ul>
                 </div>
             </div>
