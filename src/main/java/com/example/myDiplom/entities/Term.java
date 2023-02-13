@@ -1,8 +1,7 @@
 package com.example.myDiplom.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 
 //import javax.validation.constraints.NotEmpty;
@@ -15,18 +14,17 @@ public class Term {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id_term;
 
-    @NotNull(message = "Поле не может быть пустым")
-    @Size(min = 3)
+    @NotBlank(message = "Поле не может быть пустым")
     private String name;
 
     @Column(columnDefinition = "TEXT")
-    @NotNull(message = "Поле не может быть пустым")
+    @NotBlank(message = "Поле не может быть пустым")
     private String description;
 
     private String first_date;
     private String newest_date;
 
-    @NotNull(message = "Поле не может быть пустым")
+    @NotBlank(message = "Поле не может быть пустым")
     private String information_source;
 
     public Term(){

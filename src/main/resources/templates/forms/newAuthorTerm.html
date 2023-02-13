@@ -33,7 +33,9 @@
             <div class="main__inner">
                 <form class="main__form authorterm-form " action="#" th:action="@{/moderator/new/authorterm}" th:object="${authorTerm}" method="post">
                     <input type="text" placeholder="ID термина" th:field="*{id_term}">
+                    <p th:if="${#fields.hasErrors('id_term')}" th:errors="*{id_term}">Name Error</p>
                     <input type="text" placeholder="ID автора" th:field="*{id_author}">
+                    <p th:if="${#fields.hasErrors('id_author')}" th:errors="*{id_author}">Name Error</p>
                     <textarea type="text" placeholder="вклад автора в термин" th:field="*{author_vklad}" />
                     <button class="btn" type="submit" name="authorTerm">Добавить</button>
                 </form>

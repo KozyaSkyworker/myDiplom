@@ -69,7 +69,11 @@ public class MainController {
     // POST MODERATOR
 
     @PostMapping("/moderator/new/term")
-    public String submitTerm(@ModelAttribute Term term, Model model) {
+    public String submitTerm(@Valid Term term, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "forms/newTerm";
+        }
+
         model.addAttribute("term", term);
 
         termRepository.save(term);
@@ -77,7 +81,11 @@ public class MainController {
         return "redirect:/moderator/new/term";
     }
     @PostMapping("/moderator/new/author")
-    public String submitAuthor(@ModelAttribute Author author, Model model) {
+    public String submitAuthor(@Valid Author author, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "forms/newAuthor";
+        }
+
         model.addAttribute("author", author);
 
         authorRepository.save(author);
@@ -85,7 +93,11 @@ public class MainController {
         return "redirect:/moderator/new/author";
     }
     @PostMapping("/moderator/new/authorterm")
-    public String submitAuthorTerm(@ModelAttribute AuthorTerm authorTerm, Model model) {
+    public String submitAuthorTerm(@Valid AuthorTerm authorTerm, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "forms/newAuthorTerm";
+        }
+
         model.addAttribute("authorTerm", authorTerm);
 
         authorTermRepository.save(authorTerm);
