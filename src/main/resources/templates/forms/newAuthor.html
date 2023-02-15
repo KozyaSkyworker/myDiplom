@@ -32,12 +32,11 @@
         <div class="container">
             <div class="main__inner">
                 <form class="main__form author-form" action="#" th:action="@{/moderator/new/author}" th:object="${author}" method="post">
-                    <input type="text" placeholder="ФИО" th:field="*{fullname}">
-                    <p th:attr="class=${#fields.hasErrors('fullname') ? 'appearance' : 'none'}"  th:errors="*{fullname}">Name Error</p>
-<!--                    <p th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}">Name Error</p>-->
-                    <input type="text" placeholder="ссылка на картинку" th:field="*{img}">
-                    <input type="text" placeholder="дата рождения" th:field="*{birthday_date}">
-                    <input type="text" placeholder="вид деятельности" th:field="*{main_activity}">
+                    <input class="form__input"  type="text" placeholder="ФИО" th:field="*{fullname}">
+                    <p th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}">Name Error</p>
+                    <input class="form__input"  type="text" placeholder="ссылка на картинку" th:field="*{img}">
+                    <input class="form__input"  type="text" placeholder="дата рождения" th:field="*{birthday_date}">
+                    <input class="form__input"  type="text" placeholder="вид деятельности" th:field="*{main_activity}">
                     <button class="btn" type="submit" name="author">Добавить</button>
                 </form>
             </div>
