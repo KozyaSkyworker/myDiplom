@@ -33,10 +33,13 @@
             <div class="main__inner">
                 <form class="main__form authorterm-form " action="#" th:action="@{/moderator/new/authorterm}" th:object="${authorTerm}" method="post">
                     <input type="text" placeholder="ID термина" th:field="*{id_term}">
-                    <p th:if="${#fields.hasErrors('id_term')}" th:errors="*{id_term}">Name Error</p>
+                    <p th:attr="class=${#fields.hasErrors('id_term') ? 'appearance' : 'none'}"  th:errors="*{id_term}">Name Error</p>
+<!--                    <p th:if="${#fields.hasErrors('id_term')}" th:errors="*{id_term}">Name Error</p>-->
                     <input type="text" placeholder="ID автора" th:field="*{id_author}">
-                    <p th:if="${#fields.hasErrors('id_author')}" th:errors="*{id_author}">Name Error</p>
+                    <p th:attr="class=${#fields.hasErrors('id_author') ? 'appearance' : 'none'}"  th:errors="*{id_author}">Name Error</p>
+<!--                    <p th:if="${#fields.hasErrors('id_author')}" th:errors="*{id_author}">Name Error</p>-->
                     <textarea type="text" placeholder="вклад автора в термин" th:field="*{author_vklad}" />
+                    <p th:attr="class=${#fields.hasErrors('author_vklad') ? 'appearance' : 'none'}"  th:errors="*{author_vklad}">Name Error</p>
                     <button class="btn" type="submit" name="authorTerm">Добавить</button>
                 </form>
             </div>

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.IdClass;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 //import javax.validation.constraints.NotEmpty;
@@ -20,7 +21,7 @@ public class AuthorTerm {
     @NotNull(message = "Поле не может быть пустым")
     private Integer id_author;
     @Column(columnDefinition = "TEXT")
-    @NotNull(message = "Поле не может быть пустым")
+    @NotBlank(message = "Поле не может быть пустым")
     private String author_vklad;
 
     public AuthorTerm (){

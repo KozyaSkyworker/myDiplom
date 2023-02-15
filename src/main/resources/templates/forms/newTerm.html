@@ -33,15 +33,18 @@
         <div class="container">
             <div class="main__inner">
                 <form class="main__form term-form" action="#" th:action="@{/moderator/new/term}" th:object="${term}" method="post">
-                    <input type="text" placeholder="именование" th:field="*{name}">
-                    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</p>
+                    <input id="nameInput" type="text" placeholder="именование" th:field="*{name}">
+                    <p th:attr="class=${#fields.hasErrors('name') ? 'appearance' : 'none'}"  th:errors="*{name}">Name Error</p>
+<!--                    <p th:if="${#fields.hasErrors('name')}" class=""  th:errors="*{name}">Name Error</p>-->
                     <textarea type="text" placeholder="описание " th:field="*{description}" />
-                    <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Name Error</p>
+                    <p th:attr="class=${#fields.hasErrors('description') ? 'appearance' : 'none'}"  th:errors="*{description}">Name Error</p>
+<!--                    <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Name Error</p>-->
                     <input type="text" placeholder="дата первого употребления" th:field="*{first_date}">
                     <input type="text" placeholder="дата последнего обновление" th:field="*{newest_date}">
                     <input type="text" placeholder="источник информации" th:field="*{information_source}">
-                    <p th:if="${#fields.hasErrors('information_source')}" th:errors="*{information_source}">Name Error</p>
-                    <button class="btn" type="submit">Добавить</button>
+                    <p th:attr="class=${#fields.hasErrors('information_source') ? 'appearance' : 'none'}"  th:errors="*{information_source}">Name Error</p>
+<!--                    <p th:if="${#fields.hasErrors('information_source')}" th:errors="*{information_source}">Name Error</p>-->
+                    <button class="btn form__btn" type="submit">Добавить</button>
                 </form>
             </div>
 
@@ -54,6 +57,8 @@
             </div>
         </div>
     </footer>
+
+<!--    <script src="./../../../js/form.js"></script>-->
 </div>
 
 </body>
