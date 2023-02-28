@@ -2,6 +2,7 @@
 html,
 body{
     height: 100%;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 button{
@@ -45,5 +46,5 @@ button{
 }
 
 .btn:hover{
-    background-color: #FF5722;
+    background-color: #00ADB5;
 }
