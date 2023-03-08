@@ -14,6 +14,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 //import javax.validation.Valid;
 
 
@@ -51,6 +53,13 @@ public class MainController {
         model.addAttribute("terms", terms);
 
         return "moderatoroverview";
+    }
+
+    @GetMapping("/moderator/{id}")
+    public String getTermById(@PathVariable("id") Integer id, Model model){
+        Optional<Term> t = termRepository.findById(id);
+        model.addAttribute("term", t.get());
+        return "termPage";
     }
 
     @GetMapping("/moderator/new/term")
