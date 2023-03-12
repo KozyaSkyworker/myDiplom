@@ -57,8 +57,20 @@ public class MainController {
 
     @GetMapping("/moderator/{id}")
     public String getTermById(@PathVariable("id") Integer id, Model model){
-        Optional<Term> t = termRepository.findById(id);
-        model.addAttribute("term", t.get());
+        Optional<Term> term = termRepository.findById(id);
+        model.addAttribute("term", term.get());
+        System.out.println("T "+term.get());
+        System.out.println("Term id is: "+term.get().getId_term());
+        Iterable<AuthorTerm> authorTerm = authorTermRepository.findAll();
+        for(AuthorTerm at : authorTerm){
+            if(at.getId_term() == term.get().getId_term()){
+                Integer authorId = at.getId_author();
+                Optional<Author> author = authorRepository.findById(authorId);
+                model.addAttribute("author", author.get());
+                model.addAttribute("authorTerm", at);
+            }
+        }
+
         return "termPage";
     }
 
