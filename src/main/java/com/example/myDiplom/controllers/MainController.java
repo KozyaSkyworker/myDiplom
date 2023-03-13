@@ -14,6 +14,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.Optional;
 
 //import javax.validation.Valid;
@@ -59,17 +60,27 @@ public class MainController {
     public String getTermById(@PathVariable("id") Integer id, Model model){
         Optional<Term> term = termRepository.findById(id);
         model.addAttribute("term", term.get());
-        System.out.println("T "+term.get());
-        System.out.println("Term id is: "+term.get().getId_term());
-        Iterable<AuthorTerm> authorTerm = authorTermRepository.findAll();
-        for(AuthorTerm at : authorTerm){
-            if(at.getId_term() == term.get().getId_term()){
-                Integer authorId = at.getId_author();
-                Optional<Author> author = authorRepository.findById(authorId);
-                model.addAttribute("author", author.get());
-                model.addAttribute("authorTerm", at);
+
+        try {
+            Iterable<AuthorTerm> authorTerm = authorTermRepository.findAll();
+            for(AuthorTerm at : authorTerm){
+
+                if(at.getId_term().equals(term.get().getId_term())){
+
+                    Integer authorId = at.getId_author();
+
+                    Optional<Author> author = authorRepository.findById(authorId);
+
+                    model.addAttribute("author", author.get());
+                    model.addAttribute("authorTerm", at);
+                }
             }
+
         }
+        finally {
+
+        }
+
 
         return "termPage";
     }

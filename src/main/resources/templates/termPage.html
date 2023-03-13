@@ -39,7 +39,7 @@
                         <p class="main__descr" th:text="${term.description}"></p>
                     </div>
                     <div class="row">
-                        <p>Первое употребление: <span th:text="${author.getFullname}"></span> <span class="main__date" th:text="${term.first_date}"></span><span th:text="${authorTerm.author_vklad}"></span></p>
+                        <p>Первое употребление: <span th:if="${author}" th:text="${author.getFullname}"></span> <span class="main__date"  th:text="${term.first_date}"></span><span th:if="${authorTerm}" th:text="${authorTerm.author_vklad}"></span></p>
                     </div>
                     <div class="row">
                         Исчточник(ки): <a href="#" th:text="${term.information_source}"></a>
