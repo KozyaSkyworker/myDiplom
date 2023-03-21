@@ -14,10 +14,13 @@
                     <img src="./../../../images/logolight.png" alt="">
                 </a>
                 <nav class="header__navigation">
+<!--                    <ul class="header__list">-->
+<!--                        <li class="header__list-item"><a class="header__list-link header__link" href="/moderator/new/term">новый термин</a></li>-->
+<!--                        <li class="header__list-item"><a class="header__list-link header__link" href="/moderator/new/author">новый автор</a></li>-->
+<!--                        <li class="header__list-item"><a class="header__list-link header__link" href="/moderator/new/authorterm">вклад автора</a></li>-->
+<!--                    </ul>-->
                     <ul class="header__list">
-                        <li class="header__list-item"><a class="header__list-link header__link" href="/moderator/new/term">новый термин</a></li>
-                        <li class="header__list-item"><a class="header__list-link header__link" href="/moderator/new/author">новый автор</a></li>
-                        <li class="header__list-item"><a class="header__list-link header__link" href="/moderator/new/authorterm">вклад автора</a></li>
+                        <li class="header__list-item"><a class="header__list-link header__link" href="/moderator/new/term">Добавить информацию</a></li>
                     </ul>
                 </nav>
                 <form th:action="@{/logout}" method="post">
@@ -31,10 +34,8 @@
     <main class="main">
         <div class="container">
             <div class="main__inner">
-                <ul>
-                    <li><a href="/moderator/new/term">добавить термин</a></li>
-                    <li><a href="/moderator/new/author">добавить автора</a></li>
-                    <li><a href="/moderator/new/authorterm">связать автора и термин</a></li>
+                <ul class="main__breadcrumbs">
+                    <li class="main__breadcrumbs_item"><a class="main__breadcrumbs_link" href="/moderator/new/term">главная</a></li>
                 </ul>
                 <input placeholder="search">
                 <div>
