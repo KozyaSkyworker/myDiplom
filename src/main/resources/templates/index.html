@@ -22,12 +22,8 @@
                     </a>
                     <nav class="header__navigation">
                         <ul class="header__list">
-                            <li class="header__list-item"><a class="header__list-link header__link" href="/">Домой</a>
+                            <li class="header__list-item"><a class="header__list-link header__link" href="/search">Расширенный поиск</a>
                             </li>
-                            <li class="header__list-item"><a class="header__list-link header__link"
-                                                              href="/">Связаться</a></li>
-                            <li class="header__list-item"><a class="header__list-link header__link" href="/">О
-                                сайте</a></li>
                         </ul>
                     </nav>
                     <a class="header__login header__link" th:href="@{/moderator}">модераторам</a>
@@ -42,8 +38,8 @@
                         <div class="top__wrapper">
                             <h1 class="top__title">Какой термин вы ищите?</h1>
                             <div class="top__box">
-                                <form class="top__form">
-                                    <input class="top__input" type="text" placeholder="начните писать...">
+                                <form class="top__form" action="#" th:action="@{/search}" method="get" >
+                                    <input class="top__input" type="text" placeholder="начните писать..." name="name" th:value="${name}">
                                     <span class="top__clear none">&#x2715</span>
                                     <button class="top__btn" type="submit">Искать</button>
                                 </form>

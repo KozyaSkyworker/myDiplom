@@ -44,6 +44,37 @@ public class MainController {
         return authorTermRepository.findAll();
     }
 
+    // GET SEARCH
+
+    @GetMapping("/search")
+    public String getSearch(@RequestParam String name, Model model) {
+        System.out.println(name);
+        Term term = termRepository.findByName(name);
+        System.out.println(term);
+        model.addAttribute("term", term);
+
+        try {
+            Iterable<AuthorTerm> authorTerm = authorTermRepository.findAll();
+            for(AuthorTerm at : authorTerm){
+
+                if(at.getId_term().equals(term.getId_term())){
+
+                    Integer authorId = at.getId_author();
+
+                    Optional<Author> author = authorRepository.findById(authorId);
+
+                    model.addAttribute("author", author.get());
+                    model.addAttribute("authorTerm", at);
+                }
+            }
+
+        }
+        finally {
+
+        }
+        return "termPage";
+    }
+
     // GET MODERATOR
 
     @GetMapping("/moderator")
