@@ -40,10 +40,13 @@
                 <div class="container">
                     <div class="top__inner">
                         <div class="top__wrapper">
-                            <h1 class="top__title">Что вы ищите?</h1>
+                            <h1 class="top__title">Какой термин вы ищите?</h1>
                             <div class="top__box">
-                                <input class="top__input" type="text" placeholder="начните писать...">
-                                <button class="top__btn">Искать</button>
+                                <form class="top__form">
+                                    <input class="top__input" type="text" placeholder="начните писать...">
+                                    <span class="top__clear none">&#x2715</span>
+                                    <button class="top__btn" type="submit">Искать</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -656,6 +659,7 @@ l-12 58 109 105 c60 57 127 114 149 125 78 39 155 60 199 54 22 -4 52 -2 66 4
         </footer>
     </div>
     <script src="./js/header.js"></script>
+    <script src="./js/input.js"></script>
 </body>
 
 </html>

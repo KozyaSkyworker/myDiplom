@@ -10,3 +10,12 @@
 .main__inner{
     padding-top: 55px;
 }
+
+.main__breadcrumbs{
+    display: flex;
+    align-items: center;
+}
+
+.main__breadcrumbs_link{
+    color: rgba(0,0,0,.5);
+}
