@@ -151,6 +151,15 @@ public class MainController {
         return "forms/newAuthorTerm";
     }
 
+    @GetMapping("/moderator/edit/{id}")
+    public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
+        Term term = termRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid term Id:" + id));
+
+        model.addAttribute("term", term);
+        return "forms/updateTerm";
+    }
+
     // POST MODERATOR
 
     @PostMapping("/moderator/new/term")
@@ -188,6 +197,18 @@ public class MainController {
         authorTermRepository.save(authorTerm);
 
         return "redirect:/moderator/new/authorterm";
+    }
+
+    @PostMapping("/moderator/update/{id}")
+    public String updateUser(@PathVariable("id") Integer id, @Valid Term term,
+                             BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            term.setId_term(id);
+            return "forms/updateTerm";
+        }
+        termRepository.delete(termRepository.findById(id).get());
+        termRepository.save(term);
+        return "redirect:/moderator";
     }
 
 //    @RequestMapping(value = "/moderator", method = RequestMethod.POST, params = "term")

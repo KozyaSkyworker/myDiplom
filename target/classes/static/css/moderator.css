@@ -19,3 +19,22 @@
 .main__breadcrumbs_link{
     color: rgba(0,0,0,.5);
 }
+
+.main__list-item{
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: .5em 0;
+}
+.main__list-item:hover{
+    background-color: #ccc;
+}
+
+.main__list-edit{
+    padding: .5em;
+    cursor: pointer;
+}
+.main__list-edit:hover{
+    background-color: red;
+}
