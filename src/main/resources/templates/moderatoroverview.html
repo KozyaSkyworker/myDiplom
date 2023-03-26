@@ -39,9 +39,21 @@
                 </ul>
                 <input placeholder="search">
                 <div>
-                    <h1>ранне внесенные термины</h1>
-                    <ul th:each="term : ${terms}">
-                        <li><a th:href="@{/moderator/{id}(id=${term.getId_term()})}" th:text="${term.name}"></a></li>
+                    <h1>ранее внесенные термины</h1>
+                    <ul>
+                        <li th:each="term : ${terms}"><a th:href="@{/moderator/{id}(id=${term.getId_term()})}" th:text="${term.name}"></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h1>ранее внесенные авторы</h1>
+                    <ul>
+                        <li th:each="author : ${authors}"><a th:text="${author.fullname}"></a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h1>ранее внесенные вклады авторов</h1>
+                    <ul>
+                        <li th:each="authorTerm : ${authorTerms}"><a th:text="${authorTerm.author_vklad}"></a></li>
                     </ul>
                 </div>
             </div>

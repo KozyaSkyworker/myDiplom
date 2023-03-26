@@ -8,6 +8,7 @@ import com.example.myDiplom.repositories.AuthorTermRepository;
 import com.example.myDiplom.repositories.TermRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -15,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 //import javax.validation.Valid;
@@ -51,8 +53,14 @@ public class MainController {
         Term term = termRepository.findByName(name);
 
         if (term == null){
-
-
+            List<Term> termList = termRepository.findByNameContains(name);
+            for (Term t : termList){
+                System.out.println("T ->, "+ t);
+            }
+            if(termList.size() == 0){
+                model.addAttribute("name", name);
+            }
+            model.addAttribute("termList", termList);
             return "search";
         }
 
@@ -80,14 +88,23 @@ public class MainController {
         return "termPage";
     }
 
+    @GetMapping("/search/extended")
+    public String getExtendedSearch(){
+        return "search";
+    }
+
     // GET MODERATOR
 
     @GetMapping("/moderator")
     public String getModeratorPage(Model model) {
 
         Iterable<Term> terms = termRepository.findAll();
+        Iterable<Author> authors = authorRepository.findAll();
+        Iterable<AuthorTerm> authorTerms = authorTermRepository.findAll();
 
         model.addAttribute("terms", terms);
+        model.addAttribute("authors", authors);
+        model.addAttribute("authorTerms", authorTerms);
 
         return "moderatoroverview";
     }

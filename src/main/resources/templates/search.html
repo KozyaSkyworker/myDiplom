@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/pages/search.css">
+    <link rel="stylesheet" href="./../../css/pages/search.css">
     <title>search result</title>
 </head>
 
@@ -18,11 +18,11 @@
         <div class="container">
             <div class="header__inner">
                 <a href="/">
-                    <img src="./images/logolight.png" alt="logo">
+                    <img src="./../../images/logolight.png" alt="logo">
                 </a>
                 <nav class="header__navigation">
                     <ul class="header__list">
-                        <li class="header__list-item"><a class="header__list-link header__link" href="/">Домой</a>
+                        <li class="header__list-item"><a class="header__list-link header__link" href="/">На главную</a>
                         </li>
                     </ul>
                 </nav>
@@ -34,11 +34,17 @@
     <main class="main">
         <div class="container">
             <div class="main__inner">
+                <h1>Расширенный поиск</h1>
                 <form>
-                    <input placeholder="search такой-то">
+                    <input class="main__input" placeholder="search такой-то">
                     <button>кнопочка</button>
                 </form>
-                по вашему запросу "" найдено:/ничего не найдено, на ресурс не загружен данный термин, либо вы неправильно вводите информацию
+                <p th:if="${name}">По Вашему запросу "<span th:text="${name}"></span>" ничего не найдено.</p>
+                <ul class="main__list">
+                    <li class="main__list-item" th:each="term : ${termList}">
+                        <a class="main__list-link" th:href="@{/search?name={name}(name=${term.getName()})}" th:text="${term.name}"></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </main>
@@ -586,6 +592,7 @@ l-12 58 109 105 c60 57 127 114 149 125 78 39 155 60 199 54 22 -4 52 -2 66 4
         </div>
     </footer>
 </div>
+
 <script src="./js/header.js"></script>
 </body>
 
