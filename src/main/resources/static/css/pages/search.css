@@ -1,0 +1,13 @@
+@import url(./../general/normalize.css);
+@import url(./../general/reset.css);
+
+@import url(./../general/global.css);
+
+/* ============================================= Styles ============================================= */
+@import url(./../blocks/header.css);
+@import url(./../blocks/footer.css);
+
+
+.main__inner{
+    padding-top: 55px;
+}

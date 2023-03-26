@@ -48,9 +48,14 @@ public class MainController {
 
     @GetMapping("/search")
     public String getSearch(@RequestParam String name, Model model) {
-        System.out.println(name);
         Term term = termRepository.findByName(name);
-        System.out.println(term);
+
+        if (term == null){
+
+
+            return "search";
+        }
+
         model.addAttribute("term", term);
 
         try {
