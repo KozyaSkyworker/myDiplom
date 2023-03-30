@@ -201,12 +201,12 @@ public class MainController {
 
     @PostMapping("/moderator/update/{id}")
     public String updateUser(@PathVariable("id") Integer id, @Valid Term term,
-                             BindingResult result, Model model) {
+                             BindingResult result) {
         if (result.hasErrors()) {
-            term.setId_term(id);
+
             return "forms/updateTerm";
         }
-        termRepository.delete(termRepository.findById(id).get());
+        term.setId_term(id);
         termRepository.save(term);
         return "redirect:/moderator";
     }
