@@ -26,7 +26,11 @@ textarea{
     font-weight: bold;
     letter-spacing: .1em;
     text-transform: lowercase;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
+}
+
+.main__form label{
+    margin: 1.5em 0 .8em 0;
 }
 
 .main__form button{

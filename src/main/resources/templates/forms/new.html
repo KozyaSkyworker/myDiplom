@@ -30,27 +30,47 @@
     <main class="main">
         <div class="container">
             <div class="main__inner">
-                <form class="main__form term-form" action="#" th:action="@{/moderator/new}" method="post">
-                    <input class="form__input" type="text" placeholder="название термина" th:value="${term.name}" name="name" />
-<!--                    <p th:if="${#fields.hasErrors('name')}" class=""  th:errors="*{name}">Name Error</p>-->
+                <form class="main__form" action="#" th:action="@{/moderator/new}" method="post">
+                    <label for="termName">Название нового термина*</label>
+                    <input class="form__input" id="termName" type="text" th:value="${term.name}" name="name" th:field="*{term.name}" />
+                    <p th:if="${#fields.hasErrors('term.name')}" th:errors="*{term.name}">Name Error</p>
 
-                    <textarea class="form__input"  type="text" placeholder="описание термина" th:value="${term.description}" name="description" ></textarea>
-<!--                    <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Name Error</p>-->
+                    <label for="termDescription">Описание термина*</label>
+                    <textarea class="form__input" id="termDescription" type="text" th:value="${term.description}" name="description" ></textarea>
+                    <p th:if="${#fields.hasErrors('term.description')}" th:errors="*{term.description}">Name Error</p>
 
-                    <input class="form__input"  type="text" placeholder="дата первого употребления" th:value="${term.first_date}" name="first_date" />
-                    <input class="form__input"  type="text" placeholder="дата последнего обновление" th:value="${term.newest_date}" name="newest_date"/>
+                    <label for="termFirstDate">Дата первого употребления</label>
+                    <input class="form__input" id="termFirstDate" type="text" th:value="${term.first_date}" name="first_date" />
+                    <label for="termNewestDate">Дата последнего чего???</label>
+                    <input class="form__input" id="termNewestDate" type="text" th:value="${term.newest_date}" name="newest_date"/>
 
-                    <input class="form__input"  type="text" placeholder="источник информации" th:value="${term.information_source}" name="information_source" />
-<!--                    <p th:if="${#fields.hasErrors('information_source')}" th:errors="*{information_source}">Name Error</p>-->
+                    <label for="termInformationSource">Откуда информация?*</label>
+                    <input class="form__input" id="termInformationSource" type="text" th:value="${term.information_source}" name="information_source" />
+                    <p th:if="${#fields.hasErrors('term.information_source')}" th:errors="*{term.information_source}">Name Error</p>
 
-                    <input class="form__input"  type="text" placeholder="fullname" th:value="${author.fullname}" name="fullname" />
-                    <input class="form__input"  type="text" placeholder="img" th:value="${author.img}" name="img" />
-                    <input class="form__input"  type="text" placeholder="birthday_date" th:value="${author.birthday_date}" name="birthday_date" />
-                    <input class="form__input"  type="text" placeholder="main_activity" th:value="${author.main_activity}" name="main_activity" />
+                    <label for="authorFullname">ФИО автора термина*</label>
+                    <input class="form__input" id="authorFullname" type="text" th:value="${author.fullname}" name="fullname" />
+                    <p th:if="${#fields.hasErrors('author.fullname')}" th:errors="*{author.fullname}">Name Error</p>
 
-                    <input class="form__input"  type="text" placeholder="id_term" th:value="${authorTerm.id_term}" name="id_term" />
-                    <input class="form__input"  type="text" placeholder="id_author" th:value="${authorTerm.id_author}" name="id_author" />
-                    <input class="form__input"  type="text" placeholder="author_vklad" th:value="${authorTerm.author_vklad}" name="author_vklad" />
+                    <label for="authorImg">Ссылка на картинку, при наличии</label>
+                    <input class="form__input" id="authorImg" type="text" th:value="${author.img}" name="img" />
+                    <label for="authorBd">Дата рождения автора</label>
+                    <input class="form__input" id="authorBd" type="text" th:value="${author.birthday_date}" name="birthday_date" />
+                    <label for="authorMa">Основной вид деятельности автора</label>
+                    <input class="form__input" id="authorMa" type="text" th:value="${author.main_activity}" name="main_activity" />
+
+                    <label for="authorTermIdTerm">label1*</label>
+                    <input class="form__input" id="authorTermIdTerm" type="text" th:value="${authorTerm.id_term}" name="id_term" />
+                    <p th:if="${#fields.hasErrors('authorTerm.id_term')}" th:errors="*{authorTerm.id_term}">Name Error</p>
+
+                    <label for="authorTermIdAuthor">label2*</label>
+                    <input class="form__input" id="authorTermIdAuthor" type="text" th:value="${authorTerm.id_author}" name="id_author" />
+                    <p th:if="${#fields.hasErrors('authorTerm.id_author')}" th:errors="*{authorTerm.id_author}">Name Error</p>
+
+                    <label for="authorTermAuthorVklad">label3*</label>
+                    <input class="form__input" id="authorTermAuthorVklad" type="text" th:value="${authorTerm.author_vklad}" name="author_vklad" />
+                    <p th:if="${#fields.hasErrors('authorTerm.author_vklad')}" th:errors="*{authorTerm.author_vklad}">Name Error</p>
+
                     <button class="btn form__btn" type="submit">Добавить</button>
                 </form>
             </div>

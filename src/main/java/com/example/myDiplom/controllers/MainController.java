@@ -113,18 +113,15 @@ public class MainController {
                     model.addAttribute("authorTerm", at);
                 }
             }
-
         }
         finally {
-
         }
-
-
         return "termPage";
     }
 
     @GetMapping("/moderator/new")
-    public String newTerm(@ModelAttribute("term") Term term, @ModelAttribute("author") Author author, @ModelAttribute("authorTerm") AuthorTerm authorTerm){
+    public String newTerm(@ModelAttribute("term") Term term, @ModelAttribute("author") Author author,
+                          @ModelAttribute("authorTerm") AuthorTerm authorTerm){
         return "forms/new";
     }
     @GetMapping("/moderator/new/author")
@@ -144,14 +141,17 @@ public class MainController {
     // POST MODERATOR
 
     @PostMapping("/moderator/new")
-    public String submitTerm(@Valid Term term,@Valid Author author, @Valid AuthorTerm authorTerm, BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
+    public String submitNewInfo(@Valid @ModelAttribute Author author, BindingResult bindingResult1,
+                                @Valid @ModelAttribute AuthorTerm authorTerm, BindingResult bindingResult2,
+                                @Valid @ModelAttribute Term term, BindingResult bindingResult3) {
+        System.out.println("post est");
+        System.out.println("1");
+
+        if (bindingResult1.hasErrors() || bindingResult2.hasErrors() || bindingResult3.hasErrors()) {
+
             return "forms/new";
         }
-
-        model.addAttribute("term", term);
-        model.addAttribute("author", author);
-        model.addAttribute("authorTerm", authorTerm);
+        System.out.println("2");
 
         termRepository.save(term);
         authorRepository.save(author);
@@ -191,33 +191,6 @@ public class MainController {
         return "redirect:/moderator";
     }
 
-//    @RequestMapping(value = "/moderator", method = RequestMethod.POST, params = "term")
-//    public String submitTerm(@ModelAttribute("term") Term term,
-//                              BindingResult bindingResult, final ModelMap modelMap) {
-//
-//
-//        termRepository.save(term);
-//        return "redirect:/moderator";
-//    }
-//
-//    @RequestMapping(value = "/moderator", method = RequestMethod.POST, params = "author")
-//    public String submitAuthor(@ModelAttribute("author") @Valid Author author,
-//                              BindingResult bindingResult, final ModelMap modelMap) {
-//
-//
-//        authorRepository.save(author);
-//        return "redirect:/moderator";
-//    }
-//
-//    @RequestMapping(value = "/moderator", method = RequestMethod.POST, params = "authorTerm")
-//    public String submitAuthorTerm(@ModelAttribute("authorTerm") @Valid AuthorTerm authorTerm,
-//                              BindingResult bindingResult, final ModelMap modelMap) {
-//
-//
-//        authorTermRepository.save(authorTerm);
-//        return "redirect:/moderator";
-//    }
-
     // GET AUTHORIZATION
 
     @GetMapping("/authorization")
@@ -225,5 +198,3 @@ public class MainController {
         return "authorization";
     }
 }
-
-
