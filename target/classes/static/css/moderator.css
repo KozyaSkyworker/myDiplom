@@ -22,16 +22,20 @@
 
 .main__list-item{
     border: 1px solid #ccc;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
-    justify-content: space-between;
     margin: .5em 0;
 }
 .main__list-item:hover{
     background-color: #ccc;
 }
 
-.main__list-edit{
+.main__list-controls{
+    justify-self: end;
+}
+
+.main__list-link{
     padding: .5em;
     cursor: pointer;
 }

@@ -200,7 +200,7 @@ public class MainController {
     }
 
     @PostMapping("/moderator/update/{id}")
-    public String updateUser(@PathVariable("id") Integer id, @Valid Term term,
+    public String updateTerm(@PathVariable("id") Integer id, @Valid Term term,
                              BindingResult result) {
         if (result.hasErrors()) {
 
@@ -208,6 +208,13 @@ public class MainController {
         }
         term.setId_term(id);
         termRepository.save(term);
+        return "redirect:/moderator";
+    }
+
+    @GetMapping("/moderator/delete/{id}")
+    public String deleteTerm(@PathVariable("id") Integer id) {
+        System.out.println(termRepository.findById(id));
+        termRepository.deleteById(id);
         return "redirect:/moderator";
     }
 

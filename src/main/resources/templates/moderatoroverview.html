@@ -44,7 +44,10 @@
                         <li class="main__list-item" th:each="term : ${terms}">
                             <a th:href="@{/moderator/{id}(id=${term.getId_term()})}" th:text="${term.name}"></a>
                             <span>|</span>
-                            <a class="main__list-edit" th:href="@{/moderator/edit/{id}(id=${term.getId_term()})}" >редактировать</a>
+                            <div class="main__list-controls">
+                                <a class="main__list-link" th:href="@{/moderator/edit/{id}(id=${term.getId_term()})}" >редактировать</a>
+                                <a class="main__list-link" th:href="@{/moderator/delete/{id}(id=${term.getId_term()})}" >удалить</a>
+                            </div>
                         </li>
                     </ul>
                 </div>
