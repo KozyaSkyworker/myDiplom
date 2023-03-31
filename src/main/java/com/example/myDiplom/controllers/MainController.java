@@ -31,21 +31,6 @@ public class MainController {
     @Autowired
     private AuthorTermRepository authorTermRepository;
 
-    // простой строчный вывод
-
-    @GetMapping(path="/allterms")
-    public @ResponseBody Iterable<Term> getAllTerms() {
-        return termRepository.findAll();
-    }
-
-    @GetMapping(path="/allauthors")
-    public @ResponseBody Iterable<Author> getAllAuthors() {return authorRepository.findAll();}
-
-    @GetMapping(path="/allauthorterms")
-    public @ResponseBody Iterable<AuthorTerm> getAllAuthorTerm() {
-        return authorTermRepository.findAll();
-    }
-
     // GET SEARCH
 
     @GetMapping("/search")
@@ -138,17 +123,13 @@ public class MainController {
         return "termPage";
     }
 
-    @GetMapping("/moderator/new/term")
-    public String newTerm(@ModelAttribute("term") Term term){
-        return "forms/newTerm";
+    @GetMapping("/moderator/new")
+    public String newTerm(@ModelAttribute("term") Term term, @ModelAttribute("author") Author author, @ModelAttribute("authorTerm") AuthorTerm authorTerm){
+        return "forms/new";
     }
     @GetMapping("/moderator/new/author")
     public String newAuthor(@ModelAttribute("author") Author author){
         return "forms/newAuthor";
-    }
-    @GetMapping("/moderator/new/authorterm")
-    public String newAuthorTerm(@ModelAttribute("authorTerm") AuthorTerm authorTerm){
-        return "forms/newAuthorTerm";
     }
 
     @GetMapping("/moderator/edit/{id}")
@@ -162,17 +143,21 @@ public class MainController {
 
     // POST MODERATOR
 
-    @PostMapping("/moderator/new/term")
-    public String submitTerm(@Valid Term term, BindingResult bindingResult, Model model) {
+    @PostMapping("/moderator/new")
+    public String submitTerm(@Valid Term term,@Valid Author author, @Valid AuthorTerm authorTerm, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            return "forms/newTerm";
+            return "forms/new";
         }
 
         model.addAttribute("term", term);
+        model.addAttribute("author", author);
+        model.addAttribute("authorTerm", authorTerm);
 
         termRepository.save(term);
+        authorRepository.save(author);
+        authorTermRepository.save(authorTerm);
 
-        return "redirect:/moderator/new/term";
+        return "redirect:/moderator/new";
     }
     @PostMapping("/moderator/new/author")
     public String submitAuthor(@Valid Author author, BindingResult bindingResult, Model model) {
@@ -185,18 +170,6 @@ public class MainController {
         authorRepository.save(author);
 
         return "redirect:/moderator/new/author";
-    }
-    @PostMapping("/moderator/new/authorterm")
-    public String submitAuthorTerm(@Valid AuthorTerm authorTerm, BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
-            return "forms/newAuthorTerm";
-        }
-
-        model.addAttribute("authorTerm", authorTerm);
-
-        authorTermRepository.save(authorTerm);
-
-        return "redirect:/moderator/new/authorterm";
     }
 
     @PostMapping("/moderator/update/{id}")

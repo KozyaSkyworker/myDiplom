@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Новая информация</title>
+    <link rel="stylesheet" href="./../../../css/pages/addNew.css">
+
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a class="header__logo-link" href="/moderator">
+                    <img src="./../../../images/logolight.png" alt="">
+                </a>
+                <nav class="header__navigation">
+                    <ul class="header__list">
+                        <li class="header__list-item"><a class="header__list-link header__link" href="/moderator">на главную</a></li>
+                    </ul>
+                </nav>
+                <form th:action="@{/logout}" method="post">
+                    <button class="header__btn_logout btn" type="submit">
+                        выйти
+                    </button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="main__inner">
+                <form class="main__form term-form" action="#" th:action="@{/moderator/new}" method="post">
+                    <input class="form__input" type="text" placeholder="название термина" th:value="${term.name}" name="name" />
+<!--                    <p th:if="${#fields.hasErrors('name')}" class=""  th:errors="*{name}">Name Error</p>-->
+
+                    <textarea class="form__input"  type="text" placeholder="описание термина" th:value="${term.description}" name="description" ></textarea>
+<!--                    <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Name Error</p>-->
+
+                    <input class="form__input"  type="text" placeholder="дата первого употребления" th:value="${term.first_date}" name="first_date" />
+                    <input class="form__input"  type="text" placeholder="дата последнего обновление" th:value="${term.newest_date}" name="newest_date"/>
+
+                    <input class="form__input"  type="text" placeholder="источник информации" th:value="${term.information_source}" name="information_source" />
+<!--                    <p th:if="${#fields.hasErrors('information_source')}" th:errors="*{information_source}">Name Error</p>-->
+
+                    <input class="form__input"  type="text" placeholder="fullname" th:value="${author.fullname}" name="fullname" />
+                    <input class="form__input"  type="text" placeholder="img" th:value="${author.img}" name="img" />
+                    <input class="form__input"  type="text" placeholder="birthday_date" th:value="${author.birthday_date}" name="birthday_date" />
+                    <input class="form__input"  type="text" placeholder="main_activity" th:value="${author.main_activity}" name="main_activity" />
+
+                    <input class="form__input"  type="text" placeholder="id_term" th:value="${authorTerm.id_term}" name="id_term" />
+                    <input class="form__input"  type="text" placeholder="id_author" th:value="${authorTerm.id_author}" name="id_author" />
+                    <input class="form__input"  type="text" placeholder="author_vklad" th:value="${authorTerm.author_vklad}" name="author_vklad" />
+                    <button class="btn form__btn" type="submit">Добавить</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__iner">
+                copyright &#9400; kozlov 2022
+            </div>
+        </div>
+    </footer>
+
+
+</div>
+
+</body>
+</html>
