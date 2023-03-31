@@ -49,7 +49,7 @@
                     <p th:if="${#fields.hasErrors('term.information_source')}" th:errors="*{term.information_source}">Name Error</p>
 
                     <label for="authorFullname">ФИО автора термина*</label>
-                    <input class="form__input" id="authorFullname" type="text" th:value="${author.fullname}" name="fullname" />
+                    <input class="form__input control_input" id="authorFullname" type="text" th:value="${author.fullname}" name="fullname" />
                     <p th:if="${#fields.hasErrors('author.fullname')}" th:errors="*{author.fullname}">Name Error</p>
 
                     <label for="authorImg">Ссылка на картинку, при наличии</label>
@@ -87,6 +87,6 @@
 
 
 </div>
-
+<script src="./../js/inputAuthor.js"></script>
 </body>
 </html>

@@ -37,11 +37,11 @@
                     <h1>ранее внесенные термины</h1>
                     <ul class="main__list">
                         <li class="main__list-item" th:each="term : ${terms}">
-                            <a th:href="@{/moderator/{id}(id=${term.getId_term()})}" th:text="${term.name}"></a>
+                            <a th:href="@{/moderator/term/{id}(id=${term.getId_term()})}" th:text="${term.name}"></a>
                             <span>|</span>
                             <div class="main__list-controls">
                                 <a class="main__list-link" th:href="@{/moderator/edit/{id}(id=${term.getId_term()})}" >редактировать</a>
-                                <a class="main__list-link" th:href="@{/moderator/delete/{id}(id=${term.getId_term()})}" >удалить</a>
+                                <a class="main__list-link" th:href="@{/moderator/delete/term/{id}(id=${term.getId_term()})}" >удалить</a>
                             </div>
                         </li>
                     </ul>
@@ -49,13 +49,20 @@
                 <div>
                     <h1>ранее внесенные авторы</h1>
                     <ul>
-                        <li th:each="author : ${authors}"><a th:text="${author.fullname}"></a></li>
+                        <li class="main__list-item" th:each="author : ${authors}">
+                            <a th:href="@{/moderator/author/{id}(id=${author.getId_author()})}" th:text="${author.fullname}"></a>
+                            <span>|</span>
+                            <div class="main__list-controls">
+                                <a class="main__list-link" href="" >редактировать</a>
+                                <a class="main__list-link" th:href="@{/moderator/delete/author/{id}(id=${author.getId_author()})}" >удалить</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 <div>
                     <h1>ранее внесенные вклады авторов</h1>
                     <ul>
-                        <li th:each="authorTerm : ${authorTerms}"><a th:text="${authorTerm.author_vklad}"></a></li>
+                        <li th:each="authorTerm : ${authorTerms}"><a href="" th:text="${authorTerm.author_vklad}"></a></li>
                     </ul>
                 </div>
             </div>

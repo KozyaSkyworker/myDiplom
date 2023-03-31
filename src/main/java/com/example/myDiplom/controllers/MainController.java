@@ -94,7 +94,7 @@ public class MainController {
         return "moderatoroverview";
     }
 
-    @GetMapping("/moderator/{id}")
+    @GetMapping("/moderator/term/{id}")
     public String getTermById(@PathVariable("id") Integer id, Model model){
         Optional<Term> term = termRepository.findById(id);
         model.addAttribute("term", term.get());
@@ -119,6 +119,13 @@ public class MainController {
         return "termPage";
     }
 
+    @GetMapping("/moderator/author/{id}")
+    public String getAuthorById(@PathVariable("id") Integer id, Model model){
+        Optional<Author> author = authorRepository.findById(id);
+        model.addAttribute("author", author.get());
+        return  "authorPage";
+    }
+
     @GetMapping("/moderator/new")
     public String newTerm(@ModelAttribute("term") Term term, @ModelAttribute("author") Author author,
                           @ModelAttribute("authorTerm") AuthorTerm authorTerm){
@@ -136,6 +143,18 @@ public class MainController {
 
         model.addAttribute("term", term);
         return "forms/updateTerm";
+    }
+
+    @GetMapping("/moderator/delete/term/{id}")
+    public String deleteTerm(@PathVariable("id") Integer id) {
+        termRepository.deleteById(id);
+        return "redirect:/moderator";
+    }
+
+    @GetMapping("/moderator/delete/author/{id}")
+    public String deleteAuthor(@PathVariable("id") Integer id) {
+        authorRepository.deleteById(id);
+        return "redirect:/moderator";
     }
 
     // POST MODERATOR
@@ -181,13 +200,6 @@ public class MainController {
         }
         term.setId_term(id);
         termRepository.save(term);
-        return "redirect:/moderator";
-    }
-
-    @GetMapping("/moderator/delete/{id}")
-    public String deleteTerm(@PathVariable("id") Integer id) {
-        System.out.println(termRepository.findById(id));
-        termRepository.deleteById(id);
         return "redirect:/moderator";
     }
 
