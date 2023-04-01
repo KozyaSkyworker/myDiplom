@@ -70,7 +70,7 @@ public class MainController {
         finally {
 
         }
-        return "termPage";
+        return "detailed/termPage";
     }
 
     @GetMapping("/search/extended")
@@ -116,14 +116,14 @@ public class MainController {
         }
         finally {
         }
-        return "termPage";
+        return "detailed/termPage";
     }
 
     @GetMapping("/moderator/author/{id}")
     public String getAuthorById(@PathVariable("id") Integer id, Model model){
         Optional<Author> author = authorRepository.findById(id);
         model.addAttribute("author", author.get());
-        return  "authorPage";
+        return  "detailed/authorPage";
     }
 
     @GetMapping("/moderator/new")
