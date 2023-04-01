@@ -127,8 +127,12 @@ public class MainController {
     }
 
     @GetMapping("/moderator/new")
-    public String newTerm(@ModelAttribute("term") Term term, @ModelAttribute("author") Author author,
-                          @ModelAttribute("authorTerm") AuthorTerm authorTerm){
+    public String newTerm(@ModelAttribute("term") Term term,
+                          @ModelAttribute("author") Author author,
+                          @ModelAttribute("authorTerm") AuthorTerm authorTerm,
+                          Model model){
+        Iterable<Author> authors = authorRepository.findAll();
+        model.addAttribute("authors", authors);
         return "forms/new";
     }
     @GetMapping("/moderator/new/author")
@@ -160,20 +164,27 @@ public class MainController {
     // POST MODERATOR
 
     @PostMapping("/moderator/new")
-    public String submitNewInfo(@Valid @ModelAttribute Author author, BindingResult bindingResult1,
-                                @Valid @ModelAttribute AuthorTerm authorTerm, BindingResult bindingResult2,
-                                @Valid @ModelAttribute Term term, BindingResult bindingResult3) {
-        System.out.println("post est");
-        System.out.println("1");
+    public String submitNewInfo(@ModelAttribute Author author,
+                                @ModelAttribute AuthorTerm authorTerm, BindingResult bindingResult2,
+                                @ModelAttribute Term term, BindingResult bindingResult3,
+                                Model model,
+                                @RequestParam Integer authorID) {
 
-        if (bindingResult1.hasErrors() || bindingResult2.hasErrors() || bindingResult3.hasErrors()) {
+        System.out.println(authorID);
 
+        if (bindingResult2.hasErrors() || bindingResult3.hasErrors()) {
+            Iterable<Author> authors = authorRepository.findAll();
+            model.addAttribute("authors", authors);
             return "forms/new";
         }
-        System.out.println("2");
 
         termRepository.save(term);
-        authorRepository.save(author);
+        System.out.println("term id:"+term.getId_term());
+        System.out.println("author id:"+authorID);
+        System.out.println("aT -> "+authorTerm.getId_term() + " : " + authorTerm.getId_author() + " : " + authorTerm.getAuthor_vklad());
+        authorTerm.setId_term(term.getId_term());
+        authorTerm.setId_author(authorID);
+        System.out.println("aT -> "+authorTerm.getId_term() + " : " + authorTerm.getId_author() + " : " + authorTerm.getAuthor_vklad());
         authorTermRepository.save(authorTerm);
 
         return "redirect:/moderator/new";

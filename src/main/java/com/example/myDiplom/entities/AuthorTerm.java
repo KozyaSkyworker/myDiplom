@@ -15,10 +15,10 @@ import jakarta.validation.constraints.NotNull;
 public class AuthorTerm {
 
     @Id
-    @NotNull(message = "Поле не может быть пустым")
+//    @NotNull(message = "Поле не может быть пустым")
     private Integer id_term;
     @Id
-    @NotNull(message = "Поле не может быть пустым")
+//    @NotNull(message = "Поле не может быть пустым")
     private Integer id_author;
     @Column(columnDefinition = "TEXT")
     @NotBlank(message = "Поле не может быть пустым")

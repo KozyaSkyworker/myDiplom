@@ -18,8 +18,8 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id_author;
 
-    @NotBlank(message = "Поле не может быть пустым")
-    @Size(min = 3, max = 35)
+//    @NotBlank(message = "Поле не может быть пустым")
+//    @Size(min = 3, max = 35)
     private String fullname;
 
     private String img;
