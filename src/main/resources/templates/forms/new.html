@@ -53,6 +53,8 @@
                         <option selected value=0>Выберите автора</option>
                         <option th:each="author :${authors}" th:text="${author.fullname}" th:field="${author.fullname}" th:value="${author.id_author}"></option>
                     </select>
+                    <a href="/moderator/new/author">Нужного автора нет в списке - внести</a>
+                    <p th:if="${undefined}">Выберите одного автора</p>
 
 <!--                    <label for="authorImg">Ссылка на картинку, при наличии</label>-->
 <!--                    <input class="form__input" id="authorImg" type="text" th:value="${author.img}" name="authorImg" th:field="*{author.img}"/>-->

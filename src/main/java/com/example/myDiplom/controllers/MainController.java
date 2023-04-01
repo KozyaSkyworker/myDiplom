@@ -165,26 +165,21 @@ public class MainController {
 
     @PostMapping("/moderator/new")
     public String submitNewInfo(@ModelAttribute Author author,
-                                @ModelAttribute AuthorTerm authorTerm, BindingResult bindingResult2,
-                                @ModelAttribute Term term, BindingResult bindingResult3,
+                                @Valid @ModelAttribute AuthorTerm authorTerm, BindingResult bindingResult2,
+                                @Valid @ModelAttribute Term term, BindingResult bindingResult3,
                                 Model model,
                                 @RequestParam Integer authorID) {
 
-        System.out.println(authorID);
-
-        if (bindingResult2.hasErrors() || bindingResult3.hasErrors()) {
+        if (bindingResult2.hasErrors() || bindingResult3.hasErrors() || authorID == 0) {
             Iterable<Author> authors = authorRepository.findAll();
             model.addAttribute("authors", authors);
+            model.addAttribute("undefined", true);
             return "forms/new";
         }
 
         termRepository.save(term);
-        System.out.println("term id:"+term.getId_term());
-        System.out.println("author id:"+authorID);
-        System.out.println("aT -> "+authorTerm.getId_term() + " : " + authorTerm.getId_author() + " : " + authorTerm.getAuthor_vklad());
         authorTerm.setId_term(term.getId_term());
         authorTerm.setId_author(authorID);
-        System.out.println("aT -> "+authorTerm.getId_term() + " : " + authorTerm.getId_author() + " : " + authorTerm.getAuthor_vklad());
         authorTermRepository.save(authorTerm);
 
         return "redirect:/moderator/new";
