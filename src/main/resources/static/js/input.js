@@ -1,5 +1,5 @@
-const input = document.querySelector('.control_input');
-const clear = document.querySelector('.top__clear');
+const input = document.querySelector('.search__form-input');
+const clear = document.querySelector('.search__form-clear');
 
 input.addEventListener("input", (e) => {
     input.setAttribute("value", e.target.value);
