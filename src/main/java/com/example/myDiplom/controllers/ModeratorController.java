@@ -28,7 +28,12 @@ public class ModeratorController {
     // GET MODERATOR
 
     @GetMapping("/moderator")
-    public String getModeratorPage(Model model) {
+    public String getModeratorPage(@RequestParam(required = false) String isTerm,
+                                   @RequestParam(required = false) String isAuthor,
+                                   @RequestParam(required = false) String name,
+                                   Model model) {
+
+        System.out.println("к терминам: " + isTerm + "к авторам: " + isAuthor + "название: " + name);
 
         Iterable<Term> terms = termRepository.findAll();
         Iterable<Author> authors = authorRepository.findAll();

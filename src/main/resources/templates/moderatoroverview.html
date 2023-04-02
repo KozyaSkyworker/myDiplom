@@ -33,12 +33,12 @@
                     <li class="main__breadcrumbs_item"><a class="main__breadcrumbs_link" href="/moderator/new/term">главная</a></li>
                 </ul>
                 <div class="main__form-wrapper search__wrapper">
-                    <form class="main__form search__form">
-                        <input class="main__form-checkbox" type="checkbox" id="terms">
+                    <form class="main__form search__form" th:action="@{/moderator}" method="get">
+                        <input class="main__form-checkbox" type="checkbox" id="terms" name="isTerm">
                         <label class="main__form-label" for="terms">Термины</label>
-                        <input class="main__form-checkbox" type="checkbox" id="authors">
+                        <input class="main__form-checkbox" type="checkbox" id="authors" name="isAuthor">
                         <label class="main__form-label" for="authors">Авторы</label><br>
-                        <input class="main__form-input search__form-input" placeholder="Введите запрос..."><br>
+                        <input class="main__form-input search__form-input" placeholder="Введите запрос..." name="name"><br>
                         <button class="main__form-btn search__form-btn" type="submit">искать</button>
                         <span class="main__form-clear search__form-clear none">очистить</span>
                     </form>
