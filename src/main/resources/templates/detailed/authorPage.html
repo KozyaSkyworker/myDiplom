@@ -34,13 +34,16 @@
                         <h1 class="main__title" th:text="${author.fullname}"></h1>
                     </div>
                     <div class="row">
-                        <p th:text="${author.getImg()}"></p>
+                        <img th:src="${author.img}" alt="photo" th:title="${author.fullname}">
                     </div>
                     <div class="row">
                         <p>Дата рождения: <span th:text="${author.getBirthday_date()}"></span></p>
                     </div>
                     <div class="row">
                         <p>Основная деятельность: <span th:text="${author.getMain_activity()}"></span> </p>
+                    </div>
+                    <div class="row">
+                        <p>Участие в терминах: </p>
                     </div>
                     <div class="row">
                         последнее радактирование этой страницы: ДАТА, РЕДАКТОР.
