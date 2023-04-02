@@ -49,25 +49,7 @@
                 </div>
             </section>
         </main>
-        <footer class="footer">
-            <div class="container">
-                <div class="footer__inner">
-                    <div class="footer__col">
-                        <img src="./images/logolight.png" alt="logo">
-                    </div>
-                    <div class="footer__col">
-                        <span class="footer__text">created by kozya 2023</span>
-                        <a class="footer__text" href="mailto:d_koz@inbox.ru">d_koz@inbox.ru</a>
-                        <a class="footer__text" href="tel:89603673787">8-960-367-37-87</a>
-                    </div>
-                    <div class="footer__col">
-                        <a class="footer__text svg-link" href="https://vk.com/truegoat" target="_blank">vk</a>
-                        <a class="footer__text svg-link" href="https://t.me/trueGOAT" target="_blank">tg</a>
-                        <a class="footer__text svg-link" href="https://wa.me/89603673787" target="_blank">wa</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <div th:replace="fragments/footer.html :: footer"></div>
     </div>
     <script src="./js/header.js"></script>
     <script src="./js/input.js"></script>
