@@ -1,0 +1,18 @@
+.breadcrumbs__list{
+    display: flex;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.breadcrumbs__link{
+    color: rgba(0,0,0,.5);
+    position: relative;
+    padding: 0 .5em;
+}
+
+.breadcrumbs__link::before{
+    position: absolute;
+    content: '/';
+    left: 0;
+    top: 0;
+}

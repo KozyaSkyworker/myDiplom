@@ -30,6 +30,10 @@
     <main class="main">
         <div class="container">
             <div class="main__inner">
+                <ul class="main__breadcrumbs breadcrumbs__list">
+                    <li class="main__breadcrumbs_item breadcrumbs__item"><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator">главная </a></li>
+                    <li class="main__breadcrumbs_item breadcrumbs__item"><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator/new">новая информация </a></li>
+                </ul>
                 <form class="main__form" action="#" th:action="@{/moderator/new}" method="post">
                     <label for="termName">Название нового термина*</label>
                     <input class="form__input" id="termName" type="text" th:value="${term.name}" name="termName" th:field="*{term.name}" />
