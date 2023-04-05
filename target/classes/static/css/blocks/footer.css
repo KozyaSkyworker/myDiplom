@@ -1,5 +1,5 @@
 .footer{
-    background-color: #312783;
+    background-color: #0906a0;
     font-size: 20px;
     margin-top: 50px;
 }
@@ -23,6 +23,27 @@
 .footer__text + .footer__text{
     margin-top: 1em;
 }
+
+.footer__link{
+    position: relative;
+}
+
+.footer__link::before{
+    content: '';
+    position: absolute;
+    left: -.3em;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    transform: scaleY(0);
+    background-color: #eb3333;
+    transition: transform .3s ease;
+}
+
+.footer__link:hover::before{
+    transform: scaleY(1);
+}
+
 .svg-link{
     width: 30px;
     height: 30px;

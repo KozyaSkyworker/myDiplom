@@ -16,10 +16,10 @@
         <a class="header__logo-link" href="/">
             <img src="./images/logodark.png" alt="">
         </a>
-        <form class="wrapper__form" th:action="@{/authorization}" method="post">
-            <input class="wrapper__input login" type="text" placeholder="логин" name="username"><br>
-            <input class="wrapper__input password" type="password" placeholder="пароль" name="password"><br>
-            <button class="wrapper__btn btn" type="submit">Войти</button>
+        <form class="authorization__form" th:action="@{/authorization}" method="post">
+            <input class="authorization__input login" type="text" placeholder="логин" name="username"><br>
+            <input class="authorization__input password" type="password" placeholder="пароль" name="password"><br>
+            <button class="authorization__btn btn" type="submit">Войти</button>
         </form>
         <div th:if="${param.error}">
             Неправильный логин или пароль

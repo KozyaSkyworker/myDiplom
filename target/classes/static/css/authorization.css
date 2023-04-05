@@ -13,8 +13,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-
 }
 
 .wrapper__inner{
@@ -37,7 +35,7 @@
     font-size: 30px;
 }
 
-.wrapper__input{
+.authorization__input{
     font-size: 18px;
     padding: 5px 7px;
 }
