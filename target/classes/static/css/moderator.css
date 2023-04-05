@@ -41,6 +41,16 @@
     cursor: pointer;
 }
 
+.main__result-content{
+    margin-top: .5em;
+    display: flex;
+}
+
+.main__result-title{
+    margin-bottom: .5em;
+    text-align: center;
+}
+
 .main__list-item{
     border: 1px solid #ccc;
     display: grid;

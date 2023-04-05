@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.Optional;
 
 @Controller
@@ -32,16 +33,33 @@ public class ModeratorController {
                                    @RequestParam(required = false) String isAuthor,
                                    @RequestParam(required = false) String name,
                                    Model model) {
+        try {
+            try {
+                if (isTerm.equals("on")){
+                    Iterable<Term> terms = termRepository.findAll();
 
-        Iterable<Term> terms = termRepository.findAll();
-        Iterable<Author> authors = authorRepository.findAll();
-        Iterable<AuthorTerm> authorTerms = authorTermRepository.findAll();
+                    model.addAttribute("terms", terms);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-        model.addAttribute("terms", terms);
-        model.addAttribute("authors", authors);
-        model.addAttribute("authorTerms", authorTerms);
+            try {
+                if (isAuthor.equals("on")) {
+                    Iterable<Author> authors = authorRepository.findAll();
 
-        return "moderatoroverview";
+                    model.addAttribute("authors", authors);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return "moderatoroverview";
+        }
+        catch (NullPointerException e){
+            System.out.println(e);
+            return "moderatoroverview";
+        }
+
     }
 
     @GetMapping("/moderator/term/{id}")

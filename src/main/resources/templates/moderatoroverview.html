@@ -31,53 +31,49 @@
             <div class="main__inner">
                 <ul class="main__breadcrumbs breadcrumbs__list">
                     <li class="main__breadcrumbs_item breadcrumbs__wrapper-item" ><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator">главная </a></li>
-
                 </ul>
                 <div class="main__form-wrapper search__wrapper">
                     <form class="main__form search__form" th:action="@{/moderator}" method="get">
-                        <input class="main__form-checkbox" type="checkbox" id="terms" name="isTerm">
+                        <input class="main__form-checkbox" type="checkbox" id="terms" name="isTerm" checked>
                         <label class="main__form-label" for="terms">Термины</label>
-                        <input class="main__form-checkbox" type="checkbox" id="authors" name="isAuthor">
+                        <input class="main__form-checkbox" type="checkbox" id="authors" name="isAuthor" checked>
                         <label class="main__form-label" for="authors">Авторы</label><br>
                         <input class="main__form-input search__form-input" placeholder="Введите запрос..." name="name"><br>
-                        <button class="main__form-btn search__form-btn" type="submit">искать</button>
+                        <button class="main__form-btn search__form-btn" type="submit" disabled>искать</button>
                         <span class="main__form-clear search__form-clear none">очистить</span>
                     </form>
                 </div>
-                <div>
-                    <h1>ранее внесенные термины</h1>
-                    <ul class="main__list">
-                        <li class="main__list-item" th:each="term : ${terms}">
-                            <a th:href="@{/moderator/term/{id}(id=${term.getId_term()})}" th:text="${term.name}"></a>
-                            <span>|</span>
-                            <div class="main__list-controls">
-                                <a class="main__list-link" th:href="@{/moderator/edit/term/{id}(id=${term.getId_term()})}" >редактировать</a>
-                                <a class="main__list-link" th:href="@{/moderator/delete/term/{id}(id=${term.getId_term()})}" >удалить</a>
-                            </div>
-                        </li>
-                    </ul>
+                <div class="main__result-wrapper">
+                    <h2>Вот что нашлось</h2>
+                    <div class="main__result-content">
+                        <div class="main__result-col terms" th:if="${terms}">
+                            <h3 class="main__result-title">Термины</h3>
+                            <ul class="main__list">
+                                <li class="main__list-item" th:each="term : ${terms}">
+                                    <a th:href="@{/moderator/term/{id}(id=${term.getId_term()})}" th:text="${term.name}"></a>
+                                    <span>|</span>
+                                    <div class="main__list-controls">
+                                        <a class="main__list-link" th:href="@{/moderator/edit/term/{id}(id=${term.getId_term()})}" >редактировать</a>
+                                        <a class="main__list-link" th:href="@{/moderator/delete/term/{id}(id=${term.getId_term()})}" >удалить</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="main__result-col authors" th:if="${authors}">
+                            <h3 class="main__result-title">Авторы</h3>
+                            <ul>
+                                <li class="main__list-item" th:each="author : ${authors}">
+                                    <a th:href="@{/moderator/author/{id}(id=${author.getId_author()})}" th:text="${author.fullname}"></a>
+                                    <span>|</span>
+                                    <div class="main__list-controls">
+                                        <a class="main__list-link" th:href="@{/moderator/edit/author/{id}(id=${author.getId_author()})}" >редактировать</a>
+                                        <a class="main__list-link" th:href="@{/moderator/delete/author/{id}(id=${author.getId_author()})}" >удалить</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h1>ранее внесенные авторы</h1>
-                    <ul>
-                        <li class="main__list-item" th:each="author : ${authors}">
-                            <a th:href="@{/moderator/author/{id}(id=${author.getId_author()})}" th:text="${author.fullname}"></a>
-                            <span>|</span>
-                            <div class="main__list-controls">
-                                <a class="main__list-link" th:href="@{/moderator/edit/author/{id}(id=${author.getId_author()})}" >редактировать</a>
-                                <a class="main__list-link" th:href="@{/moderator/delete/author/{id}(id=${author.getId_author()})}" >удалить</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h1>ранее внесенные вклады авторов</h1>
-                    <ul>
-                        <li th:each="authorTerm : ${authorTerms}"><a href="" th:text="${authorTerm.author_vklad}"></a></li>
-                    </ul>
-                </div>
-            </div>
-
         </div>
     </main>
     <div th:replace="fragments/footer.html :: footer"></div>
