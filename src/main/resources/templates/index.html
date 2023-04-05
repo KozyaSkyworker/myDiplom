@@ -41,9 +41,70 @@
                                 <form class="top__form search__form" action="#" th:action="@{/search}" method="get" >
                                     <input class="top__input search__form-input" type="text" placeholder="Введите интересующий Вас термин..." name="name" th:value="${name}">
                                     <span class="top__clear search__form-clear none">&#x2715</span>
-                                    <button class="top__btn search__form-btn" type="submit">искать</button>
+                                    <button class="top__btn search__form-btn" type="submit" disabled>искать</button>
                                 </form>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="important">
+                <div class="container">
+                    <div class="important__inner">
+                        <h2 class="important__title">Важные термины</h2>
+                        <div class="important__wrapper">
+                            <div class="important__term">
+                                <h3>title</h3>
+                                <p>descr</p>
+                                <span>date</span>
+                            </div>
+                            <div class="important__term">
+                                <h3>title</h3>
+                                <p>descr</p>
+                                <span>date</span>
+                            </div>
+                            <div class="important__term">
+                                <h3>title</h3>
+                                <p>descr</p>
+                                <span>date</span>
+                            </div>
+                            <div class="important__term">
+                                <h3>title</h3>
+                                <p>descr</p>
+                                <span>date</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="popular">
+                <div class="container">
+                    <div class="popular__inner">
+                        <h2 class="popular__title">Популярные термины</h2>
+                        <div class="popular__wrapper">
+                            <a href="">
+                                <div class="popular__term">
+                                    <h3 class="popular__name">name</h3>
+                                    <span class="popular__date">date</span>
+                                    <span class="popular__views">views</span>
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="popular__term">
+                                    <h3 class="popular__name">name</h3>
+                                    <span class="popular__date">date</span>
+                                    <span class="popular__views">views</span>
+                                </div>
+                            </a>
+                            <a href="">
+                                <div class="popular__term">
+                                    <h3 class="popular__name">name</h3>
+                                    <span class="popular__date">date</span>
+                                    <span class="popular__views">views</span>
+                                </div>
+                            </a>
+
+
                         </div>
                     </div>
                 </div>
