@@ -27,9 +27,16 @@
 
 .search__form-btn{
     padding: .5em;
+    letter-spacing: .1em;
     border-radius: 4px;
     border: none;
-    background-color: #00ADB5;
+    background-color: #eb3333;
     color: #fff;
     font-size: 1em;
+    transition: background-color .3s linear;
+    font-weight: bold;
+}
+
+.search__form-btn:hover{
+    background-color: #a42626;
 }
