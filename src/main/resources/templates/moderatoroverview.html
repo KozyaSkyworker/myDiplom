@@ -51,7 +51,7 @@
                             <a th:href="@{/moderator/term/{id}(id=${term.getId_term()})}" th:text="${term.name}"></a>
                             <span>|</span>
                             <div class="main__list-controls">
-                                <a class="main__list-link" th:href="@{/moderator/edit/{id}(id=${term.getId_term()})}" >редактировать</a>
+                                <a class="main__list-link" th:href="@{/moderator/edit/term/{id}(id=${term.getId_term()})}" >редактировать</a>
                                 <a class="main__list-link" th:href="@{/moderator/delete/term/{id}(id=${term.getId_term()})}" >удалить</a>
                             </div>
                         </li>
@@ -64,7 +64,7 @@
                             <a th:href="@{/moderator/author/{id}(id=${author.getId_author()})}" th:text="${author.fullname}"></a>
                             <span>|</span>
                             <div class="main__list-controls">
-                                <a class="main__list-link" href="" >редактировать</a>
+                                <a class="main__list-link" th:href="@{/moderator/edit/author/{id}(id=${author.getId_author()})}" >редактировать</a>
                                 <a class="main__list-link" th:href="@{/moderator/delete/author/{id}(id=${author.getId_author()})}" >удалить</a>
                             </div>
                         </li>

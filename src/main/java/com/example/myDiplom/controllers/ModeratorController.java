@@ -33,8 +33,6 @@ public class ModeratorController {
                                    @RequestParam(required = false) String name,
                                    Model model) {
 
-        System.out.println("к терминам: " + isTerm + "к авторам: " + isAuthor + "название: " + name);
-
         Iterable<Term> terms = termRepository.findAll();
         Iterable<Author> authors = authorRepository.findAll();
         Iterable<AuthorTerm> authorTerms = authorTermRepository.findAll();
@@ -92,13 +90,22 @@ public class ModeratorController {
         return "forms/newAuthor";
     }
 
-    @GetMapping("/moderator/edit/{id}")
-    public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
+    @GetMapping("/moderator/edit/term/{id}")
+    public String showUpdateTermForm(@PathVariable("id") Integer id, Model model) {
         Term term = termRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid term Id:" + id));
 
         model.addAttribute("term", term);
         return "forms/updateTerm";
+    }
+
+    @GetMapping("/moderator/edit/author/{id}")
+    public String showUpdateAuthorForm(@PathVariable("id") Integer id, Model model) {
+        Author author = authorRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid author Id:" + id));
+
+        model.addAttribute("author", author);
+        return "forms/updateAuthor";
     }
 
     @GetMapping("/moderator/delete/term/{id}")
@@ -149,7 +156,7 @@ public class ModeratorController {
         return "redirect:/moderator/new/author";
     }
 
-    @PostMapping("/moderator/update/{id}")
+    @PostMapping("/moderator/update/term/{id}")
     public String updateTerm(@PathVariable("id") Integer id, @Valid Term term,
                              BindingResult result) {
         if (result.hasErrors()) {
@@ -158,6 +165,18 @@ public class ModeratorController {
         }
         term.setId_term(id);
         termRepository.save(term);
+        return "redirect:/moderator";
+    }
+
+    @PostMapping("/moderator/update/author/{id}")
+    public String updateAuthor(@PathVariable("id") Integer id, @Valid Author author,
+                             BindingResult result) {
+        if (result.hasErrors()) {
+
+            return "forms/updateAuthor";
+        }
+        author.setId_author(id);
+        authorRepository.save(author);
         return "redirect:/moderator";
     }
 

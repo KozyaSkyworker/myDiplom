@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>update author</title>
+  <link rel="stylesheet" href="./../../../css/pages/addNew.css">
+
+</head>
+<body>
+<div class="wrapper">
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <a class="header__logo-link" href="/moderator">
+          <img src="./../../../images/logolight.png" alt="">
+        </a>
+        <nav class="header__navigation">
+          <ul class="header__list">
+            <li class="header__list-item"><a class="header__list-link header__link" href="/moderator">на главную</a></li>
+          </ul>
+        </nav>
+        <form th:action="@{/logout}" method="post">
+          <button class="header__btn_logout btn" type="submit">
+            выйти
+          </button>
+        </form>
+      </div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="container">
+      <div class="main__inner">
+        <ul class="main__breadcrumbs breadcrumbs__list">
+          <li class="main__breadcrumbs_item breadcrumbs__item"><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator">главная </a></li>
+          <li class="main__breadcrumbs_item breadcrumbs__item"><a class="main__breadcrumbs_link breadcrumbs__link" th:href="@{/moderator/edit/author/{id}(id=${author.id_author})}" >редактирование автора </a></li>
+        </ul>
+<!--        <form class="main__form term-form" action="#" th:action="@{/moderator/update/author/{id}(id=${author.getId_author())}" th:object="${author}" method="post">-->
+<!--          <input class="form__input" type="text" placeholder="ФИО" th:field="*{fullname}">-->
+
+<!--          <input class="form__input"  type="text" placeholder="ссылка на картинку" th:field="*{img}">-->
+<!--          <input class="form__input"  type="text" placeholder="дата рождения" th:field="*{birthday_date}">-->
+<!--          <textarea class="form__input"  type="text" placeholder="основной вид деятельности" th:field="*{main_activity}"></textarea>-->
+
+<!--          <button class="btn form__btn" type="submit">Обновить</button>-->
+<!--        </form>-->
+      </div>
+
+    </div>
+  </main>
+  <div th:replace="fragments/footer.html :: footer"></div>
+</div>
+</body>
+</html>
