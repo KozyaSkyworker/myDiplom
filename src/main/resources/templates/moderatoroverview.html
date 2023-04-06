@@ -7,26 +7,7 @@
 </head>
 <body>
 <div class="wrapper">
-    <header class="header">
-        <div class="container">
-            <div class="header__inner">
-                <a class="" href="/moderator">
-                    <img src="./../../../images/logolight.png" alt="">
-                </a>
-                <nav class="header__navigation">
-                    <ul class="header__list">
-                        <li class="header__list-item"><a class="header__list-link header__link" href="/moderator/new">Добавить информацию</a></li>
-                        <li class="header__list-item"><a class="header__list-link header__link" href="/moderator/new/author">Новый автор</a></li>
-                    </ul>
-                </nav>
-                <form th:action="@{/logout}" method="post">
-                    <button class="header__btn_logout btn" type="submit">
-                        выйти
-                    </button>
-                </form>
-            </div>
-        </div>
-    </header>
+    <div th:replace="fragments/moderatorHeader.html :: header"></div>
     <main class="main">
         <div class="container">
             <div class="main__inner">
@@ -75,6 +56,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     </main>
     <div th:replace="fragments/footer.html :: footer"></div>

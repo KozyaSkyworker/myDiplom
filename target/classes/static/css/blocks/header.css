@@ -15,7 +15,7 @@
     align-items: center;
 }
 .header__list-item + .header__list-item{
-    margin-left: 1.2em;
+    margin-left: 2em;
 }
 .header__link{
     color: #fff;

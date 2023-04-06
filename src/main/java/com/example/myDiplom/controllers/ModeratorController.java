@@ -140,6 +140,12 @@ public class ModeratorController {
         return "redirect:/moderator";
     }
 
+    @GetMapping("/moderator/compare")
+    public String compareAuthors() {
+
+        return "compareAuthors";
+    }
+
     // POST MODERATOR
 
     @PostMapping("/moderator/new")
