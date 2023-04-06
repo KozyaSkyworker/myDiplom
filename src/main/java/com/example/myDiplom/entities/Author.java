@@ -1,12 +1,14 @@
 package com.example.myDiplom.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.sql.Date;
+import java.sql.Timestamp;
 
 //import javax.validation.constraints.NotNull;
 //import javax.validation.constraints.Size;
@@ -26,23 +28,28 @@ public class Author {
     private String birthday_date;
     private String main_activity;
 
+    @UpdateTimestamp
+    private Timestamp timestamp;
+
     public Author(){
 
     }
 
-    public Author(String fullname, String img, String birthday_date, String main_activity){
+    public Author(String fullname, String img, String birthday_date, String main_activity, Timestamp timestamp){
         this.fullname = fullname;
         this.img = img;
         this.birthday_date = birthday_date;
         this.main_activity = main_activity;
+        this.timestamp = timestamp;
     }
 
-    public Author(Integer id_author, String fullname, String img, String birthday_date, String main_activity) {
+    public Author(Integer id_author, String fullname, String img, String birthday_date, String main_activity, Timestamp timestamp) {
         this.id_author = id_author;
         this.fullname = fullname;
         this.img = img;
         this.birthday_date = birthday_date;
         this.main_activity = main_activity;
+        this.timestamp = timestamp;
     }
 
     public Integer getId_author() {
@@ -85,6 +92,12 @@ public class Author {
         this.main_activity = main_activity;
     }
 
+    public Timestamp getTimestamp() { return timestamp; }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
+
     @Override
     public String toString() {
         return "Author{" +
@@ -93,6 +106,7 @@ public class Author {
                 ", img='" + img + '\'' +
                 ", birthday_date='" + birthday_date + '\'' +
                 ", main_activity='" + main_activity + '\'' +
+                ", date='" + timestamp + '\'' +
                 '}';
     }
 }

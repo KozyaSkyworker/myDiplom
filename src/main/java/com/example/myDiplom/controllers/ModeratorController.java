@@ -14,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.Optional;
 
 @Controller
@@ -66,7 +67,8 @@ public class ModeratorController {
     public String getTermById(@PathVariable("id") Integer id, Model model){
         Optional<Term> term = termRepository.findById(id);
         model.addAttribute("term", term.get());
-
+        System.out.println(term.get().getDate());
+        System.out.println(term.get().getTimestamp());
         try {
             Iterable<AuthorTerm> authorTerm = authorTermRepository.findAll();
             for(AuthorTerm at : authorTerm){

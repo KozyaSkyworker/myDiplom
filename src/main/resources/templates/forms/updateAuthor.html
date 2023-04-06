@@ -34,15 +34,15 @@
           <li class="main__breadcrumbs_item breadcrumbs__item"><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator">главная </a></li>
           <li class="main__breadcrumbs_item breadcrumbs__item"><a class="main__breadcrumbs_link breadcrumbs__link" th:href="@{/moderator/edit/author/{id}(id=${author.id_author})}" >редактирование автора </a></li>
         </ul>
-<!--        <form class="main__form term-form" action="#" th:action="@{/moderator/update/author/{id}(id=${author.getId_author())}" th:object="${author}" method="post">-->
-<!--          <input class="form__input" type="text" placeholder="ФИО" th:field="*{fullname}">-->
+        <form class="main__form term-form" action="#" th:action="@{/moderator/update/author/{id}(id=${author.id_author})}" th:object="${author}" method="post">
+          <input class="form__input" type="text" placeholder="ФИО" th:field="*{fullname}">
 
-<!--          <input class="form__input"  type="text" placeholder="ссылка на картинку" th:field="*{img}">-->
-<!--          <input class="form__input"  type="text" placeholder="дата рождения" th:field="*{birthday_date}">-->
-<!--          <textarea class="form__input"  type="text" placeholder="основной вид деятельности" th:field="*{main_activity}"></textarea>-->
+          <input class="form__input"  type="text" placeholder="ссылка на картинку" th:field="*{img}">
+          <input class="form__input"  type="text" placeholder="дата рождения" th:field="*{birthday_date}">
+          <textarea class="form__input"  type="text" placeholder="основной вид деятельности" th:field="*{main_activity}"></textarea>
 
-<!--          <button class="btn form__btn" type="submit">Обновить</button>-->
-<!--        </form>-->
+          <button class="btn form__btn" type="submit">Обновить</button>
+        </form>
       </div>
 
     </div>
