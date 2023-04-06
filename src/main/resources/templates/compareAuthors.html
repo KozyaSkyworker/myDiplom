@@ -17,6 +17,30 @@
                     <li class="main__breadcrumbs_item breadcrumbs__wrapper-item" ><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator">главная </a></li>
                     <li class="main__breadcrumbs_item breadcrumbs__wrapper-item" ><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator/compare">сравнение </a></li>
                 </ul>
+                <div class="main__content">
+                    <form action="#" th:action="@{/moderator/compare}" method="GET">
+                        <select id="leftAuthor" name="leftAuthorId" onchange="this.form.submit()">
+                            <option selected value=0>Выберите автора</option>
+                            <option th:each="author :${authors}" th:text="${author.fullname}" th:value="${author.id_author}"></option>
+                        </select>
+                        <select id="asdad" name="rightAuthorId" onchange="this.form.submit()">
+                            <option selected value=0>Выберите автора</option>
+                            <option th:each="author :${authors}" th:text="${author.fullname}" th:value="${author.id_author}"></option>
+                        </select>
+                    </form>
+                    <div class="main__row">
+                        <div class="main__col">
+                            <div class="main__info">
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="main__col">
+                            <div class="main__info">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>

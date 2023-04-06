@@ -12,3 +12,28 @@
 .main__inner{
     padding-top: 55px;
 }
+
+.main__content{
+    margin-top: 1em;
+}
+
+.main__row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+
+.main__col{
+    justify-self: center;
+    width: 100%;
+}
+
+.main__content form{
+    display: flex;
+    justify-content: space-around;
+}
+
+.main__info{
+    margi-top: 1em;
+    border: 2px dashed red;
+}

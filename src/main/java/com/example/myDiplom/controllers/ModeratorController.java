@@ -141,7 +141,14 @@ public class ModeratorController {
     }
 
     @GetMapping("/moderator/compare")
-    public String compareAuthors() {
+    public String compareAuthors(@RequestParam(required = false) Integer leftAuthorId,
+                                 @RequestParam(required = false) Integer rightAuthorId,
+                                 Model model) {
+
+        Iterable<Author> authors = authorRepository.findAll();
+        model.addAttribute("authors", authors);
+
+
 
         return "compareAuthors";
     }
