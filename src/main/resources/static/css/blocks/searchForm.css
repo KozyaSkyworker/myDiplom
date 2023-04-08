@@ -2,7 +2,7 @@
     background-color: #fff;
     font-size: 18px;
     padding: 1.5em;
-    border-radius: 4px;
+    border-radius: 8px;
     margin-bottom: .5em;
 }
 
@@ -28,9 +28,9 @@
 .search__form-btn{
     padding: .5em;
     letter-spacing: .1em;
-    border-radius: 4px;
+    border-radius: 8px;
     border: none;
-    background-color: #eb3333;
+    background-color: #858AE3;
     color: #fff;
     font-size: 1em;
     transition: background-color .3s linear;
@@ -38,5 +38,5 @@
 }
 
 .search__form-btn:hover{
-    background-color: #a42626;
+    background-color: #613DC1;
 }
