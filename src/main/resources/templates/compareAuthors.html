@@ -19,24 +19,27 @@
                 </ul>
                 <div class="main__content">
                     <form action="#" th:action="@{/moderator/compare}" method="GET">
-                        <select id="leftAuthor" name="leftAuthorId" onchange="this.form.submit()">
+                        <select id="leftAuthor" name="leftAuthorId">
                             <option selected value=0>Выберите автора</option>
                             <option th:each="author :${authors}" th:text="${author.fullname}" th:value="${author.id_author}"></option>
                         </select>
-                        <select id="asdad" name="rightAuthorId" onchange="this.form.submit()">
+                        <button type="submit">сравнить</button>
+                        <select id="asdad" name="rightAuthorId">
                             <option selected value=0>Выберите автора</option>
                             <option th:each="author :${authors}" th:text="${author.fullname}" th:value="${author.id_author}"></option>
                         </select>
                     </form>
                     <div class="main__row">
                         <div class="main__col">
-                            <div class="main__info">
-                                <p></p>
+                            <div class="main__info" th:if="${leftAuthor}">
+                                <p th:text="${leftAuthor.fullname}"></p>
+                                <p th:text="${leftAuthor.main_activity}"></p>
                             </div>
                         </div>
                         <div class="main__col">
-                            <div class="main__info">
-                                <p></p>
+                            <div class="main__info" th:if="${rightAuthor}">
+                                <p th:text="${rightAuthor.fullname}"></p>
+                                <p th:text="${rightAuthor.main_activity}"></p>
                             </div>
                         </div>
                     </div>
