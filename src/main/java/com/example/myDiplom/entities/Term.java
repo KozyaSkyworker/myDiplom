@@ -2,6 +2,8 @@ package com.example.myDiplom.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -33,34 +35,35 @@ public class Term {
     @NotBlank(message = "Поле не может быть пустым")
     private String information_source;
 
-    @Column(columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
-    private String date;
-    @Column(columnDefinition = "date default(CURRENT_DATE)")
-    private String timestamp;
+    @CreationTimestamp
+    @Column(updatable = false)
+    private Timestamp createTimestamp;
+    @UpdateTimestamp
+    private Timestamp updateTimestamp;
 
     public Term(){
 
     }
 
-    public Term(String name, String description, String first_date, String newest_date, String information_source, String date, String timestamp) {
+    public Term(String name, String description, String first_date, String newest_date, String information_source, Timestamp createTimestamp, Timestamp updateTimestamp) {
         this.name = name;
         this.description = description;
         this.first_date = first_date;
         this.newest_date = newest_date;
         this.information_source = information_source;
-        this.date = date;
-        this.timestamp = timestamp;
+        this.createTimestamp = createTimestamp;
+        this.updateTimestamp = updateTimestamp;
     }
 
-    public Term(Integer id_term, String name, String description, String first_date, String newest_date, String information_source, String date, String timestamp) {
+    public Term(Integer id_term, String name, String description, String first_date, String newest_date, String information_source, Timestamp createTimestamp, Timestamp updateTimestamp) {
         this.id_term = id_term;
         this.name = name;
         this.description = description;
         this.first_date = first_date;
         this.newest_date = newest_date;
         this.information_source = information_source;
-        this.date = date;
-        this.timestamp = timestamp;
+        this.createTimestamp = createTimestamp;
+        this.updateTimestamp = updateTimestamp;
     }
 
     public Integer getId_term() {
@@ -111,18 +114,16 @@ public class Term {
         this.information_source = information_source;
     }
 
-    public String getDate() {
-        return date;
+    public Timestamp getCreateTimestamp() { return createTimestamp; }
+
+    public void setCreateTimestamp(Timestamp createTimestamp) {
+        this.createTimestamp = createTimestamp;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
+    public Timestamp getUpdateTimestamp() { return updateTimestamp; }
 
-    public String getTimestamp() {return timestamp;}
-
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
+    public void setUpdateTimestamp(Timestamp updateTimestamp) {
+        this.createTimestamp = updateTimestamp;
     }
 
     @Override
@@ -134,8 +135,8 @@ public class Term {
                 ", first_date='" + first_date + '\'' +
                 ", newest_date='" + newest_date + '\'' +
                 ", information_source='" + information_source + '\'' +
-                ", date='" + date + '\'' +
-                ", timestamp='" + timestamp + '\'' +
+                ", createDate='" + createTimestamp + '\'' +
+                ", updateDate='" + updateTimestamp + '\'' +
                 '}';
     }
 }

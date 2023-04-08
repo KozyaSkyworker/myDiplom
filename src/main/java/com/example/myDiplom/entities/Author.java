@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -20,36 +21,41 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id_author;
 
-//    @NotBlank(message = "Поле не может быть пустым")
-//    @Size(min = 3, max = 35)
+    @NotBlank(message = "Поле не может быть пустым")
+    @Size(min = 3, max = 35)
     private String fullname;
 
     private String img;
     private String birthday_date;
     private String main_activity;
 
+    @CreationTimestamp
+    @Column(updatable = false)
+    private Timestamp createTimestamp;
     @UpdateTimestamp
-    private Timestamp timestamp;
+    private Timestamp updateTimestamp;
 
     public Author(){
 
     }
 
-    public Author(String fullname, String img, String birthday_date, String main_activity, Timestamp timestamp){
+    public Author(String fullname, String img, String birthday_date, String main_activity, Timestamp createTimestamp, Timestamp updateTimestamp){
         this.fullname = fullname;
         this.img = img;
         this.birthday_date = birthday_date;
         this.main_activity = main_activity;
-        this.timestamp = timestamp;
+        this.createTimestamp = createTimestamp;
+        this.updateTimestamp = updateTimestamp;
     }
 
-    public Author(Integer id_author, String fullname, String img, String birthday_date, String main_activity, Timestamp timestamp) {
+    public Author(Integer id_author, String fullname, String img, String birthday_date, String main_activity, Timestamp createTimestamp, Timestamp updateTimestamp) {
         this.id_author = id_author;
         this.fullname = fullname;
         this.img = img;
         this.birthday_date = birthday_date;
         this.main_activity = main_activity;
-        this.timestamp = timestamp;
+        this.createTimestamp = createTimestamp;
+        this.updateTimestamp = updateTimestamp;
     }
 
     public Integer getId_author() {
@@ -92,10 +98,16 @@ public class Author {
         this.main_activity = main_activity;
     }
 
-    public Timestamp getTimestamp() { return timestamp; }
+    public Timestamp getCreateTimestamp() { return createTimestamp; }
 
-    public void setTimestamp(Timestamp timestamp) {
-        this.timestamp = timestamp;
+    public void setCreateTimestamp(Timestamp createTimestamp) {
+        this.createTimestamp = createTimestamp;
+    }
+
+    public Timestamp getUpdateTimestamp() { return updateTimestamp; }
+
+    public void setUpdateTimestamp(Timestamp updateTimestamp) {
+        this.createTimestamp = updateTimestamp;
     }
 
     @Override
@@ -106,7 +118,8 @@ public class Author {
                 ", img='" + img + '\'' +
                 ", birthday_date='" + birthday_date + '\'' +
                 ", main_activity='" + main_activity + '\'' +
-                ", date='" + timestamp + '\'' +
+                ", createDate='" + createTimestamp + '\'' +
+                ", updateDate='" + updateTimestamp + '\'' +
                 '}';
     }
 }
