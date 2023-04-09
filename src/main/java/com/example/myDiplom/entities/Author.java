@@ -23,10 +23,11 @@ public class Author {
 
     @NotBlank(message = "Поле не может быть пустым")
     @Size(min = 3, max = 35)
+    @Column(columnDefinition = "varchar(200) not null")
     private String fullname;
 
     private String img;
-    private String birthday_date;
+    private String birth_date;
     private String main_activity;
 
     @CreationTimestamp
@@ -39,20 +40,20 @@ public class Author {
 
     }
 
-    public Author(String fullname, String img, String birthday_date, String main_activity, Timestamp createTimestamp, Timestamp updateTimestamp){
+    public Author(String fullname, String img, String birth_date, String main_activity, Timestamp createTimestamp, Timestamp updateTimestamp){
         this.fullname = fullname;
         this.img = img;
-        this.birthday_date = birthday_date;
+        this.birth_date = birth_date;
         this.main_activity = main_activity;
         this.createTimestamp = createTimestamp;
         this.updateTimestamp = updateTimestamp;
     }
 
-    public Author(Integer id_author, String fullname, String img, String birthday_date, String main_activity, Timestamp createTimestamp, Timestamp updateTimestamp) {
+    public Author(Integer id_author, String fullname, String img, String birth_date, String main_activity, Timestamp createTimestamp, Timestamp updateTimestamp) {
         this.id_author = id_author;
         this.fullname = fullname;
         this.img = img;
-        this.birthday_date = birthday_date;
+        this.birth_date = birth_date;
         this.main_activity = main_activity;
         this.createTimestamp = createTimestamp;
         this.updateTimestamp = updateTimestamp;
@@ -82,12 +83,12 @@ public class Author {
         this.img = img;
     }
 
-    public String getBirthday_date() {
-        return birthday_date;
+    public String getBirth_date() {
+        return birth_date;
     }
 
-    public void setBirthday_date(String birthday_date) {
-        this.birthday_date = birthday_date;
+    public void setBirth_date(String birth_date) {
+        this.birth_date = birth_date;
     }
 
     public String getMain_activity() {
@@ -116,7 +117,7 @@ public class Author {
                 "id_author=" + id_author +
                 ", fullname='" + fullname + '\'' +
                 ", img='" + img + '\'' +
-                ", birthday_date='" + birthday_date + '\'' +
+                ", birth_date='" + birth_date + '\'' +
                 ", main_activity='" + main_activity + '\'' +
                 ", createDate='" + createTimestamp + '\'' +
                 ", updateDate='" + updateTimestamp + '\'' +

@@ -42,13 +42,6 @@
                     <a href="/moderator/new/author">Нужного автора нет в списке - внести</a>
                     <p th:if="${undefined}">Выберите одного автора</p>
 
-<!--                    <label for="authorImg">Ссылка на картинку, при наличии</label>-->
-<!--                    <input class="form__input" id="authorImg" type="text" th:value="${author.img}" name="authorImg" th:field="*{author.img}"/>-->
-<!--                    <label for="authorBd">Дата рождения автора</label>-->
-<!--                    <input class="form__input" id="authorBd" type="text" th:value="${author.birthday_date}" name="authorBd" th:field="*{author.birthday_date}"/>-->
-<!--                    <label for="authorMa">Основной вид деятельности автора</label>-->
-<!--                    <input class="form__input" id="authorMa" type="text" th:value="${author.main_activity}" name="authorMa" th:field="*{author.main_activity}"/>-->
-
                     <label for="authorTermAuthorVklad">Вклад автора*</label>
                     <textarea class="form__input" id="authorTermAuthorVklad" type="text" th:value="${authorTerm.author_vklad}" name="authorTermAuthorVklad" th:field="*{authorTerm.author_vklad}"></textarea>
                     <p th:if="${#fields.hasErrors('authorTerm.author_vklad')}" th:errors="*{authorTerm.author_vklad}">Name Error</p>

@@ -148,11 +148,13 @@ public class ModeratorController {
         model.addAttribute("authors", authors);
 
         if(leftAuthorId != null && rightAuthorId != null){
-            Optional<Author> leftAuthor = authorRepository.findById(leftAuthorId);
-            Optional<Author> rightAuthor = authorRepository.findById(rightAuthorId);
+            if(leftAuthorId != 0 && rightAuthorId != 0){
+                Optional<Author> leftAuthor = authorRepository.findById(leftAuthorId);
+                Optional<Author> rightAuthor = authorRepository.findById(rightAuthorId);
 
-            model.addAttribute("leftAuthor", leftAuthor.get());
-            model.addAttribute("rightAuthor", rightAuthor.get());
+                model.addAttribute("leftAuthor", leftAuthor.get());
+                model.addAttribute("rightAuthor", rightAuthor.get());
+            }
         }
 
         return "compareAuthors";
