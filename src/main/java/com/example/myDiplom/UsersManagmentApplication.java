@@ -16,9 +16,9 @@ public class UsersManagmentApplication {
             pw.println("\n0. Выход");
             pw.println("\n1. Создать пользователя");
             // pw.println("\n2. Удаление пользователя");
-            pw.println("\n3. Изменить пароль");
-            pw.println("\n4. Изменить привилегии");
-            pw.println("\n5. Просмотр пользователей");
+            pw.println("\n2. Изменить пароль");
+            pw.println("\n3. Изменить привилегии");
+            pw.println("\n4. Просмотр пользователей");
             try {
                 k = Integer.valueOf(br.readLine());
             }
@@ -30,9 +30,9 @@ public class UsersManagmentApplication {
             {
                 case 1: create_user(cont); break;
                 // case 2: drop_user(cont); break;
-                case 3: change_pass(cont); break;
-                case 4: change_priv(cont); break;
-                case 5: view_user(cont); break;
+                case 2: change_pass(cont); break;
+                case 3: change_priv(cont); break;
+                case 4: view_user(cont); break;
             }
         } while (k != 0);
     }
