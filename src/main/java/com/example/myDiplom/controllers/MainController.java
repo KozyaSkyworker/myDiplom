@@ -78,8 +78,6 @@ public class MainController {
         return "search";
     }
 
-
-
     // GET AUTHORIZATION
 
     @GetMapping("/authorization")

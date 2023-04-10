@@ -17,7 +17,7 @@ import java.sql.Timestamp;
 @Entity
 public class Term {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_term;
 
     @Column(columnDefinition = "varchar(200) not null")

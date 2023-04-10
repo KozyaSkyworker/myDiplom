@@ -18,7 +18,7 @@ import java.sql.Timestamp;
 public class Author {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_author;
 
     @NotBlank(message = "Поле не может быть пустым")
