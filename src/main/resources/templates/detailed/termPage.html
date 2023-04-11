@@ -7,7 +7,14 @@
 </head>
 <body>
 <div class="wrapper">
-    <div th:replace="fragments/moderatorHeader.html :: header"></div>
+    <div class="header">
+        <div class="container" th:if="${moderator}">
+            <div th:replace="~{fragments/moderatorHeader :: moderatorHeader}"></div>
+        </div>
+        <div class="container" th:if="${!moderator}">
+            <div th:replace="~{fragments/header :: header}"></div>
+        </div>
+    </div>
     <main class="main">
         <div class="container">
             <div class="main__inner">
@@ -19,7 +26,7 @@
                         <p class="main__descr" th:text="${term.description}"></p>
                     </div>
                     <div class="row">
-                        <p>Первое употребление: <span th:if="${author}" th:text="${author.getFullname}"></span> <span class="main__date"  th:text="${term.first_date}"></span><span th:if="${authorTerm}" th:text="${authorTerm.author_vklad}"></span></p>
+                        <p>Первое употребление: <a th:if="${author}" th:text="${author.getFullname}" th:href="@{/author/{id}(id=${author.getId_author()})}"></a> <span class="main__date"  th:text="${term.first_date}"></span><span th:if="${authorTerm}" th:text="${authorTerm.author_vklad}"></span></p>
                     </div>
                     <div class="row">
                         Исчточник(ки): <a href="#" th:text="${term.information_source}"></a>
@@ -32,7 +39,7 @@
 
         </div>
     </main>
-    <div th:replace="fragments/footer.html :: footer"></div>
+    <div th:replace="~{fragments/footer :: footer}"></div>
 </div>
 
 </body>

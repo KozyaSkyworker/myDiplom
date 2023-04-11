@@ -7,7 +7,11 @@
 </head>
 <body>
 <div class="wrapper">
-    <div th:replace="fragments/moderatorHeader.html :: header"></div>
+    <header class="header">
+        <div class="container">
+            <div th:replace="~{fragments/moderatorHeader :: moderatorHeader}"></div>
+        </div>
+    </header>
     <main class="main">
         <div class="container">
             <div class="main__inner">
@@ -59,7 +63,7 @@
             </div>
         </div>
     </main>
-    <div th:replace="fragments/footer.html :: footer"></div>
+    <div th:replace="~{fragments/footer :: footer}"></div>
 </div>
 <script src="./js/input.js"></script>
 </body>

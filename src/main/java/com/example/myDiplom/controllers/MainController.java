@@ -70,12 +70,23 @@ public class MainController {
         finally {
 
         }
+        model.addAttribute("moderator", false);
         return "detailed/termPage";
     }
 
     @GetMapping("/search/extended")
     public String getExtendedSearch(){
         return "search";
+    }
+
+    // GET AUTHOR
+
+    @GetMapping("/author/{id}")
+    public String getAuthorById(@PathVariable("id") Integer id, Model model){
+        Optional<Author> author = authorRepository.findById(id);
+        model.addAttribute("author", author.get());
+        model.addAttribute("moderator", false);
+        return  "detailed/authorPage";
     }
 
     // GET AUTHORIZATION

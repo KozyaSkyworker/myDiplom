@@ -85,6 +85,7 @@ public class ModeratorController {
         }
         finally {
         }
+        model.addAttribute("moderator", true);
         return "detailed/termPage";
     }
 
@@ -92,6 +93,7 @@ public class ModeratorController {
     public String getAuthorById(@PathVariable("id") Integer id, Model model){
         Optional<Author> author = authorRepository.findById(id);
         model.addAttribute("author", author.get());
+        model.addAttribute("moderator", true);
         return  "detailed/authorPage";
     }
 

@@ -16,19 +16,7 @@
 <div class="wrapper">
     <header class="header">
         <div class="container">
-            <div class="header__inner">
-                <a href="/">
-                    <img src="./../../images/logolight.png" alt="logo">
-                </a>
-                <nav class="header__navigation">
-                    <ul class="header__list">
-                        <li class="header__list-item"><a class="header__list-link header__link" href="/">На главную</a>
-                        </li>
-                    </ul>
-                </nav>
-                <a class="header__login header__link" th:href="@{/moderator}">модераторам</a>
-            </div>
-
+            <div th:replace="~{fragments/header :: header}"></div>
         </div>
     </header>
     <main class="main">
@@ -48,7 +36,7 @@
             </div>
         </div>
     </main>
-    <div th:replace="fragments/footer.html :: footer"></div>
+    <div th:replace="~{fragments/footer :: footer}"></div>
 </div>
 
 <script src="./js/header.js"></script>

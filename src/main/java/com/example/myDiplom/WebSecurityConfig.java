@@ -34,11 +34,12 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/search","/search/extended", "/css/**", "/images/**", "/js/**").permitAll()
+                        .requestMatchers("/", "/author/**", "/search","/search/extended", "/css/**", "/images/**", "/js/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
                         .loginPage("/authorization")
+                        .defaultSuccessUrl("/moderator")
                         .permitAll()
                 )
                 .logout((logout) -> logout.permitAll());

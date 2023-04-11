@@ -13,19 +13,7 @@
     <div class="wrapper">
         <header class="header">
             <div class="container">
-                <div class="header__inner">
-                    <a href="/">
-                        <img src="./images/logo.png" alt="logo">
-                    </a>
-                    <nav class="header__navigation">
-                        <ul class="header__list">
-                            <li class="header__list-item"><a class="header__list-link header__link" href="/search/extended">Расширенный поиск</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <a class="header__login header__link" th:href="@{/moderator}">модераторам</a>
-                </div>
-
+                <div th:replace="~{fragments/header :: header}"></div>
             </div>
         </header>
         <main class="main">
@@ -629,14 +617,12 @@ l-12 58 109 105 c60 57 127 114 149 125 78 39 155 60 199 54 22 -4 52 -2 66 4
                                     <span class="popular__views">views</span>
                                 </div>
                             </a>
-
-
                         </div>
                     </div>
                 </div>
             </section>
         </main>
-        <div th:replace="fragments/footer.html :: footer"></div>
+        <div th:replace="~{fragments/footer :: footer}"></div>
     </div>
     <script src="./js/header.js"></script>
     <script src="./js/input.js"></script>
