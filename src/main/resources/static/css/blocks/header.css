@@ -4,6 +4,7 @@
     font-size: 18px;
     background-color: #858AE3;
     transition: transform .3s linear;
+    z-index: 5;
 }
 .header__inner{
     display: flex;

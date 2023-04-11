@@ -1,0 +1,13 @@
+.success__wrapper{
+    margin-top: 1em;
+    width: 100%;
+    background-color: green;
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    border-radius: 8px;
+}
+
+.success__text{
+    color: #fff;
+}

@@ -63,6 +63,8 @@ public class ModeratorController {
 
     }
 
+    // TERM PAGE
+
     @GetMapping("/moderator/term/{id}")
     public String getTermById(@PathVariable("id") Integer id, Model model){
         Optional<Term> term = termRepository.findById(id);
@@ -89,6 +91,8 @@ public class ModeratorController {
         return "detailed/termPage";
     }
 
+    // AUTHOR PAGE
+
     @GetMapping("/moderator/author/{id}")
     public String getAuthorById(@PathVariable("id") Integer id, Model model){
         Optional<Author> author = authorRepository.findById(id);
@@ -96,6 +100,8 @@ public class ModeratorController {
         model.addAttribute("moderator", true);
         return  "detailed/authorPage";
     }
+
+    // NEW INFO
 
     @GetMapping("/moderator/new")
     public String newTerm(@ModelAttribute("term") Term term,
@@ -111,6 +117,8 @@ public class ModeratorController {
         return "forms/newAuthor";
     }
 
+    // EDIT
+
     @GetMapping("/moderator/edit/term/{id}")
     public String showUpdateTermForm(@PathVariable("id") Integer id, Model model) {
         Term term = termRepository.findById(id)
@@ -119,7 +127,6 @@ public class ModeratorController {
         model.addAttribute("term", term);
         return "forms/updateTerm";
     }
-
     @GetMapping("/moderator/edit/author/{id}")
     public String showUpdateAuthorForm(@PathVariable("id") Integer id, Model model) {
         Author author = authorRepository.findById(id)
@@ -129,17 +136,20 @@ public class ModeratorController {
         return "forms/updateAuthor";
     }
 
+    // DELETE
+
     @GetMapping("/moderator/delete/term/{id}")
     public String deleteTerm(@PathVariable("id") Integer id) {
         termRepository.deleteById(id);
         return "redirect:/moderator";
     }
-
     @GetMapping("/moderator/delete/author/{id}")
     public String deleteAuthor(@PathVariable("id") Integer id) {
         authorRepository.deleteById(id);
         return "redirect:/moderator";
     }
+
+    // AUTHORS COMPARE PAGE
 
     @GetMapping("/moderator/compare")
     public String compareAuthors(@RequestParam(required = false) Integer leftAuthorId,
@@ -183,7 +193,9 @@ public class ModeratorController {
         authorTerm.setId_author(authorID);
         authorTermRepository.save(authorTerm);
 
-        return "redirect:/moderator/new";
+        model.addAttribute("success", true);
+
+        return "forms/new";
     }
     @PostMapping("/moderator/new/author")
     public String submitAuthor(@Valid Author author, BindingResult bindingResult, Model model) {
@@ -195,31 +207,40 @@ public class ModeratorController {
 
         authorRepository.save(author);
 
-        return "redirect:/moderator/new/author";
+        model.addAttribute("success", true);
+
+        return "forms/newAuthor";
     }
+
+    // UPDATE
 
     @PostMapping("/moderator/update/term/{id}")
     public String updateTerm(@PathVariable("id") Integer id, @Valid Term term,
-                             BindingResult result) {
+                             BindingResult result, Model model) {
         if (result.hasErrors()) {
 
             return "forms/updateTerm";
         }
         term.setId_term(id);
         termRepository.save(term);
-        return "redirect:/moderator";
-    }
 
+        model.addAttribute("success", true);
+
+        return "forms/updateTerm";
+    }
     @PostMapping("/moderator/update/author/{id}")
     public String updateAuthor(@PathVariable("id") Integer id, @Valid Author author,
-                             BindingResult result) {
+                             BindingResult result, Model model) {
         if (result.hasErrors()) {
 
             return "forms/updateAuthor";
         }
         author.setId_author(id);
         authorRepository.save(author);
-        return "redirect:/moderator";
+
+        model.addAttribute("success", true);
+
+        return "forms/updateAuthor";
     }
 
 }

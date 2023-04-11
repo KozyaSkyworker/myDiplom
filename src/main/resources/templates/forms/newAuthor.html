@@ -19,6 +19,9 @@
                     <li class="main__breadcrumbs_item breadcrumbs__item"><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator">главная </a></li>
                     <li class="main__breadcrumbs_item breadcrumbs__item"><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator/new/author">новый автор </a></li>
                 </ul>
+                <div class="main__success success__wrapper" th:if="${success}">
+                    <p class="main__success-text success__text">Данные успешно добавлены</p>
+                </div>
                 <form class="main__form author-form" action="#" th:action="@{/moderator/new/author}" th:object="${author}" method="post">
                     <input class="form__input"  type="text" placeholder="ФИО" th:field="*{fullname}">
                     <p th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}">Name Error</p>
@@ -33,5 +36,6 @@
     </main>
     <div th:replace="~{fragments/footer :: footer}"></div>
 </div>
+<script src="./../../../js/clearForm.js"></script>
 </body>
 </html>
