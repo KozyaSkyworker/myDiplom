@@ -15,7 +15,7 @@
             <div class="container">
                 <div class="header__inner">
                     <a href="/">
-                        <img src="./images/logolight.png" alt="logo">
+                        <img src="./images/logo.png" alt="logo">
                     </a>
                     <nav class="header__navigation">
                         <ul class="header__list">
@@ -30,6 +30,7 @@
         </header>
         <main class="main">
             <section class="top">
+                <h1 style="margin-bottom: 1em;">Маленькая энциклопедия о большой информатике</h1>
                 <svg class="top__svg" version="1.0" xmlns="http://www.w3.org/2000/svg" width="45%" height="45%"
                      viewBox="0 0 1280.000000 1280.000000" preserveAspectRatio="xMidYMid meet">
                     <metadata>
@@ -565,13 +566,13 @@ l-12 58 109 105 c60 57 127 114 149 125 78 39 155 60 199 54 22 -4 52 -2 66 4
 -29 114 -32 130 -19 137 -50 224 -111 303 -28 37 -47 41 -62 11z" />
                     </g>
                 </svg>
-                    <div class="top__box search__wrapper">
-                        <form class="top__form search__form" action="#" th:action="@{/search}" method="get" >
-                            <input class="top__input search__form-input" type="text" placeholder="Введите интересующий Вас термин..." name="name" th:value="${name}">
-                            <span class="top__clear search__form-clear none">&#x2715</span>
-                            <button class="top__btn search__form-btn" type="submit" disabled>искать</button>
-                        </form>
-                    </div>
+                <div class="top__box search__wrapper">
+                    <form class="top__form search__form" action="#" th:action="@{/search}" method="get" >
+                        <input class="top__input search__form-input" type="text" placeholder="Введите интересующий Вас термин..." name="name" th:value="${name}">
+                        <span class="top__clear search__form-clear none">&#x2715</span>
+                        <button class="top__btn search__form-btn" type="submit" disabled>искать</button>
+                    </form>
+                </div>
             </section>
             <section class="important">
                 <div class="container">

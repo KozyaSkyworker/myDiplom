@@ -1,5 +1,5 @@
 .footer{
-    background-color: #0906a0;
+    background-color: #858AE3;
     font-size: 20px;
     margin-top: 50px;
 }
@@ -36,7 +36,7 @@
     width: 2px;
     height: 100%;
     transform: scaleY(0);
-    background-color: #eb3333;
+    background-color: #613DC1;
     transition: transform .3s ease;
 }
 

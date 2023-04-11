@@ -18,14 +18,19 @@
 }
 
 .main__row{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1em;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+
 }
 
 .main__col{
     justify-self: center;
     width: 100%;
+}
+
+.main__col + .main__col{
+    margin-left: 1.5em;
 }
 
 .main__content form{
@@ -34,6 +39,8 @@
 }
 
 .main__info{
-    margi-top: 1em;
-    border: 2px dashed red;
+    -webkit-box-shadow: 0px 0px 10px 3px #613DC1;
+    -moz-box-shadow: 0px 0px 10px 3px #613DC1;
+    box-shadow: 0px 0px 10px 3px #613DC1;
+    border-radius: 8px
 }

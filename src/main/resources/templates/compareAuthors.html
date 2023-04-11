@@ -23,7 +23,7 @@
                             <option selected value=0>Выберите автора</option>
                             <option th:each="author :${authors}" th:text="${author.fullname}" th:value="${author.id_author}"></option>
                         </select>
-                        <button type="submit">сравнить</button>
+                        <button class="btn" type="submit">сопоставить</button>
                         <select id="asdad" name="rightAuthorId">
                             <option selected value=0>Выберите автора</option>
                             <option th:each="author :${authors}" th:text="${author.fullname}" th:value="${author.id_author}"></option>

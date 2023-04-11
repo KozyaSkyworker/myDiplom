@@ -32,8 +32,9 @@
     border: none;
     background-color: #858AE3;
     color: #fff;
-    font-size: 1em;
+    font-size: 18px;
     transition: background-color .3s linear;
+    text-transform: uppercase;
     font-weight: bold;
 }
 

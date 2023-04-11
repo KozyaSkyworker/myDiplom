@@ -15,8 +15,8 @@ public class UsersManagmentApplication {
         do {
             pw.println("\n0. Выход");
             pw.println("1. Создать модератора");
-            // pw.println("\n2. Удаление пользователя");
-            pw.println("3. Изменить пароль");
+            pw.println("2. Посмотреть логины модераторов");
+            pw.println("3. Изменить пароль модератора");
             try {
                 k = Integer.valueOf(br.readLine());
             }
@@ -27,9 +27,8 @@ public class UsersManagmentApplication {
 
             {
                 case 1: create_user(cont); break;
-                // case 2: drop_user(cont); break;
-                case 2: change_pass(cont); break;
-                case 3: view_user(cont); break;
+                case 2: view_user(cont); break;
+                case 3: change_pass(cont); break;
             }
         } while (k != 0);
     }

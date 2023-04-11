@@ -37,16 +37,16 @@ button{
 .btn{
     border-radius: 4px;
     border: 2px solid #343434;
-    color: #343434;
+    color: #fff;
     letter-spacing: .1em;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 18px;
     padding: 5px 7px;
-    background-color: #fff;
+    background-color: #858AE3;
     transition: background-color .3s;
 }
 
 .btn:hover{
-    background-color: #00ADB5;
+    background-color: #613DC1;
 }
