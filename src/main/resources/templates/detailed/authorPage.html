@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Автор</title>
-    <link rel="stylesheet" href="./../../css/pages/showPage.css">
+    <link rel="stylesheet" href="./../../css/pages/authorPage.css">
 </head>
 <body>
 <div class="wrapper">
@@ -19,30 +19,40 @@
         <div class="container">
             <div class="main__inner">
                 <div class="main__wrapper">
-                    <div class="row">
-                        <h1 class="main__title" th:text="${author.fullname}"></h1>
+                    <div class="main__row">
+                        <div class="main__col">
+                            <div class="main__img-wrapper">
+                                <img class="main__img" th:src="${author.img}" alt="photo" th:title="${author.fullname}">
+                            </div>
+                        </div>
+                        <div class="main__col">
+                            <h1 class="main__title" th:text="${author.fullname}"></h1>
+                            <p>Дата рождения: <span th:text="${author.getBirth_date()}"></span></p>
+                            <p>Место рождения: <span th:text="${author.getBorn_country()}"></span>, <span th:text="${author.getBorn_city()}"></span></p>
+                            <p>Национальность: <span th:text="${author.getNationality()}"></span></p>
+                        </div>
                     </div>
-                    <div class="row">
-                        <img th:src="${author.img}" alt="photo" th:title="${author.fullname}">
-                    </div>
-                    <div class="row">
-                        <p>Дата рождения: <span th:text="${author.getBirth_date()}"></span></p>
-                    </div>
-                    <div class="row">
+                    <div class="main__row">
                         <p>Основная деятельность: <span th:text="${author.getMain_activity()}"></span> </p>
                     </div>
-                    <div class="row">
+                    <div class="main__row">
                         <p>Участие в терминах: </p>
                     </div>
-                    <div class="row">
-                        последнее радактирование этой страницы: <span th:text="${author.getUpdateTimestamp()}"></span>, РЕДАКТОР.
+                    <div class="main__row">
+                        <p>Подтвержденная информация: </p>
                     </div>
+                    <div class="main__row">
+                        <p>последнее радактирование этой страницы: <span th:text="${author.getUpdateTimestamp()}"></span>, РЕДАКТОР.</p>
+                    </div>
+                </div>
+                <div th:if="${moderator}">
+                    <a class="main__list-link" th:href="@{/moderator/edit/author/{id}(id=${author.getId_author()})}" >редактировать</a>
                 </div>
             </div>
         </div>
     </main>
     <div th:replace="~{fragments/footer :: footer}"></div>
 </div>
-
+<script src="./../../../js/header.js"></script>
 </body>
 </html>

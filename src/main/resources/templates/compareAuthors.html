@@ -19,7 +19,7 @@
             <div class="main__inner">
                 <ul class="main__breadcrumbs breadcrumbs__list">
                     <li class="main__breadcrumbs_item breadcrumbs__wrapper-item" ><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator">главная </a></li>
-                    <li class="main__breadcrumbs_item breadcrumbs__wrapper-item" ><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator/compare">сравнение </a></li>
+                    <li class="main__breadcrumbs_item breadcrumbs__wrapper-item" ><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator/compare">сопоставление </a></li>
                 </ul>
                 <div class="main__content">
                     <form action="#" th:action="@{/moderator/compare}" method="GET">
@@ -37,12 +37,20 @@
                         <div class="main__col">
                             <div class="main__info" th:if="${leftAuthor}">
                                 <p th:text="${leftAuthor.fullname}"></p>
+                                <img th:src="${leftAuthor.img}" />
+                                <p th:text="${leftAuthor.born_country}"></p>
+                                <p th:text="${leftAuthor.born_city}"></p>
+                                <p th:text="${leftAuthor.nationality}"></p>
                                 <p th:text="${leftAuthor.main_activity}"></p>
                             </div>
                         </div>
                         <div class="main__col">
                             <div class="main__info" th:if="${rightAuthor}">
                                 <p th:text="${rightAuthor.fullname}"></p>
+                                <img th:href="${rightAuthor.img}" />
+                                <p th:text="${rightAuthor.born_country}"></p>
+                                <p th:text="${rightAuthor.born_city}"></p>
+                                <p th:text="${rightAuthor.nationality}"></p>
                                 <p th:text="${rightAuthor.main_activity}"></p>
                             </div>
                         </div>
