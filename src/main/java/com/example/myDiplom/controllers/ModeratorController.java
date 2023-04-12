@@ -218,7 +218,6 @@ public class ModeratorController {
     public String updateTerm(@PathVariable("id") Integer id, @Valid Term term,
                              BindingResult result, Model model) {
         if (result.hasErrors()) {
-
             return "forms/updateTerm";
         }
         term.setId_term(id);

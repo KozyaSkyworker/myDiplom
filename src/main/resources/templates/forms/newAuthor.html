@@ -19,15 +19,27 @@
                     <li class="main__breadcrumbs_item breadcrumbs__item"><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator">главная </a></li>
                     <li class="main__breadcrumbs_item breadcrumbs__item"><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator/new/author">новый автор </a></li>
                 </ul>
-                <div class="main__success success__wrapper" th:if="${success}">
+                <div class="main__success success__wrapper success__wrapper_anim" th:if="${success}">
                     <p class="main__success-text success__text">Данные успешно добавлены</p>
                 </div>
                 <form class="main__form author-form" action="#" th:action="@{/moderator/new/author}" th:object="${author}" method="post">
-                    <input class="form__input"  type="text" placeholder="ФИО" th:field="*{fullname}">
+                    <label for="fullname">ФИО нового автора*</label>
+                    <input class="form__input" id="fullname" type="text" th:field="*{fullname}">
                     <p th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}">Name Error</p>
-                    <input class="form__input"  type="text" placeholder="ссылка на картинку" th:field="*{img}">
-                    <input class="form__input"  type="text" placeholder="дата рождения" th:field="*{birth_date}">
-                    <input class="form__input"  type="text" placeholder="вид деятельности" th:field="*{main_activity}">
+
+                    <label for="birthDate">Дата рождения</label>
+                    <input class="form__input" id="birthDate" type="text" th:field="*{birth_date}">
+                    <label for="bornCountry">В какой стране родился</label>
+                    <input class="form__input" id="bornCountry" type="text" th:field="*{born_country}">
+                    <label for="bornCity">В каком городе родился</label>
+                    <input class="form__input" id="bornCity" type="text" th:field="*{born_city}">
+                    <label for="nationality">Национальность</label>
+                    <input class="form__input" id="nationality" type="text" th:field="*{nationality}">
+                    <label for="img">Ссылка на картинку</label>
+                    <input class="form__input" id="img" type="text" th:field="*{img}">
+                    <label for="mainActivity">Основной вид деятельности</label>
+                    <textarea class="form__input" id="mainActivity" type="text" th:field="*{main_activity}"></textarea>
+
                     <button class="btn" type="submit" name="author">Добавить</button>
                 </form>
             </div>

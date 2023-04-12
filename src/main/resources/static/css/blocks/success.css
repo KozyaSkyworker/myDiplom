@@ -6,8 +6,20 @@
     align-items: center;
     padding: 1em;
     border-radius: 8px;
+    animation: success-appearance .5s linear 1;
 }
 
 .success__text{
     color: #fff;
+}
+
+@keyframes success-appearance {
+    0%{
+        opacity: 0;
+        transform: translateY(-1em);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

@@ -24,11 +24,22 @@
           <p class="main__success-text success__text">Данные успешно обновлены</p>
         </div>
         <form class="main__form term-form" action="#" th:action="@{/moderator/update/author/{id}(id=${author.id_author})}" th:object="${author}" method="post">
-          <input class="form__input" type="text" placeholder="ФИО" th:field="*{fullname}">
+          <label for="fullname">ФИО нового автора*</label>
+          <input class="form__input" id="fullname" type="text" th:field="*{fullname}">
+          <p th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}">Name Error</p>
 
-          <input class="form__input"  type="text" placeholder="ссылка на картинку" th:field="*{img}">
-          <input class="form__input"  type="text" placeholder="дата рождения" th:field="*{birth_date}">
-          <textarea class="form__input"  type="text" placeholder="основной вид деятельности" th:field="*{main_activity}"></textarea>
+          <label for="birthDate">Дата рождения</label>
+          <input class="form__input" id="birthDate" type="text" th:field="*{birth_date}">
+          <label for="bornCountry">В какой стране родился</label>
+          <input class="form__input" id="bornCountry" type="text" th:field="*{born_country}">
+          <label for="bornCity">В каком городе родился</label>
+          <input class="form__input" id="bornCity" type="text" th:field="*{born_city}">
+          <label for="nationality">Национальность</label>
+          <input class="form__input" id="nationality" type="text" th:field="*{nationality}">
+          <label for="img">Ссылка на картинку</label>
+          <input class="form__input" id="img" type="text" th:field="*{img}">
+          <label for="mainActivity">Основной вид деятельности</label>
+          <textarea class="form__input" id="mainActivity" type="text" th:field="*{main_activity}"></textarea>
 
           <button class="btn form__btn" type="submit">Обновить</button>
         </form>

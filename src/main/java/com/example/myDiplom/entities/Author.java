@@ -2,17 +2,11 @@ package com.example.myDiplom.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.sql.Date;
 import java.sql.Timestamp;
-
-//import javax.validation.constraints.NotNull;
-//import javax.validation.constraints.Size;
 
 @Entity
 public class Author {
@@ -26,8 +20,11 @@ public class Author {
     @Column(columnDefinition = "varchar(200) not null")
     private String fullname;
 
-    private String img;
     private String birth_date;
+    private String born_country;
+    private String born_city;
+    private String nationality;
+    private String img;
     private String main_activity;
 
     @CreationTimestamp
@@ -40,20 +37,26 @@ public class Author {
 
     }
 
-    public Author(String fullname, String img, String birth_date, String main_activity, Timestamp createTimestamp, Timestamp updateTimestamp){
+    public Author(String fullname, String birth_date, String born_country, String born_city, String nationality, String img, String main_activity, Timestamp createTimestamp, Timestamp updateTimestamp) {
         this.fullname = fullname;
-        this.img = img;
         this.birth_date = birth_date;
+        this.born_country = born_country;
+        this.born_city = born_city;
+        this.nationality = nationality;
+        this.img = img;
         this.main_activity = main_activity;
         this.createTimestamp = createTimestamp;
         this.updateTimestamp = updateTimestamp;
     }
 
-    public Author(Integer id_author, String fullname, String img, String birth_date, String main_activity, Timestamp createTimestamp, Timestamp updateTimestamp) {
+    public Author(Integer id_author, String fullname, String birth_date, String born_country, String born_city, String nationality, String img, String main_activity, Timestamp createTimestamp, Timestamp updateTimestamp) {
         this.id_author = id_author;
         this.fullname = fullname;
-        this.img = img;
         this.birth_date = birth_date;
+        this.born_country = born_country;
+        this.born_city = born_city;
+        this.nationality = nationality;
+        this.img = img;
         this.main_activity = main_activity;
         this.createTimestamp = createTimestamp;
         this.updateTimestamp = updateTimestamp;
@@ -111,16 +114,43 @@ public class Author {
         this.createTimestamp = updateTimestamp;
     }
 
+    public String getBorn_country() {
+        return born_country;
+    }
+
+    public void setBorn_country(String born_country) {
+        this.born_country = born_country;
+    }
+
+    public String getBorn_city() {
+        return born_city;
+    }
+
+    public void setBorn_city(String born_city) {
+        this.born_city = born_city;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
     @Override
     public String toString() {
         return "Author{" +
                 "id_author=" + id_author +
                 ", fullname='" + fullname + '\'' +
-                ", img='" + img + '\'' +
                 ", birth_date='" + birth_date + '\'' +
+                ", born_country='" + born_country + '\'' +
+                ", born_city='" + born_city + '\'' +
+                ", nationality='" + nationality + '\'' +
+                ", img='" + img + '\'' +
                 ", main_activity='" + main_activity + '\'' +
-                ", createDate='" + createTimestamp + '\'' +
-                ", updateDate='" + updateTimestamp + '\'' +
+                ", createTimestamp=" + createTimestamp +
+                ", updateTimestamp=" + updateTimestamp +
                 '}';
     }
 }
