@@ -37,7 +37,9 @@
 
 .authorization__input{
     font-size: 18px;
-    padding: 5px 7px;
+    padding: 6px 7px;
+    border-radius: 4px;
+    border: 1px solid #000;
 }
 
 .password{
