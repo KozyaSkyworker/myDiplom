@@ -50,13 +50,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="main__result-wrapper" >
+                <div class="main__result-wrapper" th:if="${request}" >
                     <h2>Вот что нашлось</h2>
+                    <p th:if="${empty}">По Вашему запросу "<span th:text="${empty}"></span>" ничего не найдено.</p>
                     <div class="main__result-content">
-                        <div class="main__result-col terms" th:if="${terms}">
+                        <div class="main__result-col terms" th:if="${termList}">
                             <h3 class="main__result-title">Термины</h3>
                             <ul class="main__list">
-                                <li class="main__list-item" th:each="term : ${terms}">
+                                <li class="main__list-item" th:each="term : ${termList}">
                                     <a th:href="@{/moderator/term/{id}(id=${term.getId_term()})}" th:text="${term.name}"></a>
                                     <span>|</span>
                                     <div class="main__list-controls">
@@ -66,10 +67,10 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="main__result-col authors" th:if="${authors}">
+                        <div class="main__result-col authors" th:if="${authorList}">
                             <h3 class="main__result-title">Авторы</h3>
                             <ul>
-                                <li class="main__list-item" th:each="author : ${authors}">
+                                <li class="main__list-item" th:each="author : ${authorList}">
                                     <a th:href="@{/moderator/author/{id}(id=${author.getId_author()})}" th:text="${author.fullname}"></a>
                                     <span>|</span>
                                     <div class="main__list-controls">

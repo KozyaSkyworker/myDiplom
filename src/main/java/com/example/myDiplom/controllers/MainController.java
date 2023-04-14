@@ -50,9 +50,6 @@ public class MainController {
 
         if (term == null){
             List<Term> termList = termRepository.findByNameContains(name);
-            for (Term t : termList){
-                System.out.println("T ->, "+ t);
-            }
             if(termList.size() == 0){
                 model.addAttribute("name", name);
             }
@@ -65,9 +62,7 @@ public class MainController {
         try {
             Iterable<AuthorTerm> authorTerm = authorTermRepository.findAll();
             for(AuthorTerm at : authorTerm){
-
                 if(at.getId_term().equals(term.getId_term())){
-
                     Integer authorId = at.getId_author();
 
                     Optional<Author> author = authorRepository.findById(authorId);
@@ -76,7 +71,6 @@ public class MainController {
                     model.addAttribute("authorTerm", at);
                 }
             }
-
         }
         finally {
 
@@ -94,9 +88,7 @@ public class MainController {
         Iterable<AuthorTerm> authorTerm = authorTermRepository.findAll();
 
         for(AuthorTerm at : authorTerm){
-
             if(at.getId_term().equals(term.get().getId_term())){
-
                 Integer authorId = at.getId_author();
 
                 Optional<Author> author = authorRepository.findById(authorId);

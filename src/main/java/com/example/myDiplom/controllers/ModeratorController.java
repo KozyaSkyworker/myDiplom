@@ -38,35 +38,24 @@ public class ModeratorController {
                                    @RequestParam(required = false) String isAuthor,
                                    @RequestParam(required = false) String name,
                                    Model model) {
+        if (name != null){
+            model.addAttribute("request", true);
 
-
-
-        try {
-            try {
-                if (isTerm.equals("on")){
-                    Iterable<Term> terms = termRepository.findAll();
-
-                    model.addAttribute("terms", terms);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+            List<Term> termList = termRepository.findByNameContains(name);
+            if(termList.size() == 0){
+                model.addAttribute("empty", name);
             }
+            model.addAttribute("termList", termList);
 
-            try {
-                if (isAuthor.equals("on")) {
-                    Iterable<Author> authors = authorRepository.findAll();
-
-                    model.addAttribute("authors", authors);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+             List<Author> authorList = authorRepository.findByFullnameContains(name);
+            if(authorList.size() == 0){
+                model.addAttribute("empty", name);
             }
-            return "moderatoroverview";
+            model.addAttribute("authorList", authorList);
+
         }
-        catch (NullPointerException e){
-            System.out.println(e);
-            return "moderatoroverview";
-        }
+
+        return "moderatoroverview";
     }
 
     // TERM PAGE
