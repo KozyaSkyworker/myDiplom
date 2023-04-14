@@ -562,31 +562,18 @@ l-12 58 109 105 c60 57 127 114 149 125 78 39 155 60 199 54 22 -4 52 -2 66 4
                     </form>
                 </div>
             </section>
-            <section class="important">
+            <section class="recent">
                 <div class="container">
-                    <div class="important__inner">
-                        <h2 class="important__title">Новые термины</h2>
-                        <div class="important__wrapper">
-                            <div class="important__term">
-                                <h3>title</h3>
-                                <p>descr</p>
-                                <span>date</span>
-                            </div>
-                            <div class="important__term">
-                                <h3>title</h3>
-                                <p>descr</p>
-                                <span>date</span>
-                            </div>
-                            <div class="important__term">
-                                <h3>title</h3>
-                                <p>descr</p>
-                                <span>date</span>
-                            </div>
-                            <div class="important__term">
-                                <h3>title</h3>
-                                <p>descr</p>
-                                <span>date</span>
-                            </div>
+                    <div class="recent__inner">
+                        <h2 class="recent__title">Новые термины на ресурсе</h2>
+                        <div class="recent__wrapper">
+                            <a class="recent__term" th:each="term : ${terms}" th:href="@{/term/{id}(id=${term.getId_term()})}">
+                                <h3 class="recent__name" th:text="${term.name}"></h3>
+                                <hr width="50%">
+                                <p class="recent__descr" th:text="${term.description}"></p>
+                                <hr width="50%">
+                                <span class="recent__date" th:text="${term.updateTimestamp}"></span>
+                            </a>
                         </div>
                     </div>
                 </div>

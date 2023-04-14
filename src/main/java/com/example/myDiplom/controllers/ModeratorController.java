@@ -8,6 +8,8 @@ import com.example.myDiplom.repositories.AuthorTermRepository;
 import com.example.myDiplom.repositories.TermRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Controller
@@ -34,6 +38,9 @@ public class ModeratorController {
                                    @RequestParam(required = false) String isAuthor,
                                    @RequestParam(required = false) String name,
                                    Model model) {
+
+
+
         try {
             try {
                 if (isTerm.equals("on")){
@@ -60,7 +67,6 @@ public class ModeratorController {
             System.out.println(e);
             return "moderatoroverview";
         }
-
     }
 
     // TERM PAGE
@@ -181,8 +187,9 @@ public class ModeratorController {
                                 Model model,
                                 @RequestParam Integer authorID) {
 
+        Iterable<Author> authors = authorRepository.findAll();
+
         if (bindingResult2.hasErrors() || bindingResult3.hasErrors() || authorID == 0) {
-            Iterable<Author> authors = authorRepository.findAll();
             model.addAttribute("authors", authors);
             model.addAttribute("undefined", true);
             return "forms/new";
@@ -193,6 +200,7 @@ public class ModeratorController {
         authorTerm.setId_author(authorID);
         authorTermRepository.save(authorTerm);
 
+        model.addAttribute("authors", authors);
         model.addAttribute("success", true);
 
         return "forms/new";

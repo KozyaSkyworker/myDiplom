@@ -31,10 +31,21 @@ public class MainController {
     @Autowired
     private AuthorTermRepository authorTermRepository;
 
+    @GetMapping("/")
+    public String getMainPage(Model model){
+        Iterable<Term> terms = termRepository.findByDate();
+
+        model.addAttribute("terms", terms);
+
+        return "index";
+    }
+
     // GET SEARCH
 
     @GetMapping("/search")
-    public String getSearch(@RequestParam String name, Model model) {
+    public String getSearch(@RequestParam(required = false) String isTerm,
+                            @RequestParam(required = false) String isAuthor,
+                            @RequestParam(required = false) String name, Model model) {
         Term term = termRepository.findByName(name);
 
         if (term == null){
@@ -74,9 +85,29 @@ public class MainController {
         return "detailed/termPage";
     }
 
-    @GetMapping("/search/extended")
-    public String getExtendedSearch(){
-        return "search";
+    // GET TERM
+
+    @GetMapping("/term/{id}")
+    public String getTermById(@PathVariable("id") Integer id, Model model){
+        Optional<Term> term = termRepository.findById(id);
+
+        Iterable<AuthorTerm> authorTerm = authorTermRepository.findAll();
+
+        for(AuthorTerm at : authorTerm){
+
+            if(at.getId_term().equals(term.get().getId_term())){
+
+                Integer authorId = at.getId_author();
+
+                Optional<Author> author = authorRepository.findById(authorId);
+
+                model.addAttribute("author", author.get());
+                model.addAttribute("authorTerm", at);
+            }
+        }
+        model.addAttribute("term", term.get());
+        model.addAttribute("moderator", false);
+        return  "detailed/termPage";
     }
 
     // GET AUTHOR

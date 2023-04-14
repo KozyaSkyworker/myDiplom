@@ -14,7 +14,7 @@
     <div class="wrapper__inner">
         <h1 class="wrapper__title">Здравствуйте</h1>
         <a class="header__logo-link" href="/">
-            <img src="./images/logodark.png" alt="">
+            <img th:src="@{images/logodark.png}" alt="">
         </a>
         <form class="authorization__form" th:action="@{/authorization}" method="post">
             <input class="authorization__input login" type="text" placeholder="логин" name="username"><br>

@@ -6,8 +6,32 @@
 /* ============================================= Styles ============================================= */
 @import url(./../blocks/header.css);
 @import url(./../blocks/footer.css);
+@import url(./../blocks/searchForm.css);
 
 
 .main__inner{
     padding-top: 55px;
+}
+
+.main__form-wrapper{
+    padding: 0;
+}
+
+.main__form{
+    display: block;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: .5em;
+}
+
+.main__form-input{
+    width: 100%;
+    margin: .5em 0;
+    padding: .5em;
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.main__form-clear{
+    margin-left: .5em;
 }

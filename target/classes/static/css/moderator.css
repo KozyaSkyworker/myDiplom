@@ -73,3 +73,14 @@
 .main__list-edit:hover{
     background-color: red;
 }
+
+
+
+.recent__item{
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #858AE3;
+    border-radius: 4px;
+}

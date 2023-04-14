@@ -135,8 +135,8 @@ public class Term {
                 ", first_date='" + first_date + '\'' +
                 ", newest_date='" + newest_date + '\'' +
                 ", information_source='" + information_source + '\'' +
-                ", createDate='" + createTimestamp + '\'' +
-                ", updateDate='" + updateTimestamp + '\'' +
+                ", createTimestamp='" + createTimestamp + '\'' +
+                ", updateTimestamp='" + updateTimestamp + '\'' +
                 '}';
     }
 }
