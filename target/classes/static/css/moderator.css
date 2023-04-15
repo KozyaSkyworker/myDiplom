@@ -8,6 +8,7 @@
 @import url(./blocks/footer.css);
 @import url(./blocks/breadcrumbs.css);
 @import url(./blocks/searchForm.css);
+@import url(./blocks/moderatorHeader-media.css);
 
 .main__inner{
     padding-top: 55px;

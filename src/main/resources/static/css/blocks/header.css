@@ -11,6 +11,12 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.header__filters,
+.header__home{
+    display: none;
+}
+
 .header__list{
     display: flex;
     align-items: center;
@@ -47,4 +53,26 @@
 }
 .header.hide{
     transform: translateY(-55px);
+}
+
+@media(max-width:650px){
+    header svg g{
+        fill: #fff;
+    }
+
+    .header__filters {
+        display: block;
+    }
+    .header__navigation{
+        display: none;
+    }
+}
+
+@media(max-width:410px){
+    .header__logo{
+        display: none;
+    }
+    .header__home{
+        display: block;
+    }
 }

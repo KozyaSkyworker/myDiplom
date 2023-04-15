@@ -48,3 +48,16 @@
     width: 30px;
     height: 30px;
 }
+
+@media(max-width:450px){
+    .footer__inner{
+        flex-direction: column;
+    }
+    .footer__img{
+        max-width: unset;
+        width: 141px;
+    }
+    .footer__col + .footer__col{
+        margin-top: 1em;
+    }
+}

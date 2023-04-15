@@ -9,6 +9,7 @@
 @import url(./../blocks/breadcrumbs.css);
 @import url(./../blocks/moderatorForm.css);
 @import url(./../blocks/success.css);
+@import url(./../blocks/moderatorHeader-media.css);
 
 .main__inner{
     padding-top: 55px;
