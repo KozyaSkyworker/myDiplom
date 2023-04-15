@@ -41,7 +41,7 @@
                     <input class="form__input" id="termInformationSource" type="text" th:value="${term.information_source}" name="termInformationSource" th:field="*{term.information_source}"/>
                     <p th:if="${#fields.hasErrors('term.information_source')}" th:errors="*{term.information_source}">Name Error</p>
 
-                    <label for="authorFullname">ФИО автора термина*</label>
+                    <label for="authorFullname">ФИО причастного автора*</label>
                     <select id="authorFullname" name="authorID">
                         <option selected value=0>Выберите автора</option>
                         <option th:each="author :${authors}" th:text="${author.fullname}" th:field="${author.fullname}" th:value="${author.id_author}"></option>
@@ -49,8 +49,20 @@
                     <a href="/moderator/new/author">Нужного автора нет в списке - внести</a>
                     <p th:if="${undefined}">Выберите одного автора</p>
 
+                    <label for="at">Вклад автора*</label>
+                    <textarea class="form__input" id="at" type="text" value="authorTermAuthorVklad" name="authorVklad" th:field="*{authorTerm.author_vklad}"></textarea>
+                    <p th:if="${#fields.hasErrors('authorTerm.author_vklad')}" th:errors="*{authorTerm.author_vklad}">Name Error</p>
+
+                    <label for="af">ФИО причастного автора*</label>
+                    <select id="af" name="authorID">
+                        <option selected value=0>Выберите автора</option>
+                        <option th:each="author :${authors}" th:text="${author.fullname}" th:field="${author.fullname}" th:value="${author.id_author}"></option>
+                    </select>
+                    <a href="/moderator/new/author">Нужного автора нет в списке - внести</a>
+                    <p th:if="${undefined}">Выберите одного автора</p>
+
                     <label for="authorTermAuthorVklad">Вклад автора*</label>
-                    <textarea class="form__input" id="authorTermAuthorVklad" type="text" th:value="${authorTerm.author_vklad}" name="authorTermAuthorVklad" th:field="*{authorTerm.author_vklad}"></textarea>
+                    <textarea class="form__input" id="authorTermAuthorVklad" type="text" value="authorTermAuthorVklad" name="authorVklad" th:field="*{authorTerm.author_vklad}"></textarea>
                     <p th:if="${#fields.hasErrors('authorTerm.author_vklad')}" th:errors="*{authorTerm.author_vklad}">Name Error</p>
 
                     <button class="btn form__btn" type="submit">Добавить</button>

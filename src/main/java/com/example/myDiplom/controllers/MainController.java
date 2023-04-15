@@ -99,6 +99,7 @@ public class MainController {
         }
         model.addAttribute("term", term.get());
         model.addAttribute("moderator", false);
+
         return  "detailed/termPage";
     }
 

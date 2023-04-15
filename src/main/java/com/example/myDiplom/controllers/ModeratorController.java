@@ -174,20 +174,25 @@ public class ModeratorController {
                                 @Valid @ModelAttribute AuthorTerm authorTerm, BindingResult bindingResult2,
                                 @Valid @ModelAttribute Term term, BindingResult bindingResult3,
                                 Model model,
-                                @RequestParam Integer authorID) {
+                                @RequestParam List<Integer> authorID) {
 
         Iterable<Author> authors = authorRepository.findAll();
 
-        if (bindingResult2.hasErrors() || bindingResult3.hasErrors() || authorID == 0) {
+        if (bindingResult2.hasErrors() || bindingResult3.hasErrors()) {
             model.addAttribute("authors", authors);
-            model.addAttribute("undefined", true);
             return "forms/new";
         }
 
         termRepository.save(term);
-        authorTerm.setId_term(term.getId_term());
-        authorTerm.setId_author(authorID);
-        authorTermRepository.save(authorTerm);
+
+        String[] vklads = authorTerm.getAuthor_vklad().split(",");
+
+        for (int i = 0; i < authorID.size(); i++){
+            authorTerm.setId_term(term.getId_term());
+            authorTerm.setId_author(authorID.get(i));
+            authorTerm.setAuthor_vklad(vklads[i]);
+            authorTermRepository.save(authorTerm);
+        }
 
         model.addAttribute("authors", authors);
         model.addAttribute("success", true);
