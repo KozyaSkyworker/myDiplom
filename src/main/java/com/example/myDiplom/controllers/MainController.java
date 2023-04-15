@@ -51,9 +51,16 @@ public class MainController {
         if (term == null){
             List<Term> termList = termRepository.findByNameContains(name);
             if(termList.size() == 0){
-                model.addAttribute("name", name);
+                model.addAttribute("empty", name);
             }
             model.addAttribute("termList", termList);
+
+            List<Author> authorList = authorRepository.findByFullnameContains(name);
+            if(authorList.size() == 0){
+                model.addAttribute("empty", name);
+            }
+            model.addAttribute("authorList", authorList);
+
             return "search";
         }
 

@@ -18,6 +18,10 @@
     align-items: center;
     justify-content: center;
 }
+.top__title{
+    text-align: center;
+    margin-bottom: 1em;
+}
 .top__box{
     width: 100%;
     max-width: 1200px;
@@ -108,5 +112,18 @@
     100%{
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media(max-width:400px){
+    .top__form{
+        display: block;
+    }
+    .top__input{
+        margin-bottom: 1em;
+    }
+    .top__title{
+        margin-bottom: .5em;
+        font-size: 25px;
     }
 }
