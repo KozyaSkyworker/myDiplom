@@ -12,13 +12,13 @@
 <body>
 <div class="wrapper">
     <div class="wrapper__inner">
-        <h1 class="wrapper__title">Здравствуйте</h1>
+        <h2 class="wrapper__title">Здравствуйте</h2>
         <a class="header__logo-link" href="/">
             <img th:src="@{images/logodark.png}" alt="">
         </a>
         <form class="authorization__form" th:action="@{/authorization}" method="post">
-            <input class="authorization__input login" type="text" placeholder="логин" name="username"><br>
-            <input class="authorization__input password" type="password" placeholder="пароль" name="password"><br>
+            <input class="authorization__input login" type="text" placeholder="Ваш логин" name="username"><br>
+            <input class="authorization__input password" type="password" placeholder="Ваш пароль" name="password"><br>
             <button class="authorization__btn btn" type="submit">Войти</button>
         </form>
         <div th:if="${param.error}">

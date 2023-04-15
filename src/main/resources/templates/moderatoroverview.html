@@ -29,7 +29,7 @@
                         <span class="main__form-clear search__form-clear none">очистить</span>
                     </form>
                 </div>
-                <div class="recent">
+                <div class="recent" th:unless="${request}">
                     <div class="recent__inner">
                         <h2 class="recent__title">Последние изменения</h2>
                         <div class="recent__wrapper">
