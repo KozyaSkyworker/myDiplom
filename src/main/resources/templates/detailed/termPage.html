@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title th:text="${term.name}"></title>
     <link rel="stylesheet" href="./../../css/pages/showPage.css">
+    <link th:if="${moderator}" rel="stylesheet" href="./../../css/blocks/moderatorHeader-media.css">
 </head>
 <body>
 <div class="wrapper">
@@ -44,6 +45,6 @@
     </main>
     <div th:replace="~{fragments/footer :: footer}"></div>
 </div>
-
+<script th:src="@{/js/burger.js}"></script>
 </body>
 </html>
