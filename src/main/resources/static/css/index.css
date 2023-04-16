@@ -115,6 +115,20 @@
     }
 }
 
+@media(max-width:1000px){
+    .recent__term{
+        flex-grow: unset;
+        flex-basis: 45%;
+    }
+}
+@media(max-width:660px){
+    h2{
+        text-align: center;
+    }
+    .recent__term{
+        flex-basis: 100%;
+    }
+}
 @media(max-width:400px){
     .top__form{
         display: block;
