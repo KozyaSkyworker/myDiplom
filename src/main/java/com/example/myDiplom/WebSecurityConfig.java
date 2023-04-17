@@ -49,9 +49,8 @@ public class WebSecurityConfig {
 
     @Autowired
     public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication()
+        auth.jdbcAuthentication().passwordEncoder(new BCryptPasswordEncoder())
                 .dataSource(dataSource)
-                .passwordEncoder(NoOpPasswordEncoder.getInstance())
                 .usersByUsernameQuery("select login, password, enabled from moderator where login=?")
                 .authoritiesByUsernameQuery("select login, role from moderator where login=?")
         ;

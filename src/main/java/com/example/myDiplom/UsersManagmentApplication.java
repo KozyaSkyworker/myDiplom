@@ -1,5 +1,7 @@
 package com.example.myDiplom;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -89,7 +91,10 @@ public class UsersManagmentApplication {
             pw.println("Введите пароль:");
             pass = br.readLine();
 
-            statm.execute("insert into moderator (login, password, role, enabled) values ('" + name + "','"+ pass + "',default,default);");
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            String encodedPassword = encoder.encode(pass);
+
+            statm.execute("insert into moderator (login, password, role, enabled) values ('" + name + "','"+ encodedPassword + "',default,default);");
 
             pw.println("Модератор " + name + " с паролем " + pass + " успешно создан");
         }
@@ -157,6 +162,7 @@ public class UsersManagmentApplication {
         String strsql = "";
         String name = "";
         String pass = "";
+        String newEncodedPassword = "";
         try {
             statm = cn.createStatement();
             pw.println("statm создан");
@@ -169,6 +175,9 @@ public class UsersManagmentApplication {
             name = br.readLine();
             pw.println("Введите новый пароль");
             pass = br.readLine();
+
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            newEncodedPassword = encoder.encode(pass);
         }
         catch (Exception e) {
             pw.println("Ошибка введения даных");
@@ -182,7 +191,7 @@ public class UsersManagmentApplication {
             pw.println(ev);
         }
         try {
-            statm.execute("set password for '"+ name + "'@'localhost' = password('"+ pass + "');" );
+            statm.execute("UPDATE moderator SET password = '" + newEncodedPassword +  "' WHERE login = '" + name + "';" );
             pw.println("Пароль изменен");
         }
         catch (SQLException e) {
