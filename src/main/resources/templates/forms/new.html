@@ -65,6 +65,25 @@
 </div>
 <script th:src="@{/js/clearForm.js}"></script>
 <script th:src="@{/js/burger.js}"></script>
+<script>
+    const anotherAuthorBtn = document.getElementById('form__anotherBtn');
 
+    let counter = 0;
+
+    anotherAuthorBtn.onclick = () => {
+        const formText = `<label for="authorFullname${++counter}">ФИО причастного автора*</label>
+                    <select id="authorFullname${counter}" name="authorID">
+                        <option selected value=0>Выберите автора</option>
+
+                    </select>
+                    <a href="/moderator/new/author">Нужного автора нет в списке - внести</a>
+
+                    <label for="authorVklad${counter}">Вклад автора*</label>
+                    <textarea class="form__input" id="authorVklad${counter}" type="text" value="authorTermAuthorVklad" name="authorVklad""></textarea>
+                    `;
+
+        anotherAuthorBtn.insertAdjacentHTML('beforebegin', formText);
+    }
+</script>
 </body>
 </html>

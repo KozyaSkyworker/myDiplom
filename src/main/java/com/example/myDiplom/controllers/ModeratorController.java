@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 
 @Controller
@@ -142,6 +143,28 @@ public class ModeratorController {
     public String deleteAuthor(@PathVariable("id") Integer id) {
         authorRepository.deleteById(id);
         return "redirect:/moderator";
+    }
+
+    // LIST PAGE
+
+    @GetMapping("/moderator/lists")
+    public String getListsPage(Model model, @RequestParam(required = false) String params){
+        try {
+            if (params.equals("terms")){
+                Iterable<Term> terms = termRepository.findAll();
+                model.addAttribute("terms", terms);
+            }
+            else {
+                Iterable<Author> authors = authorRepository.findAll();
+                model.addAttribute("authors", authors);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        model.addAttribute("moderator", true);
+
+        return "lists";
     }
 
     // AUTHORS COMPARE PAGE

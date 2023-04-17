@@ -7,14 +7,14 @@
 </head>
 <body>
 <div class="wrapper">
-    <div class="header">
+    <header class="header">
         <div class="container" th:if="${moderator}">
             <div th:replace="~{fragments/moderatorHeader :: moderatorHeader}"></div>
         </div>
         <div class="container" th:if="${!moderator}">
             <div th:replace="~{fragments/header :: header}"></div>
         </div>
-    </div>
+    </header>
     <main class="main">
         <div class="container">
             <div class="main__inner">

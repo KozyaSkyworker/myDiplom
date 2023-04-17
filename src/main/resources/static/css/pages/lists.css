@@ -1,0 +1,30 @@
+@import url(./../general/normalize.css);
+@import url(./../general/reset.css);
+
+@import url(./../general/global.css);
+
+/* ============================================= Styles ============================================= */
+@import url(./../blocks/header.css);
+@import url(./../blocks/footer.css);
+@import url(./../blocks/breadcrumbs.css);
+@import url(./../blocks/moderatorHeader-media.css);
+
+
+.main__inner{
+    padding-top: 55px;
+}
+
+.main__form{
+    margin-top: 1em;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+  border: 1px solid #343434;
+  text-align: left;
+  padding: 8px;
+}
