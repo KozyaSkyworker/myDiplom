@@ -42,20 +42,26 @@ public class ModeratorController {
         if (name != null){
             model.addAttribute("request", true);
 
-            List<Term> termList = termRepository.findByNameContains(name);
-            if(termList.size() == 0){
-                model.addAttribute("empty", name);
+            if (isTerm != null){
+                List<Term> termList = termRepository.findByNameContains(name);
+                if(termList.size() == 0){
+                    model.addAttribute("empty", name);
+                }
+                else {
+                    model.addAttribute("termList", termList);
+                }
             }
-            model.addAttribute("termList", termList);
 
-             List<Author> authorList = authorRepository.findByFullnameContains(name);
-            if(authorList.size() == 0){
-                model.addAttribute("empty", name);
-            }
-            model.addAttribute("authorList", authorList);
-
+           if (isAuthor != null){
+               List<Author> authorList = authorRepository.findByFullnameContains(name);
+               if(authorList.size() == 0){
+                   model.addAttribute("empty", name);
+               }
+               else {
+                   model.addAttribute("authorList", authorList);
+               }
+           }
         }
-
         return "moderatoroverview";
     }
 
@@ -170,9 +176,13 @@ public class ModeratorController {
                 Iterable<Term> terms = termRepository.findAll();
                 model.addAttribute("terms", terms);
             }
-            else {
+            else if (params.equals("authors")) {
                 Iterable<Author> authors = authorRepository.findAll();
                 model.addAttribute("authors", authors);
+            }
+            else {
+                Iterable<AuthorTerm> authorTerms = authorTermRepository.findAll();
+                model.addAttribute("authorTerms", authorTerms);
             }
         } catch (Exception e) {
             e.printStackTrace();

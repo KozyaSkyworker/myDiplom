@@ -28,6 +28,8 @@
                         <input id="term" type="radio" name="params" value="terms">
                         <label for="author">Авторы</label>
                         <input id="author" type="radio" name="params" value="authors">
+                        <label for="authorTerm">Вклады авторов в термин</label>
+                        <input id="authorTerm" type="radio" name="params" value="authorTerms">
                     </form>
                     <div class="main__wrapper">
                       <table th:if="${terms}">
@@ -52,32 +54,48 @@
                               <td th:text="${term.updateTimestamp}"></td>
                           </tr>
                       </table>
-                        <table th:if="${authors}" style="width:2000px">
-                            <tr>
-                                <th>id</th>
-                                <th>ФИО</th>
-                                <th>Дата рождения</th>
-                                <th>Страна</th>
-                                <th>город</th>
-                                <th>Национальность</th>
-                                <th style="width:60%;">основной вид деятельности</th>
-                                <th style="width:30%;">ссылка на картинку</th>
-                                <th>дата создания</th>
-                                <th>дата редактировния</th>
-                            </tr>
-                            <tr th:each="author : ${authors}">
-                                <td th:text="${author.id_author}"></td>
-                                <td th:text="${author.fullname}"></td>
-                                <td th:text="${author.birth_date}"></td>
-                                <td th:text="${author.born_country}"></td>
-                                <td th:text="${author.born_city}"></td>
-                                <td th:text="${author.nationality}"></td>
-                                <td th:text="${author.main_activity}"></td>
-                                <td th:text="${author.img}"></td>
-                                <td th:text="${author.createTimestamp}"></td>
-                                <td th:text="${author.updateTimestamp}"></td>
-                            </tr>
-                        </table>
+                    <table th:if="${authors}" style="width:2000px">
+                        <tr>
+                            <th>id</th>
+                            <th>ФИО</th>
+                            <th>Дата рождения</th>
+                            <th>Страна</th>
+                            <th>город</th>
+                            <th>Национальность</th>
+                            <th style="width:60%;">основной вид деятельности</th>
+                            <th style="width:30%;">ссылка на картинку</th>
+                            <th>дата создания</th>
+                            <th>дата редактировния</th>
+                        </tr>
+                        <tr th:each="author : ${authors}">
+                            <td th:text="${author.id_author}"></td>
+                            <td th:text="${author.fullname}"></td>
+                            <td th:text="${author.birth_date}"></td>
+                            <td th:text="${author.born_country}"></td>
+                            <td th:text="${author.born_city}"></td>
+                            <td th:text="${author.nationality}"></td>
+                            <td th:text="${author.main_activity}"></td>
+                            <td th:text="${author.img}"></td>
+                            <td th:text="${author.createTimestamp}"></td>
+                            <td th:text="${author.updateTimestamp}"></td>
+                        </tr>
+                    </table>
+                    <table th:if="${authorTerms}">
+                        <tr>
+                            <th>id автора</th>
+                            <th>id термина</th>
+                            <th>вклад автора</th>
+                            <th>дата создания</th>
+                            <th>дата редактировния</th>
+                        </tr>
+                        <tr th:each="authorTerm : ${authorTerms}">
+                            <td th:text="${authorTerm.id_author}"></td>
+                            <td th:text="${authorTerm.id_term}"></td>
+                            <td th:text="${authorTerm.author_vklad}"></td>
+                            <td th:text="${authorTerm.createTimestamp}"></td>
+                            <td th:text="${authorTerm.updateTimestamp}"></td>
+                        </tr>
+                    </table>
                     </div>
                 </div>
             </div>

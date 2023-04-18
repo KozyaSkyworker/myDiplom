@@ -64,6 +64,7 @@
 }
 
 .main__list-controls{
+    display:flex;
     justify-self: end;
 }
 

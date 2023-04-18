@@ -35,3 +35,8 @@
 .main__form-clear{
     margin-left: .5em;
 }
+
+.main__result-content{
+    display: flex;
+    justify-content: space-around;
+}

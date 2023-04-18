@@ -59,7 +59,7 @@
                             <h3 class="main__result-title">Термины</h3>
                             <ul class="main__list">
                                 <li class="main__list-item" th:each="term : ${termList}">
-                                    <a th:href="@{/moderator/term/{id}(id=${term.getId_term()})}" th:text="${term.name}"></a>
+                                    <a class="main__list-link" th:href="@{/moderator/term/{id}(id=${term.getId_term()})}" th:text="${term.name}"></a>
                                     <span>|</span>
                                     <div class="main__list-controls">
                                         <a class="main__list-link" th:href="@{/moderator/edit/term/{id}(id=${term.getId_term()})}" >редактировать</a>
@@ -72,7 +72,7 @@
                             <h3 class="main__result-title">Авторы</h3>
                             <ul>
                                 <li class="main__list-item" th:each="author : ${authorList}">
-                                    <a th:href="@{/moderator/author/{id}(id=${author.getId_author()})}" th:text="${author.fullname}"></a>
+                                    <a class="main__list-link" th:href="@{/moderator/author/{id}(id=${author.getId_author()})}" th:text="${author.fullname}"></a>
                                     <span>|</span>
                                     <div class="main__list-controls">
                                         <a class="main__list-link" th:href="@{/moderator/edit/author/{id}(id=${author.getId_author()})}" >редактировать</a>
