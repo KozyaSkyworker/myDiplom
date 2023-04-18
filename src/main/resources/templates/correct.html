@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Корректировка</title>
+    <link rel="stylesheet" href="./../../css/pages/correct.css">
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <div class="container">
+            <div th:replace="~{fragments/moderatorHeader :: moderatorHeader}"></div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="main__inner">
+                <ul class="main__breadcrumbs breadcrumbs__list">
+                    <li class="main__breadcrumbs_item breadcrumbs__wrapper-item" ><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator">главная </a></li>
+                    <li class="main__breadcrumbs_item breadcrumbs__wrapper-item" ><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator/correct">корректировка </a></li>
+                </ul>
+                <div class="main__wrapper">
+                    <div class="main__success success__wrapper" th:if="${success}">
+                        <p class="main__success-text success__text">Данные успешно добавлены</p>
+                    </div>
+                    <form class="main__form" action="#" th:action="@{/moderator/correct}" method="post">
+                        <label for="term">Термин</label>
+                        <select id="term" name="termId">
+                            <option selected value=0>Выберите термин</option>
+                            <option th:each="term : ${terms}" th:text="${term.name}" th:field="${term.name}" th:value="${term.id_term}"></option>
+                        </select>
+
+                        <label for="authorFullname">Автор</label>
+                        <select id="authorFullname" name="authorId">
+                            <option selected value=0>Выберите автора</option>
+                            <option th:each="author : ${authors}" th:text="${author.fullname}" th:field="${author.fullname}" th:value="${author.id_author}"></option>
+                        </select>
+
+                        <label for="vklad">Вклад автора</label>
+                        <textarea class="form__input" id="vklad" name="vklad"></textarea>
+
+                        <button class="btn" type="submit" >Добавить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>

@@ -145,6 +145,22 @@ public class ModeratorController {
         return "redirect:/moderator";
     }
 
+    // CORRECT
+
+    @GetMapping("/moderator/correct")
+    public String getCorrectPage(@ModelAttribute("term") Term term,
+                                 @ModelAttribute("author") Author author,
+                                 @ModelAttribute("authorTerm") AuthorTerm authorTerm,
+                                 Model model){
+        Iterable<Term> terms = termRepository.findAll();
+        Iterable<Author> authors = authorRepository.findAll();
+
+        model.addAttribute("terms", terms);
+        model.addAttribute("authors", authors);
+
+        return "correct";
+    }
+
     // LIST PAGE
 
     @GetMapping("/moderator/lists")
@@ -265,6 +281,33 @@ public class ModeratorController {
         model.addAttribute("success", true);
 
         return "forms/updateAuthor";
+    }
+
+    // CORRECT
+
+    @PostMapping("/moderator/correct")
+    public String correctPageSubmit(@ModelAttribute("term") Term term,
+                                 @ModelAttribute("author") Author author,
+                                 @ModelAttribute("authorTerm") AuthorTerm authorTerm,
+                                 Model model,
+                                 @RequestParam(required = false) Integer termId,
+                                 @RequestParam(required = false) Integer authorId,
+                                 @RequestParam(required = false) String vklad){
+
+        authorTerm.setId_term(termId);
+        authorTerm.setId_author(authorId);
+        authorTerm.setAuthor_vklad(vklad);
+
+        authorTermRepository.save(authorTerm);
+
+        Iterable<Term> terms = termRepository.findAll();
+        Iterable<Author> authors = authorRepository.findAll();
+
+        model.addAttribute("terms", terms);
+        model.addAttribute("authors", authors);
+
+        model.addAttribute("success", true);
+        return "correct";
     }
 
 }

@@ -1,7 +1,7 @@
 .header{
     position: fixed;
     width: 100%;
-    font-size: 18px;
+    font-size: 16px;
     background-color: #858AE3;
     transition: transform .3s linear;
     z-index: 5;

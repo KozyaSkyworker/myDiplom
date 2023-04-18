@@ -8,32 +8,18 @@
 @import url(./../blocks/footer.css);
 @import url(./../blocks/breadcrumbs.css);
 @import url(./../blocks/moderatorHeader-media.css);
+@import url(./../blocks/moderatorForm.css);
+@import url(./../blocks/success.css);
 
 
 .main__inner{
     padding-top: 55px;
 }
 
-.main__form{
+.main__wrapper{
     margin-top: 1em;
 }
 
-label:hover{
-    cursor: pointer;
-}
-
-table{
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-  border: 1px solid #343434;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:hover{
-    cursor: pointer;
-    background-color: #ccc;
+.main__form{
+    margin: 1em 0;
 }
