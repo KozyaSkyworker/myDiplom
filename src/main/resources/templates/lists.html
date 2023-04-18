@@ -52,7 +52,7 @@
                               <td th:text="${term.updateTimestamp}"></td>
                           </tr>
                       </table>
-                        <table th:if="${authors}">
+                        <table th:if="${authors}" style="width:2000px">
                             <tr>
                                 <th>id</th>
                                 <th>ФИО</th>
@@ -60,8 +60,8 @@
                                 <th>Страна</th>
                                 <th>город</th>
                                 <th>Национальность</th>
-                                <th>ссылка на картинку</th>
-                                <th>основной вид деятельности</th>
+                                <th style="width:60%;">основной вид деятельности</th>
+                                <th style="width:30%;">ссылка на картинку</th>
                                 <th>дата создания</th>
                                 <th>дата редактировния</th>
                             </tr>
@@ -72,8 +72,8 @@
                                 <td th:text="${author.born_country}"></td>
                                 <td th:text="${author.born_city}"></td>
                                 <td th:text="${author.nationality}"></td>
-                                <td th:text="${author.img}"></td>
                                 <td th:text="${author.main_activity}"></td>
+                                <td th:text="${author.img}"></td>
                                 <td th:text="${author.createTimestamp}"></td>
                                 <td th:text="${author.updateTimestamp}"></td>
                             </tr>
