@@ -1,25 +1,28 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <div class="header__inner" th:fragment="moderatorHeader">
-    <a class="header__logo" href="/moderator">
-        <img th:src="@{/images/logo.png}" alt="">
-    </a>
-    <nav class="header__navigation">
-        <ul class="header__list">
-            <li class="header__list-item"><a class="header__list-link header__link" href="/moderator/new">Добавить информацию</a></li>
-            <li class="header__list-item"><a class="header__list-link header__link" href="/moderator/new/author">Новый автор</a></li>
-            <li class="header__list-item"><a class="header__list-link header__link" href="/moderator/correct">Термин/Вклад</a></li>
-            <li class="header__list-item"><a class="header__list-link header__link" href="/moderator/compare">Сопоставить авторов</a></li>
-        </ul>
-    </nav>
-    <button class="header__menu-btn">
-        <span class="header__menu-btn-item"></span>
-        <span class="header__menu-btn-item"></span>
-        <span class="header__menu-btn-item"></span>
-    </button>
-    <form th:action="@{/logout}" method="post">
-        <button class="header__btn_logout btn" type="submit">
-            выйти
+    <div class="header__top"><h1 class="header__title">Маленькая энциклопедия о большой информатике</h1></div>
+    <div class="header__content">
+        <a class="header__logo" href="/moderator">
+            <img th:src="@{/images/logo.png}" alt="">
+        </a>
+        <nav class="header__navigation">
+            <ul class="header__list">
+                <li class="header__list-item"><a class="header__list-link header__link" href="/moderator/new">Добавить информацию</a></li>
+                <li class="header__list-item"><a class="header__list-link header__link" href="/moderator/new/author">Новый автор</a></li>
+                <li class="header__list-item"><a class="header__list-link header__link" href="/moderator/correct">Термин/Вклад</a></li>
+                <li class="header__list-item"><a class="header__list-link header__link" href="/moderator/compare">Сопоставить авторов</a></li>
+            </ul>
+        </nav>
+        <button class="header__menu-btn">
+            <span class="header__menu-btn-item"></span>
+            <span class="header__menu-btn-item"></span>
+            <span class="header__menu-btn-item"></span>
         </button>
-    </form>
+        <form th:action="@{/logout}" method="post">
+            <button class="header__btn_logout btn" type="submit">
+                выйти
+            </button>
+        </form>
+    </div>
 </div>

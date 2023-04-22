@@ -38,7 +38,6 @@
                               <th>название</th>
                               <th>описание</th>
                               <th>first</th>
-                              <th>newest</th>
                               <th>источник</th>
                               <th>дата создания</th>
                               <th>дата редактировния</th>
@@ -48,7 +47,6 @@
                               <td th:text="${term.name}"></td>
                               <td th:text="${term.description}"></td>
                               <td th:text="${term.first_date}"></td>
-                              <td th:text="${term.newest_date}"></td>
                               <td th:text="${term.information_source}"></td>
                               <td th:text="${term.createTimestamp}"></td>
                               <td th:text="${term.updateTimestamp}"></td>
@@ -101,5 +99,6 @@
             </div>
         </main>
     </div>
+    <script th:src="@{/js/header.js}"></script>
 </body>
 </html>

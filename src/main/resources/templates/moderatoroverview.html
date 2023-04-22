@@ -29,27 +29,27 @@
                         <span class="main__form-clear search__form-clear none">очистить</span>
                     </form>
                 </div>
-                <div class="recent" th:unless="${request}">
-                    <div class="recent__inner">
-                        <h2 class="recent__title">Последние изменения</h2>
-                        <div class="recent__wrapper">
-                            <a class="recent__box" href="">
-                                <div class="recent__item">
-                                    <h3 class="recent__name">name</h3>
-                                    <span class="recent__views">views</span>
-                                    <div>
-                                        <span class="recent__date">date</span>
-                                        <span class="recent__date">who</span>
-                                    </div>
-                                    <div>
-                                        <span class="recent__views">edit</span>
-                                        <span class="recent__views">delete</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+<!--                <div class="recent" th:unless="${request}">-->
+<!--                    <div class="recent__inner">-->
+<!--                        <h2 class="recent__title">Последние изменения</h2>-->
+<!--                        <div class="recent__wrapper">-->
+<!--                            <a class="recent__box" href="">-->
+<!--                                <div class="recent__item">-->
+<!--                                    <h3 class="recent__name">name</h3>-->
+<!--                                    <span class="recent__views">views</span>-->
+<!--                                    <div>-->
+<!--                                        <span class="recent__date">date</span>-->
+<!--                                        <span class="recent__date">who</span>-->
+<!--                                    </div>-->
+<!--                                    <div>-->
+<!--                                        <span class="recent__views">edit</span>-->
+<!--                                        <span class="recent__views">delete</span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <div class="main__result-wrapper" th:if="${request}" >
                     <h2>Вот что нашлось</h2>
                     <p th:if="${empty}">По Вашему запросу "<span th:text="${empty}"></span>" ничего не найдено. Возможно, нашлись совпадения</p>
@@ -88,6 +88,7 @@
     </main>
     <div th:replace="~{fragments/footer :: footer}"></div>
 </div>
+<script th:src="@{/js/header.js}"></script>
 <script src="./js/input.js"></script>
 <script src="./js/burger.js"></script>
 </body>

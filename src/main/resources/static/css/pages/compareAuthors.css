@@ -10,10 +10,6 @@
 @import url(./../blocks/moderatorHeader-media.css);
 
 
-.main__inner{
-    padding-top: 55px;
-}
-
 .main__content{
     margin-top: 1em;
 }

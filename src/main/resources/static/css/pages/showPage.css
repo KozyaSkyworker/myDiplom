@@ -7,7 +7,3 @@
 @import url(./../blocks/header.css);
 @import url(./../blocks/footer.css);
 @import url(./../blocks/breadcrumbs.css);
-
-.main__inner{
-    padding-top: 55px;
-}

@@ -29,7 +29,6 @@ public class Term {
     private String description;
 
     private String first_date;
-    private String newest_date;
 
     @Column(columnDefinition = "varchar(255) not null")
     @NotBlank(message = "Поле не может быть пустым")
@@ -45,22 +44,20 @@ public class Term {
 
     }
 
-    public Term(String name, String description, String first_date, String newest_date, String information_source, Timestamp createTimestamp, Timestamp updateTimestamp) {
+    public Term(String name, String description, String first_date, String information_source, Timestamp createTimestamp, Timestamp updateTimestamp) {
         this.name = name;
         this.description = description;
         this.first_date = first_date;
-        this.newest_date = newest_date;
         this.information_source = information_source;
         this.createTimestamp = createTimestamp;
         this.updateTimestamp = updateTimestamp;
     }
 
-    public Term(Integer id_term, String name, String description, String first_date, String newest_date, String information_source, Timestamp createTimestamp, Timestamp updateTimestamp) {
+    public Term(Integer id_term, String name, String description, String first_date, String information_source, Timestamp createTimestamp, Timestamp updateTimestamp) {
         this.id_term = id_term;
         this.name = name;
         this.description = description;
         this.first_date = first_date;
-        this.newest_date = newest_date;
         this.information_source = information_source;
         this.createTimestamp = createTimestamp;
         this.updateTimestamp = updateTimestamp;
@@ -98,14 +95,6 @@ public class Term {
         this.first_date = first_date;
     }
 
-    public String getNewest_date() {
-        return newest_date;
-    }
-
-    public void setNewest_date(String newest_date) {
-        this.newest_date = newest_date;
-    }
-
     public String getInformation_source() {
         return information_source;
     }
@@ -133,7 +122,6 @@ public class Term {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", first_date='" + first_date + '\'' +
-                ", newest_date='" + newest_date + '\'' +
                 ", information_source='" + information_source + '\'' +
                 ", createTimestamp='" + createTimestamp + '\'' +
                 ", updateTimestamp='" + updateTimestamp + '\'' +

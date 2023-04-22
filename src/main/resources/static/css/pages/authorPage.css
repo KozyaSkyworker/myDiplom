@@ -8,10 +8,6 @@
 @import url(./../blocks/footer.css);
 @import url(./../blocks/breadcrumbs.css);
 
-.main__inner{
-    padding-top: 55px;
-}
-
 .main__wrapper{
     padding-top: 1em;
 }

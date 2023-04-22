@@ -8,6 +8,20 @@
 }
 .header__inner{
     display: flex;
+    flex-direction: column;
+}
+
+.header__top{
+    padding: .7em 0;
+}
+.header__title{
+    text-align: center;
+    color: #fff;
+    font-size: 1.5em;
+}
+
+.header__content{
+    display: flex;
     align-items: center;
     justify-content: space-between;
 }
@@ -56,6 +70,9 @@
 }
 
 @media(max-width:650px){
+    .header__title{
+        font-size: 1em;
+    }
     header svg g{
         fill: #fff;
     }

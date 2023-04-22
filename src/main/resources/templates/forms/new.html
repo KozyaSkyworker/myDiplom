@@ -34,8 +34,6 @@
 
                     <label for="termFirstDate">Дата первого употребления</label>
                     <input class="form__input" id="termFirstDate" type="text" th:value="${term.first_date}" name="termFirstDate" th:field="*{term.first_date}"/>
-                    <label for="termNewestDate">Дата последнего чего???</label>
-                    <input class="form__input" id="termNewestDate" type="text" th:value="${term.newest_date}" name="termNewestDate"th:field="*{term.newest_date}"/>
 
                     <label for="termInformationSource">Источник информации*</label>
                     <input class="form__input" id="termInformationSource" type="text" th:value="${term.information_source}" name="termInformationSource" th:field="*{term.information_source}"/>
@@ -63,27 +61,28 @@
     </main>
     <div th:replace="~{fragments/footer :: footer}"></div>
 </div>
+<script th:src="@{/js/header.js}"></script>
 <script th:src="@{/js/clearForm.js}"></script>
 <script th:src="@{/js/burger.js}"></script>
-<script>
-    const anotherAuthorBtn = document.getElementById('form__anotherBtn');
+<!--<script>-->
+<!--    const anotherAuthorBtn = document.getElementById('form__anotherBtn');-->
 
-    let counter = 0;
+<!--    let counter = 0;-->
 
-    anotherAuthorBtn.onclick = () => {
-        const formText = `<label for="authorFullname${++counter}">ФИО причастного автора*</label>
-                    <select id="authorFullname${counter}" name="authorID">
-                        <option selected value=0>Выберите автора</option>
+<!--    anotherAuthorBtn.onclick = () => {-->
+<!--        const formText = `<label for="authorFullname${++counter}">ФИО причастного автора*</label>-->
+<!--                    <select id="authorFullname${counter}" name="authorID">-->
+<!--                        <option selected value=0>Выберите автора</option>-->
 
-                    </select>
-                    <a href="/moderator/new/author">Нужного автора нет в списке - внести</a>
+<!--                    </select>-->
+<!--                    <a href="/moderator/new/author">Нужного автора нет в списке - внести</a>-->
 
-                    <label for="authorVklad${counter}">Вклад автора*</label>
-                    <textarea class="form__input" id="authorVklad${counter}" type="text" value="authorTermAuthorVklad" name="authorVklad""></textarea>
-                    `;
+<!--                    <label for="authorVklad${counter}">Вклад автора*</label>-->
+<!--                    <textarea class="form__input" id="authorVklad${counter}" type="text" value="authorTermAuthorVklad" name="authorVklad""></textarea>-->
+<!--                    `;-->
 
-        anotherAuthorBtn.insertAdjacentHTML('beforebegin', formText);
-    }
-</script>
+<!--        anotherAuthorBtn.insertAdjacentHTML('beforebegin', formText);-->
+<!--    }-->
+<!--</script>-->
 </body>
 </html>

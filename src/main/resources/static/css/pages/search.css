@@ -9,10 +9,6 @@
 @import url(./../blocks/searchForm.css);
 
 
-.main__inner{
-    padding-top: 55px;
-}
-
 .main__form-wrapper{
     padding: 0;
 }

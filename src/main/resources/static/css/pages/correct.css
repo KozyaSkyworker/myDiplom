@@ -12,10 +12,6 @@
 @import url(./../blocks/success.css);
 
 
-.main__inner{
-    padding-top: 55px;
-}
-
 .main__wrapper{
     margin-top: 1em;
 }

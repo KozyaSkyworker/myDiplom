@@ -29,7 +29,6 @@
                     <textarea class="form__input"  type="text" placeholder="описание " th:field="*{description}" />
                     <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Name Error</p>
                     <input class="form__input"  type="text" placeholder="дата первого употребления" th:field="*{first_date}">
-                    <input class="form__input"  type="text" placeholder="дата последнего обновление" th:field="*{newest_date}">
                     <input class="form__input"  type="text" placeholder="источник информации" th:field="*{information_source}">
                     <p th:if="${#fields.hasErrors('information_source')}" th:errors="*{information_source}">Name Error</p>
                     <button class="btn form__btn" type="submit">Обновить</button>
@@ -40,5 +39,6 @@
     </main>
     <div th:replace="~{fragments/footer :: footer}"></div>
 </div>
+<script th:src="@{/js/header.js}"></script>
 </body>
 </html>
