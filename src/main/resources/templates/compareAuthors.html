@@ -11,18 +11,18 @@
 <div class="wrapper">
     <header class="header">
         <div class="container">
-            <div th:replace="~{fragments/moderatorHeader :: moderatorHeader}"></div>
+            <div th:replace="~{fragments/header :: header}"></div>
         </div>
     </header>
     <main class="main">
         <div class="container">
             <div class="main__inner">
                 <ul class="main__breadcrumbs breadcrumbs__list">
-                    <li class="main__breadcrumbs_item breadcrumbs__wrapper-item" ><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator">главная </a></li>
-                    <li class="main__breadcrumbs_item breadcrumbs__wrapper-item" ><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator/compare">сопоставление </a></li>
+                    <li class="main__breadcrumbs_item breadcrumbs__wrapper-item" ><a class="main__breadcrumbs_link breadcrumbs__link" href="/">главная </a></li>
+                    <li class="main__breadcrumbs_item breadcrumbs__wrapper-item" ><a class="main__breadcrumbs_link breadcrumbs__link" href="/author/compare">сопоставление </a></li>
                 </ul>
                 <div class="main__content">
-                    <form action="#" th:action="@{/moderator/compare}" method="GET">
+                    <form action="#" th:action="@{/author/compare}" method="GET">
                         <select id="leftAuthor" name="leftAuthorId">
                             <option selected value=0>Выберите автора</option>
                             <option th:each="author :${authors}" th:text="${author.fullname}" th:value="${author.id_author}"></option>

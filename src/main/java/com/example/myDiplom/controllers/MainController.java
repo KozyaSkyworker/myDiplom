@@ -127,6 +127,29 @@ public class MainController {
         return  "detailed/authorPage";
     }
 
+    // AUTHORS COMPARE PAGE
+
+    @GetMapping("/author/compare")
+    public String compareAuthors(@RequestParam(required = false) Integer leftAuthorId,
+                                 @RequestParam(required = false) Integer rightAuthorId,
+                                 Model model) {
+
+        Iterable<Author> authors = authorRepository.findAll();
+        model.addAttribute("authors", authors);
+
+        if(leftAuthorId != null && rightAuthorId != null){
+            if(leftAuthorId != 0 && rightAuthorId != 0){
+                Optional<Author> leftAuthor = authorRepository.findById(leftAuthorId);
+                Optional<Author> rightAuthor = authorRepository.findById(rightAuthorId);
+
+                model.addAttribute("leftAuthor", leftAuthor.get());
+                model.addAttribute("rightAuthor", rightAuthor.get());
+            }
+        }
+
+        return "compareAuthors";
+    }
+
     // GET AUTHORIZATION
 
     @GetMapping("/authorization")

@@ -18,7 +18,6 @@
         </header>
         <main class="main">
             <section class="top">
-                <h1 class="top__title">Маленькая энциклопедия о большой информатике</h1>
                 <svg class="top__svg" version="1.0" xmlns="http://www.w3.org/2000/svg" width="45%" height="45%"
                      viewBox="0 0 1280.000000 1280.000000" preserveAspectRatio="xMidYMid meet">
                     <metadata>
@@ -578,24 +577,24 @@ l-12 58 109 105 c60 57 127 114 149 125 78 39 155 60 199 54 22 -4 52 -2 66 4
                     </div>
                 </div>
             </section>
-            <section class="popular">
-                <div class="container">
-                    <div class="popular__inner">
-                        <h2 class="popular__title">Популярные термины</h2>
-                        <div class="popular__wrapper">
-                            <a class="popular__term" href="">
-                                <h3 class="popular__name">name</h3>
-                                <span class="popular__date">date</span>
-                                <span class="popular__views">views</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+<!--            <section class="popular">-->
+<!--                <div class="container">-->
+<!--                    <div class="popular__inner">-->
+<!--                        <h2 class="popular__title">Популярные термины</h2>-->
+<!--                        <div class="popular__wrapper">-->
+<!--                            <a class="popular__term" href="">-->
+<!--                                <h3 class="popular__name">name</h3>-->
+<!--                                <span class="popular__date">date</span>-->
+<!--                                <span class="popular__views">views</span>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </section>-->
         </main>
         <div th:replace="~{fragments/footer :: footer}"></div>
     </div>
-    <script src="./js/header.js"></script>
+    <script th:src="@{/js/header.js}"></script>
     <script src="./js/input.js"></script>
 </body>
 
