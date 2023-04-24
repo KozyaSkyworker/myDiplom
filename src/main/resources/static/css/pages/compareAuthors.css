@@ -7,8 +7,6 @@
 @import url(./../blocks/header.css);
 @import url(./../blocks/footer.css);
 @import url(./../blocks/breadcrumbs.css);
-@import url(./../blocks/moderatorHeader-media.css);
-
 
 .main__content{
     margin-top: 1em;
@@ -39,4 +37,25 @@
     border: 2px dashed #613DC1;
     border-radius: 8px;
     padding: .5em;
+}
+
+@media(max-width:820px){
+    .main__content form{
+        flex-direction: column;
+    }
+    .main__content form button{
+        margin: 1em 0;
+    }
+}
+@media(max-width:650px){
+    .main__row{
+        flex-direction: column;
+    }
+    .main__col{
+        width: unset;
+    }
+    .main__col + .main__col{
+        margin-left: 0;
+        margin-top: 1em;
+    }
 }

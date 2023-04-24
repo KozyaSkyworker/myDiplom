@@ -150,6 +150,21 @@ public class ModeratorController {
         authorRepository.deleteById(id);
         return "redirect:/moderator";
     }
+    @GetMapping("/moderator/lists/delete/term/{id}")
+    public String deleteTermFormLists(@PathVariable("id") Integer id){
+        termRepository.deleteById(id);
+        return "redirect:/moderator/lists";
+    }
+    @GetMapping("/moderator/lists/delete/author/{id}")
+    public String deleteAuthorFormLists(@PathVariable("id") Integer id){
+        authorRepository.deleteById(id);
+        return "redirect:/moderator/lists";
+    }
+//    @GetMapping("/moderator/lists/delete/authorterm/{av}")
+//    public String deleteAuthorTermFormLists(@PathVariable("av") String av){
+//        authorTermRepository.deleteByAuthorVklad(av);
+//        return "redirect:/moderator/lists";
+//    }
 
     // CORRECT
 

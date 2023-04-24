@@ -17,7 +17,7 @@
             </div>
         </header>
         <main class="main">
-            <div class="container">
+
                 <div class="main__inner">
                     <ul class="main__breadcrumbs breadcrumbs__list">
                         <li class="main__breadcrumbs_item breadcrumbs__wrapper-item" ><a class="main__breadcrumbs_link breadcrumbs__link" href="/moderator">главная </a></li>
@@ -34,6 +34,7 @@
                     <div class="main__wrapper">
                       <table th:if="${terms}">
                           <tr>
+                              <th></th>
                               <th>id</th>
                               <th>название</th>
                               <th>описание</th>
@@ -43,6 +44,7 @@
                               <th>дата редактировния</th>
                           </tr>
                           <tr th:each="term : ${terms}">
+                              <td class="delete-cell"><a th:href="@{/moderator/lists/delete/term/{id}(id=${term.getId_term()})}">удалить</a></td>
                               <td th:text="${term.id_term}"></td>
                               <td th:text="${term.name}"></td>
                               <td th:text="${term.description}"></td>
@@ -52,20 +54,22 @@
                               <td th:text="${term.updateTimestamp}"></td>
                           </tr>
                       </table>
-                    <table th:if="${authors}" style="width:2000px">
+                    <table th:if="${authors}">
                         <tr>
+                            <th></th>
                             <th>id</th>
                             <th>ФИО</th>
                             <th>Дата рождения</th>
                             <th>Страна</th>
                             <th>город</th>
                             <th>Национальность</th>
-                            <th style="width:60%;">основной вид деятельности</th>
-                            <th style="width:30%;">ссылка на картинку</th>
+                            <th>основной вид деятельности</th>
+                            <th>Фотография имеется</th>
                             <th>дата создания</th>
                             <th>дата редактировния</th>
                         </tr>
                         <tr th:each="author : ${authors}">
+                            <td class="delete-cell"><a th:href="@{/moderator/lists/delete/author/{id}(id=${author.getId_author()})}">удалить</a></td>
                             <td th:text="${author.id_author}"></td>
                             <td th:text="${author.fullname}"></td>
                             <td th:text="${author.birth_date}"></td>
@@ -73,13 +77,14 @@
                             <td th:text="${author.born_city}"></td>
                             <td th:text="${author.nationality}"></td>
                             <td th:text="${author.main_activity}"></td>
-                            <td th:text="${author.img}"></td>
+                            <td >да</td>
                             <td th:text="${author.createTimestamp}"></td>
                             <td th:text="${author.updateTimestamp}"></td>
                         </tr>
                     </table>
                     <table th:if="${authorTerms}">
                         <tr>
+                            <th></th>
                             <th>id автора</th>
                             <th>id термина</th>
                             <th>вклад автора</th>
@@ -87,6 +92,7 @@
                             <th>дата редактировния</th>
                         </tr>
                         <tr th:each="authorTerm : ${authorTerms}">
+                            <td class="delete-cell"><a >удалить</a></td>
                             <td th:text="${authorTerm.id_author}"></td>
                             <td th:text="${authorTerm.id_term}"></td>
                             <td th:text="${authorTerm.author_vklad}"></td>
@@ -96,9 +102,10 @@
                     </table>
                     </div>
                 </div>
-            </div>
+
         </main>
     </div>
     <script th:src="@{/js/header.js}"></script>
+    <script th:src="@{/js/burger.js}"></script>
 </body>
 </html>

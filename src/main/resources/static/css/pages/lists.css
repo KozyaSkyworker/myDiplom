@@ -13,6 +13,11 @@
     margin-top: 1em;
 }
 
+.main__inner{
+    padding-left: .5em;
+    padding-right: .5em;
+}
+
 label:hover{
     cursor: pointer;
 }
@@ -20,12 +25,21 @@ label:hover{
 table{
     border-collapse: collapse;
     width: 100%;
+    table-layout: auto;
 }
 
 td, th {
   border: 1px solid #343434;
   text-align: left;
   padding: 8px;
+}
+
+.delete-cell a{
+    color: #000;
+    font-weight: 700;
+}
+.delete-cell a:hover{
+    color: red;
 }
 
 tr:hover{

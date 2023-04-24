@@ -52,7 +52,7 @@
 <!--                </div>-->
                 <div class="main__result-wrapper" th:if="${request}" >
                     <h2>Вот что нашлось</h2>
-                    <p th:if="${empty}">По Вашему запросу "<span th:text="${empty}"></span>" ничего не найдено. Возможно, нашлись совпадения</p>
+                    <p th:if="${empty}">Результаты для Вашего запроса "<span th:text="${empty}"></span>".</p>
                     <p>Если Вы не нашли что искали - можете перейти <a href="/moderator/lists">на страницу со всей внесённой информацией</a></p>
                     <div class="main__result-content">
                         <div class="main__result-col terms" th:if="${termList}">

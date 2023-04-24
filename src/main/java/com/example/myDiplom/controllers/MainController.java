@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 //import javax.validation.Valid;
@@ -46,31 +47,29 @@ public class MainController {
     public String getSearch(@RequestParam(required = false) String isTerm,
                             @RequestParam(required = false) String isAuthor,
                             @RequestParam(required = false) String name, Model model) {
+
+        System.out.println(isTerm);
+        System.out.println(isAuthor);
+
         Term term = termRepository.findByName(name);
 
         if (term == null){
             if (isTerm != null){
                 List<Term> termList = termRepository.findByNameContains(name);
-                if(termList.size() == 0){
-                    model.addAttribute("empty", name);
-                }
-                else {
+                if(termList.size() != 0){
                     model.addAttribute("termList", termList);
                 }
             }
             if(isAuthor != null){
                 List<Author> authorList = authorRepository.findByFullnameContains(name);
-                if(authorList.size() == 0){
-                    model.addAttribute("empty", name);
-                }
-                else {
+                if(authorList.size() != 0){
                     model.addAttribute("authorList", authorList);
                 }
             }
 
+            model.addAttribute("result", name);
             return "search";
         }
-
         model.addAttribute("term", term);
 
         try {
@@ -87,7 +86,6 @@ public class MainController {
             }
         }
         finally {
-
         }
         model.addAttribute("moderator", false);
         return "detailed/termPage";
@@ -101,6 +99,8 @@ public class MainController {
 
         Iterable<AuthorTerm> authorTerm = authorTermRepository.findAll();
 
+
+
         for(AuthorTerm at : authorTerm){
             if(at.getId_term().equals(term.get().getId_term())){
                 Integer authorId = at.getId_author();
@@ -111,6 +111,8 @@ public class MainController {
                 model.addAttribute("authorTerm", at);
             }
         }
+
+
         model.addAttribute("term", term.get());
         model.addAttribute("moderator", false);
 

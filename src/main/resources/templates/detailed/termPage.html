@@ -30,7 +30,7 @@
                         <p>Первое употребление: <a th:if="${author}" th:text="${author.getFullname}" th:href="@{/author/{id}(id=${author.getId_author()})}"></a> <span class="main__date"  th:text="${term.first_date}"></span><span th:if="${authorTerm}" th:text="${authorTerm.author_vklad}"></span></p>
                     </div>
                     <div class="row">
-                        <p> Причастные: </p>
+                        <p> Причастные:</p>
                     </div>
                     <div class="row">
                         Исчточник(ки): <a href="#" th:text="${term.information_source}"></a>

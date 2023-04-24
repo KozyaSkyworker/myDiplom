@@ -51,8 +51,6 @@
                     <textarea class="form__input" id="authorVklad" type="text" value="authorTermAuthorVklad" name="authorVklad" th:field="*{authorTerm.author_vklad}"></textarea>
                     <p th:if="${#fields.hasErrors('authorTerm.author_vklad')}" th:errors="*{authorTerm.author_vklad}">Name Error</p>
 
-                    <button id="form__anotherBtn" type="button">Добавить ешё одного причастного автора</button>
-
                     <button class="btn form__btn" type="submit">Внести</button>
                 </form>
             </div>

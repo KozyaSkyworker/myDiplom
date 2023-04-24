@@ -39,7 +39,7 @@
     }
     .header__navigation--active{
         left: 0;
-        top: 40px;
+        top: 100px;
         display: block;
     }
 }

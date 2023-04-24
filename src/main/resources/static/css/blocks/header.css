@@ -27,7 +27,8 @@
 }
 
 .header__filters,
-.header__home{
+.header__home,
+.header__compare{
     display: none;
 }
 
@@ -69,19 +70,25 @@
     transform: translateY(-55px);
 }
 
+@media(max-width:820px){
+     header svg g{
+        fill: #fff;
+     }
+     .header__compare path{
+        fill: #fff;
+     }
+     .header__filters,
+     .header__compare{
+        display: block;
+     }
+     .header__navigation{
+        display: none;
+     }
+}
+
 @media(max-width:650px){
     .header__title{
         font-size: 1em;
-    }
-    header svg g{
-        fill: #fff;
-    }
-
-    .header__filters {
-        display: block;
-    }
-    .header__navigation{
-        display: none;
     }
 }
 

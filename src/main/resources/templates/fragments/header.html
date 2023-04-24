@@ -7,8 +7,8 @@
     </a>
         <nav class="header__navigation">
             <ul class="header__list">
-                <li class="header__list-item"><a class="header__list-link header__link" href="/search">Расширенный поиск</a>
-                </li>
+                <li class="header__list-item"><a class="header__list-link header__link" href="/search">Расширенный поиск</a></li>
+                <li class="header__list-item"><a class="header__list-link header__link" href="/author/compare">Сопоставить авторов</a></li>
             </ul>
         </nav>
 
@@ -25,8 +25,12 @@
         </a>
 
 
-        <a class="header__filters" href="/search">
+        <a class="header__filters" href="/search" alt="расширенный поиск">
             <svg viewBox="0 0 32 32" width="32px" height="32px" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:none;}</style></defs><title/><g data-name="Layer 2" id="Layer_2"><path d="M28,9H11a1,1,0,0,1,0-2H28a1,1,0,0,1,0,2Z"/><path d="M7,9H4A1,1,0,0,1,4,7H7A1,1,0,0,1,7,9Z"/><path d="M21,17H4a1,1,0,0,1,0-2H21a1,1,0,0,1,0,2Z"/><path d="M11,25H4a1,1,0,0,1,0-2h7a1,1,0,0,1,0,2Z"/><path d="M9,11a3,3,0,1,1,3-3A3,3,0,0,1,9,11ZM9,7a1,1,0,1,0,1,1A1,1,0,0,0,9,7Z"/><path d="M23,19a3,3,0,1,1,3-3A3,3,0,0,1,23,19Zm0-4a1,1,0,1,0,1,1A1,1,0,0,0,23,15Z"/><path d="M13,27a3,3,0,1,1,3-3A3,3,0,0,1,13,27Zm0-4a1,1,0,1,0,1,1A1,1,0,0,0,13,23Z"/><path d="M28,17H25a1,1,0,0,1,0-2h3a1,1,0,0,1,0,2Z"/><path d="M28,25H15a1,1,0,0,1,0-2H28a1,1,0,0,1,0,2Z"/></g><g id="frame"><rect class="cls-1" height="32" width="32"/></g></svg>
+        </a>
+
+        <a class="header__compare" href="/author/compare" alt="сравнить">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M10 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h5v2h2V1h-2v2zm0 15H5l5-6v6zm9-15h-5v2h5v13l-5-6v9h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
         </a>
 
         <a class="header__login header__link" th:href="@{/moderator}">модераторам</a></div>
