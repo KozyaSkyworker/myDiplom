@@ -1,12 +1,14 @@
+let firstDate = termsList[0].first_date;
+
 const ctx = document.getElementById('myChart');
 
   new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
-      labels: ['year1', 'year2', 'year3', 'year4'],
+      labels: [firstDate, 'year2'],
       datasets: [{
         label: '# of Votes',
-        data: [4,3,2,5],
+        data: [1, 5],
         borderWidth: 1
       }]
     },
@@ -18,3 +20,4 @@ const ctx = document.getElementById('myChart');
       }
     }
   });
+
