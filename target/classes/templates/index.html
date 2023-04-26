@@ -577,6 +577,11 @@ l-12 58 109 105 c60 57 127 114 149 125 78 39 155 60 199 54 22 -4 52 -2 66 4
                     </div>
                 </div>
             </section>
+            <div>
+                <div class="container">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
 <!--            <section class="popular">-->
 <!--                <div class="container">-->
 <!--                    <div class="popular__inner">-->
@@ -594,6 +599,8 @@ l-12 58 109 105 c60 57 127 114 149 125 78 39 155 60 199 54 22 -4 52 -2 66 4
         </main>
         <div th:replace="~{fragments/footer :: footer}"></div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/myChart.js"></script>
     <script th:src="@{/js/header.js}"></script>
     <script src="./js/input.js"></script>
 </body>
