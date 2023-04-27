@@ -27,10 +27,18 @@
                         <p class="main__descr" th:text="${term.description}"></p>
                     </div>
                     <div class="row">
-                        <p>Первое употребление: <a th:if="${author}" th:text="${author.getFullname}" th:href="@{/author/{id}(id=${author.getId_author()})}"></a> <span class="main__date"  th:text="${term.first_date}"></span><span th:if="${authorTerm}" th:text="${authorTerm.author_vklad}"></span></p>
+                        <p>Первое употребление: <span th:text="${term.first_date}"></span></p>
                     </div>
-                    <div class="row">
-                        <p> Причастные:</p>
+                    <div class="row" th:if="${termAuthors}">
+                        <p> Причастные авторы и их вклады:</p>
+                        <div class="main__term-author">
+                            <div class="col">
+                                <a th:each="termAuthor : ${termAuthors}" th:href="@{/author/{id}(id=${termAuthor.getId_author()})}" th:text="${termAuthor.fullname}"></a>
+                            </div>
+                            <div class="col">
+                                <p th:each="authorTerm : ${authorTerms}" th:text="${authorTerm.author_vklad}"></p>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         Исчточник(ки): <a href="#" th:text="${term.information_source}"></a>

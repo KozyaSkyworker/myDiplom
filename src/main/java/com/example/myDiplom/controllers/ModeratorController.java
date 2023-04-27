@@ -17,10 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.sql.Timestamp;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 @Controller
 public class ModeratorController {
@@ -73,19 +70,13 @@ public class ModeratorController {
         model.addAttribute("term", term.get());
 
         try {
-            Iterable<AuthorTerm> authorTerm = authorTermRepository.findAll();
-            for(AuthorTerm at : authorTerm){
-
-                if(at.getId_term().equals(term.get().getId_term())){
-
-                    Integer authorId = at.getId_author();
-
-                    Optional<Author> author = authorRepository.findById(authorId);
-
-                    model.addAttribute("author", author.get());
-                    model.addAttribute("authorTerm", at);
-                }
+            List<AuthorTerm> authorTerms = authorTermRepository.findByTermId(id);
+            List<Author> termAuthors = new ArrayList<>();
+            for (AuthorTerm at : authorTerms){
+                termAuthors.add(authorRepository.findById(at.getId_author()).get());
             }
+            model.addAttribute("authorTerms", authorTerms);
+            model.addAttribute("termAuthors", termAuthors);
         }
         finally {
         }

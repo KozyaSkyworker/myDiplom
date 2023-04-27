@@ -16,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -35,8 +36,10 @@ public class MainController {
     @GetMapping("/")
     public String getMainPage(Model model){
         Iterable<Term> terms = termRepository.findByDate();
+        Iterable<Term> allTerms = termRepository.findAll();
 
         model.addAttribute("terms", terms);
+        model.addAttribute("allTerms", allTerms);
 
         return "index";
     }
@@ -97,23 +100,16 @@ public class MainController {
     public String getTermById(@PathVariable("id") Integer id, Model model){
         Optional<Term> term = termRepository.findById(id);
 
-        Iterable<AuthorTerm> authorTerm = authorTermRepository.findAll();
-
-
-
-        for(AuthorTerm at : authorTerm){
-            if(at.getId_term().equals(term.get().getId_term())){
-                Integer authorId = at.getId_author();
-
-                Optional<Author> author = authorRepository.findById(authorId);
-
-                model.addAttribute("author", author.get());
-                model.addAttribute("authorTerm", at);
-            }
+        List<AuthorTerm> authorTerms = authorTermRepository.findByTermId(id);
+        List<Author> termAuthors = new ArrayList<>();
+        for (AuthorTerm at : authorTerms){
+            termAuthors.add(authorRepository.findById(at.getId_author()).get());
         }
 
-
         model.addAttribute("term", term.get());
+        model.addAttribute("authorTerms", authorTerms);
+        model.addAttribute("termAuthors", termAuthors);
+
         model.addAttribute("moderator", false);
 
         return  "detailed/termPage";
@@ -144,8 +140,29 @@ public class MainController {
                 Optional<Author> leftAuthor = authorRepository.findById(leftAuthorId);
                 Optional<Author> rightAuthor = authorRepository.findById(rightAuthorId);
 
+                List<AuthorTerm> leftAuthorTerms = authorTermRepository.findByAuthorId(leftAuthorId);
+                List<AuthorTerm> rightAuthorTerms = authorTermRepository.findByAuthorId(rightAuthorId);
+
+                List<Term> termsLeftAuthor = new ArrayList<>();
+                List<Term> termsRightAuthor = new ArrayList<>();
+
+                if (leftAuthorTerms.size() != 0){
+                    for (AuthorTerm at: leftAuthorTerms){
+                        termsLeftAuthor.add(termRepository.findById(at.getId_term()).get());
+                    }
+                }
+                if (rightAuthorTerms.size() != 0){
+                    for (AuthorTerm at: rightAuthorTerms){
+                        termsRightAuthor.add(termRepository.findById(at.getId_term()).get());
+                    }
+                }
+
                 model.addAttribute("leftAuthor", leftAuthor.get());
+                model.addAttribute("termsLeftAuthor", termsLeftAuthor);
+
                 model.addAttribute("rightAuthor", rightAuthor.get());
+                model.addAttribute("termsRightAuthor", termsRightAuthor);
+
             }
         }
 
