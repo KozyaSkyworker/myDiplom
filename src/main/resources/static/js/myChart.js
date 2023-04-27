@@ -1,16 +1,20 @@
-let firstDate = termsList[0].first_date;
-
 let dateArray = []
-
+// получаю все даты
 termsList.forEach(el =>
     dateArray.push(el.first_date)
 );
-
+//считаю количество упоминаний за один год
 let res = dateArray.reduce(function(acc, el) {
     acc[el] = (acc[el] || 0) + 1;
     return acc;
 }, {});
-
+//
+let yearsArray = [];
+let yearCount = [];
+for (key in res){
+    yearsArray.push(key);
+    yearCount.push(res[key]);
+}
 
 
 const ctx = document.getElementById('myChart');
@@ -18,10 +22,10 @@ const ctx = document.getElementById('myChart');
   new Chart(ctx, {
     type: 'line',
     data: {
-      labels: [res],
+      labels: yearsArray,
       datasets: [{
         label: 'Термины информатики за год',
-        data: [res],
+        data: yearCount,
         borderWidth: 1
       }]
     },
