@@ -35,6 +35,7 @@
                       <table th:if="${terms}">
                           <tr>
                               <th></th>
+                              <th></th>
                               <th>id</th>
                               <th>название</th>
                               <th>описание</th>
@@ -44,7 +45,35 @@
                               <th>дата редактировния</th>
                           </tr>
                           <tr th:each="term : ${terms}">
-                              <td class="delete-cell"><a th:href="@{/moderator/lists/delete/term/{id}(id=${term.getId_term()})}">удалить</a></td>
+                              <td class="delete-cell">
+                                  <a th:href="@{/moderator/lists/delete/term/{id}(id=${term.getId_term()})}">
+                                      <svg height="22px" style="enable-background:new 0 0 98 137;" version="1.1" viewBox="0 0 98 137" width="22px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+                                        <![CDATA[
+                                            .st0{fill:#EF3E42;}
+                                            .st1{fill:#FFFFFF;}
+                                            .st2{fill:none;}
+                                            .st3{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+                                        ]]>
+                                        </style><defs/><path d="M75.6,44.8v73c0,3.4-2.8,6.2-6.2,6.2H21.3c-3.4,0-6.2-2.8-6.2-6.2v-73H75.6L75.6,44.8z M59.9,52.9v62.8h3.6V52.9H59.9  L59.9,52.9z M43.6,52.9v62.8h3.6V52.9H43.6L43.6,52.9z M27.3,52.9v62.8h3.6V52.9H27.3L27.3,52.9z M31.3,27.9v-5.2  c0-3.3,2.6-5.9,5.9-5.9h16.4c3.3,0,5.9,2.6,5.9,5.9v5.2h18.1c3.4,0,6.2,2.8,6.2,6.2v4.3H7V34c0-3.4,2.8-6.2,6.2-6.2H31.3L31.3,27.9z   M37.2,20.8c-1,0-1.8,0.8-1.8,1.8v5.2h20.1v-5.2c0-1-0.8-1.8-1.8-1.8H37.2L37.2,20.8z"/><rect class="st2" height="137" id="_x3C_Slice_x3E__100_" width="98"/></svg>
+                                  </a>
+                              </td>
+                              <td>
+                                  <a th:href="@{/moderator/edit/term/{id}(id=${term.getId_term()})}"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                       width="20px" height="20px" viewBox="0 0 485.219 485.22" style="enable-background:new 0 0 485.219 485.22;"
+                                       xml:space="preserve">
+                                        <g>
+                                            <path d="M467.476,146.438l-21.445,21.455L317.35,39.23l21.445-21.457c23.689-23.692,62.104-23.692,85.795,0l42.886,42.897
+                                                C491.133,84.349,491.133,122.748,467.476,146.438z M167.233,403.748c-5.922,5.922-5.922,15.513,0,21.436
+                                                c5.925,5.955,15.521,5.955,21.443,0L424.59,189.335l-21.469-21.457L167.233,403.748z M60,296.54c-5.925,5.927-5.925,15.514,0,21.44
+                                                c5.922,5.923,15.518,5.923,21.443,0L317.35,82.113L295.914,60.67L60,296.54z M338.767,103.54L102.881,339.421
+                                                c-11.845,11.822-11.815,31.041,0,42.886c11.85,11.846,31.038,11.901,42.914-0.032l235.886-235.837L338.767,103.54z
+                                                 M145.734,446.572c-7.253-7.262-10.749-16.465-12.05-25.948c-3.083,0.476-6.188,0.919-9.36,0.919
+                                                c-16.202,0-31.419-6.333-42.881-17.795c-11.462-11.491-17.77-26.687-17.77-42.887c0-2.954,0.443-5.833,0.859-8.703
+                                                c-9.803-1.335-18.864-5.629-25.972-12.737c-0.682-0.677-0.917-1.596-1.538-2.338L0,485.216l147.748-36.986
+                                                C147.097,447.637,146.36,447.193,145.734,446.572z"/>
+                                        </g>
+                                    </svg></a>
+                              </td>
                               <td th:text="${term.id_term}"></td>
                               <td th:text="${term.name}"></td>
                               <td th:text="${term.description}"></td>
@@ -57,19 +86,48 @@
                     <table th:if="${authors}">
                         <tr>
                             <th></th>
+                            <th></th>
                             <th>id</th>
                             <th>ФИО</th>
                             <th>Дата рождения</th>
                             <th>Страна</th>
                             <th>город</th>
                             <th>Национальность</th>
-                            <th>основной вид деятельности</th>
+                            <th>деятельность</th>
                             <th>Фотография имеется</th>
                             <th>дата создания</th>
                             <th>дата редактировния</th>
                         </tr>
                         <tr th:each="author : ${authors}">
-                            <td class="delete-cell"><a th:href="@{/moderator/lists/delete/author/{id}(id=${author.getId_author()})}">удалить</a></td>
+                            <td class="delete-cell">
+                                <a th:href="@{/moderator/lists/delete/author/{id}(id=${author.getId_author()})}">
+                                    <svg height="22px" style="enable-background:new 0 0 98 137;" version="1.1" viewBox="0 0 98 137" width="22px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+                                        <![CDATA[
+                                            .st0{fill:#EF3E42;}
+                                            .st1{fill:#FFFFFF;}
+                                            .st2{fill:none;}
+                                            .st3{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+                                        ]]>
+                                        </style><defs/><path d="M75.6,44.8v73c0,3.4-2.8,6.2-6.2,6.2H21.3c-3.4,0-6.2-2.8-6.2-6.2v-73H75.6L75.6,44.8z M59.9,52.9v62.8h3.6V52.9H59.9  L59.9,52.9z M43.6,52.9v62.8h3.6V52.9H43.6L43.6,52.9z M27.3,52.9v62.8h3.6V52.9H27.3L27.3,52.9z M31.3,27.9v-5.2  c0-3.3,2.6-5.9,5.9-5.9h16.4c3.3,0,5.9,2.6,5.9,5.9v5.2h18.1c3.4,0,6.2,2.8,6.2,6.2v4.3H7V34c0-3.4,2.8-6.2,6.2-6.2H31.3L31.3,27.9z   M37.2,20.8c-1,0-1.8,0.8-1.8,1.8v5.2h20.1v-5.2c0-1-0.8-1.8-1.8-1.8H37.2L37.2,20.8z"/><rect class="st2" height="137" id="_x3C_Slice_x3E__100_" width="98"/></svg>
+                            </a>
+                            </td>
+                            <td>
+                                <a th:href="@{/moderator/edit/author/{id}(id=${author.getId_author()})}"><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                       width="20px" height="20px" viewBox="0 0 485.219 485.22" style="enable-background:new 0 0 485.219 485.22;"
+                                       xml:space="preserve">
+                                        <g>
+                                            <path d="M467.476,146.438l-21.445,21.455L317.35,39.23l21.445-21.457c23.689-23.692,62.104-23.692,85.795,0l42.886,42.897
+                                                C491.133,84.349,491.133,122.748,467.476,146.438z M167.233,403.748c-5.922,5.922-5.922,15.513,0,21.436
+                                                c5.925,5.955,15.521,5.955,21.443,0L424.59,189.335l-21.469-21.457L167.233,403.748z M60,296.54c-5.925,5.927-5.925,15.514,0,21.44
+                                                c5.922,5.923,15.518,5.923,21.443,0L317.35,82.113L295.914,60.67L60,296.54z M338.767,103.54L102.881,339.421
+                                                c-11.845,11.822-11.815,31.041,0,42.886c11.85,11.846,31.038,11.901,42.914-0.032l235.886-235.837L338.767,103.54z
+                                                 M145.734,446.572c-7.253-7.262-10.749-16.465-12.05-25.948c-3.083,0.476-6.188,0.919-9.36,0.919
+                                                c-16.202,0-31.419-6.333-42.881-17.795c-11.462-11.491-17.77-26.687-17.77-42.887c0-2.954,0.443-5.833,0.859-8.703
+                                                c-9.803-1.335-18.864-5.629-25.972-12.737c-0.682-0.677-0.917-1.596-1.538-2.338L0,485.216l147.748-36.986
+                                                C147.097,447.637,146.36,447.193,145.734,446.572z"/>
+                                        </g>
+                                    </svg></a>
+                            </td>
                             <td th:text="${author.id_author}"></td>
                             <td th:text="${author.fullname}"></td>
                             <td th:text="${author.birth_date}"></td>
@@ -85,6 +143,7 @@
                     <table th:if="${authorTerms}">
                         <tr>
                             <th></th>
+                            <th></th>
                             <th>id автора</th>
                             <th>id термина</th>
                             <th>вклад автора</th>
@@ -92,7 +151,36 @@
                             <th>дата редактировния</th>
                         </tr>
                         <tr th:each="authorTerm : ${authorTerms}">
-                            <td class="delete-cell"><a >удалить</a></td>
+                            <td class="delete-cell">
+                                <a th:href="@{/moderator/lists/delete/authorterm(idAuthor=${authorTerm.id_author}, idTerm=${authorTerm.id_term})}">
+                                    <svg height="22px" style="enable-background:new 0 0 98 137;" version="1.1" viewBox="0 0 98 137" width="22px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+                                        <![CDATA[
+                                            .st0{fill:#EF3E42;}
+                                            .st1{fill:#FFFFFF;}
+                                            .st2{fill:none;}
+                                            .st3{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+                                        ]]>
+                                        </style><defs/><path d="M75.6,44.8v73c0,3.4-2.8,6.2-6.2,6.2H21.3c-3.4,0-6.2-2.8-6.2-6.2v-73H75.6L75.6,44.8z M59.9,52.9v62.8h3.6V52.9H59.9  L59.9,52.9z M43.6,52.9v62.8h3.6V52.9H43.6L43.6,52.9z M27.3,52.9v62.8h3.6V52.9H27.3L27.3,52.9z M31.3,27.9v-5.2  c0-3.3,2.6-5.9,5.9-5.9h16.4c3.3,0,5.9,2.6,5.9,5.9v5.2h18.1c3.4,0,6.2,2.8,6.2,6.2v4.3H7V34c0-3.4,2.8-6.2,6.2-6.2H31.3L31.3,27.9z   M37.2,20.8c-1,0-1.8,0.8-1.8,1.8v5.2h20.1v-5.2c0-1-0.8-1.8-1.8-1.8H37.2L37.2,20.8z"/><rect class="st2" height="137" id="_x3C_Slice_x3E__100_" width="98"/></svg>
+                            </a></td>
+                            <td class="delete-cell">
+                                <a>
+                                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                       width="20px" height="20px" viewBox="0 0 485.219 485.22" style="enable-background:new 0 0 485.219 485.22;"
+                                       xml:space="preserve">
+                                        <g>
+                                            <path d="M467.476,146.438l-21.445,21.455L317.35,39.23l21.445-21.457c23.689-23.692,62.104-23.692,85.795,0l42.886,42.897
+                                                C491.133,84.349,491.133,122.748,467.476,146.438z M167.233,403.748c-5.922,5.922-5.922,15.513,0,21.436
+                                                c5.925,5.955,15.521,5.955,21.443,0L424.59,189.335l-21.469-21.457L167.233,403.748z M60,296.54c-5.925,5.927-5.925,15.514,0,21.44
+                                                c5.922,5.923,15.518,5.923,21.443,0L317.35,82.113L295.914,60.67L60,296.54z M338.767,103.54L102.881,339.421
+                                                c-11.845,11.822-11.815,31.041,0,42.886c11.85,11.846,31.038,11.901,42.914-0.032l235.886-235.837L338.767,103.54z
+                                                 M145.734,446.572c-7.253-7.262-10.749-16.465-12.05-25.948c-3.083,0.476-6.188,0.919-9.36,0.919
+                                                c-16.202,0-31.419-6.333-42.881-17.795c-11.462-11.491-17.77-26.687-17.77-42.887c0-2.954,0.443-5.833,0.859-8.703
+                                                c-9.803-1.335-18.864-5.629-25.972-12.737c-0.682-0.677-0.917-1.596-1.538-2.338L0,485.216l147.748-36.986
+                                                C147.097,447.637,146.36,447.193,145.734,446.572z"/>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </td>
                             <td th:text="${authorTerm.id_author}"></td>
                             <td th:text="${authorTerm.id_term}"></td>
                             <td th:text="${authorTerm.author_vklad}"></td>

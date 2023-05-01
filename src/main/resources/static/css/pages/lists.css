@@ -17,7 +17,9 @@
     padding-left: .5em;
     padding-right: .5em;
 }
-
+.main__wrapper{
+   padding-top: 1em;
+}
 label:hover{
     cursor: pointer;
 }

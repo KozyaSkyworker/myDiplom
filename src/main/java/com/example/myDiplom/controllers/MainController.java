@@ -148,12 +148,21 @@ public class MainController {
 
                 if (leftAuthorTerms.size() != 0){
                     for (AuthorTerm at: leftAuthorTerms){
-                        termsLeftAuthor.add(termRepository.findById(at.getId_term()).get());
+                        try {
+                            termsLeftAuthor.add(termRepository.findById(at.getId_term()).get());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
                     }
                 }
                 if (rightAuthorTerms.size() != 0){
                     for (AuthorTerm at: rightAuthorTerms){
-                        termsRightAuthor.add(termRepository.findById(at.getId_term()).get());
+                        try {
+                            termsRightAuthor.add(termRepository.findById(at.getId_term()).get());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
 
