@@ -154,10 +154,12 @@ public class ModeratorController {
     @GetMapping("/moderator/lists/delete/authorterm")
     public String deleteAuthorTermFormLists(@RequestParam Integer idAuthor,
                                             @RequestParam Integer idTerm){
-        System.out.println(idAuthor+" - "+idTerm);
-        System.out.println();
-        authorTermRepository.deleteAuthorTermByAuthorIdAndTermId(idAuthor, idTerm);
-        return "redirect:/moderator/lists";
+        try {
+            authorTermRepository.delete(authorTermRepository.findAuthorTermByAuthorIdAndTermId(idAuthor, idTerm));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "redirect:/moderator/lists?params=authorTerms";
     }
 
     // CORRECT

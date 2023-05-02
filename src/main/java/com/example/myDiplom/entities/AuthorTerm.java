@@ -24,6 +24,7 @@ public class AuthorTerm {
     @Id
 //    @NotNull(message = "Поле не может быть пустым")
     private Integer id_author;
+
     @Column(columnDefinition = "TEXT")
     @NotBlank(message = "Поле не может быть пустым")
     private String author_vklad;

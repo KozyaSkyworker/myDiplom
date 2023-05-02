@@ -16,7 +16,6 @@ public interface AuthorTermRepository extends CrudRepository<AuthorTerm, Integer
     @Query("select at from AuthorTerm at where at.id_term = ?1")
     List<AuthorTerm> findByTermId(Integer termId);
 
-    @Modifying
-    @Query("delete from AuthorTerm at where at.id_author = ?1 and at.id_term = ?2")
-    void deleteAuthorTermByAuthorIdAndTermId(Integer idAuthor, Integer idTerm);
+    @Query("select at from AuthorTerm at where at.id_author = ?1 and at.id_term = ?2")
+    AuthorTerm findAuthorTermByAuthorIdAndTermId(Integer idAuthor, Integer idTerm);
 }
