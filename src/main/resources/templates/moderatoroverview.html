@@ -53,7 +53,7 @@
                 <div class="main__result-wrapper" th:if="${request}" >
                     <h2>Вот что нашлось</h2>
                     <p th:if="${empty}">Результаты для Вашего запроса "<span th:text="${empty}"></span>".</p>
-                    <p>Если Вы не нашли что искали - можете перейти <a href="/moderator/lists">на страницу со всей внесённой информацией</a></p>
+                    <p>Если Вы не нашли что искали - можете перейти <a class="main__result-link" href="/moderator/lists">на страницу со всей внесённой информацией</a></p>
                     <div class="main__result-content">
                         <div class="main__result-col terms" th:if="${termList}">
                             <h3 class="main__result-title">Термины</h3>
@@ -62,8 +62,8 @@
                                     <a class="main__list-link" th:href="@{/moderator/term/{id}(id=${term.getId_term()})}" th:text="${term.name}"></a>
                                     <span>|</span>
                                     <div class="main__list-controls">
-                                        <a class="main__list-link" th:href="@{/moderator/edit/term/{id}(id=${term.getId_term()})}" >редактировать</a>
-                                        <a class="main__list-link" th:href="@{/moderator/delete/term/{id}(id=${term.getId_term()})}" >удалить</a>
+                                        <a class="main__list-link edit" th:href="@{/moderator/edit/term/{id}(id=${term.getId_term()})}" >редактировать</a>
+                                        <a class="main__list-link delete" th:href="@{/moderator/delete/term/{id}(id=${term.getId_term()})}" >удалить</a>
                                     </div>
                                 </li>
                             </ul>
@@ -75,8 +75,8 @@
                                     <a class="main__list-link" th:href="@{/moderator/author/{id}(id=${author.getId_author()})}" th:text="${author.fullname}"></a>
                                     <span>|</span>
                                     <div class="main__list-controls">
-                                        <a class="main__list-link" th:href="@{/moderator/edit/author/{id}(id=${author.getId_author()})}" >редактировать</a>
-                                        <a class="main__list-link" th:href="@{/moderator/delete/author/{id}(id=${author.getId_author()})}" >удалить</a>
+                                        <a class="main__list-link edit" th:href="@{/moderator/edit/author/{id}(id=${author.getId_author()})}" >редактировать</a>
+                                        <a class="main__list-link delete" th:href="@{/moderator/delete/author/{id}(id=${author.getId_author()})}" >удалить</a>
                                     </div>
                                 </li>
                             </ul>

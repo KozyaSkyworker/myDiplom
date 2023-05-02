@@ -30,6 +30,20 @@ table{
     table-layout: auto;
 }
 
+table a{
+    display: block;
+    height: 100%;
+    padding: 2px;
+    width: 100%;
+}
+
+.edit-link:hover svg g path{
+    fill: #0ab80a;
+}
+.delete-link:hover svg path{
+    fill: red;
+}
+
 td, th {
   border: 1px solid #343434;
   text-align: left;
@@ -46,5 +60,5 @@ td, th {
 
 tr:hover{
     cursor: pointer;
-    background-color: #ccc;
+    background-color: #ddd;
 }
