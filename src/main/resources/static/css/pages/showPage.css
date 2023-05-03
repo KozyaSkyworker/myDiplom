@@ -8,3 +8,12 @@
 @import url(./../blocks/footer.css);
 @import url(./../blocks/breadcrumbs.css);
 
+.row + .row{
+    margin-top: .5em;
+}
+.main__descr{
+    text-align: justify;
+}
+.main__descr::first-letter{
+    text-transform: uppercase;
+}

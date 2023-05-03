@@ -49,7 +49,17 @@
     height: 30px;
 }
 
-@media(max-width:450px){
+svg path{
+    transition: all .3s ease;
+}
+
+svg:hover .vk-path,
+svg:hover .tg-path,
+svg:hover .wa-path {
+    fill: #fff;
+}
+
+@media(max-width:480px){
     .footer__inner{
         flex-direction: column;
     }
@@ -59,5 +69,8 @@
     }
     .footer__col + .footer__col{
         margin-top: 1em;
+    }
+    .footer__col:nth-last-child(1){
+        display: block;
     }
 }
