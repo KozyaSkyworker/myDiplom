@@ -41,7 +41,7 @@
                                 <p>Дата рождения: <span th:text="${leftAuthor.birth_date}"></span></p>
                                 <p>Место рождения: <span th:text="${leftAuthor.born_country}"></span>, <span th:text="${leftAuthor.born_city}"></span></p>
                                 <p th:text="${leftAuthor.nationality}"></p>
-                                <p class="main__main" th:text="${leftAuthor.main_activity}"></p>
+                                <p class="main__main" id="first" th:text="${leftAuthor.main_activity}"></p>
                                 <p th:if="${termsLeftAuthor}">Участие в терминах: <a class="main__term" th:each="term : ${termsLeftAuthor}" th:href="@{/term/{id}(id=${term.getId_term()})}" th:text="${term.name}"></a></p>
                             </div>
                         </div>
@@ -52,7 +52,7 @@
                                 <p>Дата рождения: <span th:text="${rightAuthor.birth_date}"></span></p>
                                 <p>Место рождения: <span th:text="${rightAuthor.born_country}"></span>, <span th:text="${rightAuthor.born_city}"></span></p>
                                 <p th:text="${rightAuthor.nationality}"></p>
-                                <p class="main__main"  th:text="${rightAuthor.main_activity}"></p>
+                                <p class="main__main" id="second" th:text="${rightAuthor.main_activity}"></p>
                                 <p th:if="${termsRightAuthor}">Участие в терминах: <a class="main__term" th:each="term : ${termsRightAuthor}" th:href="@{/term/{id}(id=${term.getId_term()})}" th:text="${term.name}"></a></p>
                             </div>
                         </div>
@@ -64,5 +64,6 @@
     <div th:replace="~{fragments/footer :: footer}"></div>
 </div>
 <script th:src="@{/js/header.js}"></script>
+<script th:src="@{/js/years.js}"></script>
 </body>
 </html>

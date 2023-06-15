@@ -101,30 +101,7 @@ public class UsersManagmentApplication {
         catch (Exception e) {
             pw.println("Ошибка создания пользователя");
         }
-        try {
-            pw.println("Назначьте привилегии для созданного пользователя \n" +
-                    "1.SELECT - просмотр\n" +
-                    "2.INSERT - добавление данных\n" +
-                    "3.UPDATE - обновление данные\n" +
-                    "4.DELETE - удаление данных\n" +
-                    "5.ALL - все привилегии");
 
-            param = Integer.valueOf(br.readLine());
-
-            switch (param){
-                case 1: privs="select"; break;
-                case 2: privs="insert"; break;
-                case 3: privs="update"; break;
-                case 4: privs="delete"; break;
-                case 5: privs="all"; break;
-            }
-
-            statm.execute("GRANT "+ privs + " on mydiplom.* TO '" + name + "'@'localhost'");
-            pw.println("Привилегии успешно заданы");
-        }
-        catch (SQLException | IOException e) {
-            pw.println("Ошибка задания привилегий");
-        }
     }
     public static void view_user(Connection cn) {
         ResultSet res;

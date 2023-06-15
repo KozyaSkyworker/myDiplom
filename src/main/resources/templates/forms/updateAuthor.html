@@ -23,6 +23,9 @@
         <div class="main__success success__wrapper" th:if="${success}">
           <p class="main__success-text success__text">Данные успешно обновлены</p>
         </div>
+
+        <a class="main__link-back" th:href="@{/moderator/author/{id}(id=${author.id_author})}">Назад к автору</a>
+
         <form class="main__form term-form" action="#" th:action="@{/moderator/update/author/{id}(id=${author.id_author})}" th:object="${author}" method="post">
           <label for="fullname">ФИО нового автора*</label>
           <input class="form__input" id="fullname" type="text" th:field="*{fullname}">

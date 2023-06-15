@@ -42,6 +42,17 @@
     text-transform: uppercase;
 }
 
+.main__list-link{
+    padding: .3em;
+    color: #000;
+        display: inline-block;
+        margin-top: 1em;
+        background-color: #eee;
+}
+.main__list-link:hover{
+    background-color: #ddd;
+}
+
 @media(max-width:950px){
     .main__row:nth-child(1){
         justify-content: space-between;

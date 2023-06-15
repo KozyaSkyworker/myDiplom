@@ -11,3 +11,13 @@
 @import url(./../blocks/success.css);
 @import url(./../blocks/moderatorHeader-media.css);
 
+.main__link-back{
+    padding: .3em;
+    color: #000;
+    display: inline-block;
+    margin-top: 1em;
+    background-color: #eee;
+}
+.main__link-back:hover{
+    background-color: #ddd;
+}
